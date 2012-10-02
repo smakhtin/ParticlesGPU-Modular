@@ -1,4 +1,4 @@
 ParticlesGPU-Modular
 ====================
 
-ParticlesGPU inspired modular library for VVVV
+[ParticlesGPU](http://vvvv.org/contribution/particlesgpu-shader-library) inspired modular library for VVVV
