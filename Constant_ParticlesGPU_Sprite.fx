@@ -9,7 +9,6 @@ float4x4 tP: PROJECTION;
 float4x4 tVP: VIEWPROJECTION;
 float4x4 tWVP: WORLDVIEWPROJECTION;
 
-bool NoCamera;
 float2 ViewportSize;
 
 texture TexTransform <string uiname="Transform Texture";>;
@@ -55,16 +54,18 @@ vs2ps VS(
     
     Out.TexCd2 = TexCd2;
 	
-	float size = max(ViewportSize.x, ViewportSize.y);
-	float z = Out.Pos.z;
+	float size = min(ViewportSize.x, ViewportSize.y);
 	
-	if(NoCamera)
+	float projScaleMax  = max(tP[0][0], tP[1][1]);
+	
+	//Detecting empty VIEW and PROJECTION matrixes (no camera)
+	if(abs(tV[0][0] - tP[0][0]) < 0.001 || abs(tV[1][1] - tP[1][1]) < 0.001)
 	{
-		z =	1;
+		projScaleMax /=	2;
 	}
 
 	
-	Out.Size = (size / 2) * (tP[0][0] / z) * particleTransform.w;
+	Out.Size = (size / 2) * (projScaleMax / Out.Pos.z) * particleTransform.w;
     
 	return Out;
 }
