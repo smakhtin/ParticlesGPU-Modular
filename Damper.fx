@@ -7,7 +7,7 @@
 
 float Power = 0.1;
 
-texture TargetTex <string uiname="Target Value";>;
+texture TargetTex <string uiname="Target Value (XYZW)";>;
 sampler TargetSamp = sampler_state
 {
     Texture   = (TargetTex);          
