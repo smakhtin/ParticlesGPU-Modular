@@ -11,13 +11,13 @@ float4x4 tWVP: WORLDVIEWPROJECTION;
 
 float2 ViewportSize;
 
-texture TexTransform <string uiname="Transform Texture";>;
-sampler SampTransform = sampler_state
+texture TranslateScaleTex <string uiname="TranslateXYZ (XYZ), UniformScale (W)";>;
+sampler TranslateScaleSamp = sampler_state
 {
-    Texture   = (TexTransform);          
-    MipFilter = none;                    
-    MinFilter = none;
-    MagFilter = none;
+    Texture   = (TranslateScaleTex);          
+    MipFilter = LINEAR;                    
+    MinFilter = LINEAR;
+    MagFilter = LINEAR;
 };
 
 texture Texture <string uiname="Texture";>;
@@ -46,7 +46,7 @@ vs2ps VS(
 {
     vs2ps Out = (vs2ps)0;
     
-    float4 particleTransform = tex2Dlod(SampTransform, TexCd);
+    float4 particleTransform = tex2Dlod(TranslateScaleSamp, TexCd);
     
     Pos.xyz  += particleTransform.xyz;
     
@@ -70,13 +70,12 @@ vs2ps VS(
 	return Out;
 }
 
-float4 PS(vs2ps In): COLOR
+float4 MAIN_PS(vs2ps In): COLOR
 {
-	float a=0;
     return tex2D(Samp, In.TexCd2) * Color;
 }
 
-technique Particles_3d_Sprites
+technique Main
 {
 	pass P0
     {
@@ -85,6 +84,6 @@ technique Particles_3d_Sprites
 		PointSpriteEnable = true;
 		
 		VertexShader = compile vs_3_0 VS();
-		PixelShader = compile ps_3_0 PS();
+		PixelShader = compile ps_3_0 MAIN_PS();
 	}
 }

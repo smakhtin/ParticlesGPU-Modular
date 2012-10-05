@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
    <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\_Test.v4p" systemname="_Test" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\_Test.v4p">
-   <BOUNDS type="Window" left="14865" top="0" width="13935" height="16200">
+   <BOUNDS type="Window" left="17880" top="4335" width="29040" height="18240">
    </BOUNDS>
    <NODE systemname="Template (EX9.Effect)" filename="Template.fx" nodename="Template (EX9.Effect)" componentmode="Hidden" id="0">
    <BOUNDS type="Node" left="1035" top="3765" width="100" height="100">
@@ -80,20 +80,10 @@
    <BOUNDS type="Window" left="29992" top="8805" width="7725" height="9990">
    </BOUNDS>
    </NODE>
-   <NODE systemname="Sprite (ParticlesGPU Mesh)" filename="Sprite (ParticlesGPU Mesh).v4p" nodename="Sprite (ParticlesGPU Mesh)" componentmode="Hidden" id="60">
-   <BOUNDS type="Node" left="5055" top="8040" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="mesh out" visible="1">
-   </PIN>
-   <PIN pinname="Width" visible="1">
-   </PIN>
-   <PIN pinname="Height" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="61">
-   <BOUNDS type="Node" left="4845" top="11715" width="100" height="100">
+   <BOUNDS type="Node" left="4845" top="13515" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4845" top="11715" width="2400" height="1800">
+   <BOUNDS type="Box" left="4845" top="13515" width="2400" height="1800">
    </BOUNDS>
    <BOUNDS type="Window" left="1200" top="3315" width="11415" height="7470">
    </BOUNDS>
@@ -148,32 +138,8 @@
    </LINK>
    <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="63" dstpinname="Height">
    </LINK>
-   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Width">
-   </LINK>
-   <LINK srcnodeid="64" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Height">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="65" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="5775" top="6030" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="5775" top="6030" width="480" height="480">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Value Type" slicecount="1" values="Boolean">
-   </PIN>
-   <PIN pinname="Behavior" slicecount="1" values="Bang">
-   </PIN>
-   <PIN pinname="X Input Value" slicecount="1" values="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="65" srcpinname="Y Output Value" dstnodeid="60" dstpinname="Update">
-   </LINK>
    <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="68">
-   <BOUNDS type="Node" left="4830" top="9810" width="13605" height="270">
+   <BOUNDS type="Node" left="4830" top="11610" width="13605" height="270">
    </BOUNDS>
    <PIN pinname="Layer 1" visible="1" slicecount="1" values="||">
    </PIN>
@@ -222,36 +188,8 @@
    </LINK>
    <LINK srcnodeid="79" srcpinname="Output" dstnodeid="71" dstpinname="X">
    </LINK>
-   <NODE systemname="Constant_ParticlesGPU_Sprite (EX9.Effect)" filename="Constant_ParticlesGPU_Sprite.fx" nodename="Constant_ParticlesGPU_Sprite (EX9.Effect)" componentmode="Hidden" id="83">
-   <BOUNDS type="Node" left="4845" top="9075" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Mesh" visible="1">
-   </PIN>
-   <PIN pinname="Calculate Scale From Perspective" visible="1">
-   </PIN>
-   <PIN pinname="ViewportHeight" visible="1" slicecount="1" values="1.08784773060029">
-   </PIN>
-   <PIN pinname="Transform Texture" visible="1">
-   </PIN>
-   <PIN pinname="Color" slicecount="1" values="|1.00000,1.00000,1.00000,0.25521|">
-   </PIN>
-   <PIN pinname="NoCamera" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="ViewportSizeXY XY" visible="1">
-   </PIN>
-   <PIN pinname="ViewportSize XY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="83" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 1">
-   </LINK>
-   <LINK srcnodeid="60" srcpinname="mesh out" dstnodeid="83" dstpinname="Mesh">
-   </LINK>
-   <LINK srcnodeid="63" srcpinname="Texture Out" dstnodeid="83" dstpinname="Transform Texture">
-   </LINK>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="84">
-   <BOUNDS type="Node" left="5805" top="11070" width="100" height="100">
+   <BOUNDS type="Node" left="5805" top="12870" width="100" height="100">
    </BOUNDS>
    <PIN pinname="View" visible="1">
    </PIN>
@@ -311,7 +249,7 @@
    <LINK srcnodeid="85" srcpinname="Transform Out" dstnodeid="91" dstpinname="Transform In">
    </LINK>
    <NODE systemname="AspectRatio (Transform)" nodename="AspectRatio (Transform)" componentmode="Hidden" id="92">
-   <BOUNDS type="Node" left="5655" top="13425" width="100" height="100">
+   <BOUNDS type="Node" left="5655" top="15225" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -328,10 +266,8 @@
    </LINK>
    <LINK srcnodeid="87" srcpinname="Y Output Value" dstnodeid="91" dstpinname="XYZ">
    </LINK>
-   <LINK srcnodeid="61" srcpinname="Actual Backbuffer Width" dstnodeid="83" dstpinname="ViewportHeight">
-   </LINK>
    <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="108">
-   <BOUNDS type="Node" left="6855" top="12540" width="100" height="100">
+   <BOUNDS type="Node" left="7050" top="14970" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -343,10 +279,6 @@
    <LINK srcnodeid="61" srcpinname="Actual Backbuffer Width" dstnodeid="108" dstpinname="X">
    </LINK>
    <LINK srcnodeid="61" srcpinname="Actual Backbuffer Height" dstnodeid="108" dstpinname="Y">
-   </LINK>
-   <LINK srcnodeid="108" srcpinname="XY" dstnodeid="83" dstpinname="ViewportSizeXY XY">
-   </LINK>
-   <LINK srcnodeid="108" srcpinname="XY" dstnodeid="83" dstpinname="ViewportSize XY">
    </LINK>
    <LINK srcnodeid="92" srcpinname="Transform Out" dstnodeid="61" dstpinname="Aspect Ratio">
    </LINK>
@@ -379,5 +311,13 @@
    <LINK srcnodeid="84" srcpinname="View" dstnodeid="61" dstpinname="View">
    </LINK>
    <LINK srcnodeid="84" srcpinname="Projection" dstnodeid="61" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="Constant (ParticlesGPU Sprite)" filename="Constant (ParticlesGPU Sprite).v4p" nodename="Constant (ParticlesGPU Sprite)" componentmode="Hidden" id="126">
+   <BOUNDS type="Node" left="4815" top="9450" width="4965" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="126" srcpinname="Layer" dstnodeid="68" dstpinname="Layer 1">
    </LINK>
    </PATCH>
