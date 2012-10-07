@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\FieldGenerator.v4p" systemname="VectorField" filename="C:\Users\Vadim\Dropbox\Live Machine\Mesh Deformer_9 Cleanup\modules\VectorField.v4p">
+   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\FieldGenerator (ParticlesGPU Source).v4p" systemname="VectorField" filename="C:\Users\Vadim\Dropbox\Live Machine\Mesh Deformer_9 Cleanup\modules\VectorField.v4p">
    <NODE componentmode="InABox" id="1" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
    <BOUNDS height="100" left="4485" top="1620" type="Node" width="100">
    </BOUNDS>
@@ -467,57 +467,5 @@
    <LINK srcnodeid="12" srcpinname="Y" dstnodeid="27" dstpinname="Y">
    </LINK>
    <LINK srcnodeid="12" srcpinname="Z" dstnodeid="27" dstpinname="Z">
-   </LINK>
-   <NODE componentmode="Hidden" id="28" nodename="DynamicTexture (EX9.Texture Value)" systemname="DynamicTexture (EX9.Texture Value)">
-   <BOUNDS height="270" left="435" top="11640" type="Node" width="3510">
-   </BOUNDS>
-   <BOUNDS height="0" left="435" top="11640" type="Box" width="0">
-   </BOUNDS>
-   <BOUNDS height="0" left="9630" top="5565" type="Window" width="0">
-   </BOUNDS>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   <PIN pinname="Width" visible="1" slicecount="1" values="256">
-   </PIN>
-   <PIN pinname="Height" visible="1" slicecount="1" values="256">
-   </PIN>
-   <PIN pinname="Red" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Green" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Blue" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Format" slicecount="1" visible="1" pintype="Input" values="A32B32G32R32F">
-   </PIN>
-   <PIN pinname="Depth" visible="1" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Type" slicecount="1" values="|Volume Texture|">
-   </PIN>
-   <PIN pinname="Alpha" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Apply" visible="1" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Width">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Height">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Depth">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="X" dstnodeid="28" dstpinname="Red">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Y" dstnodeid="28" dstpinname="Green">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Z" dstnodeid="28" dstpinname="Blue">
-   </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="29" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="450" top="12450" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="450" top="12450" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|" encoded="0">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="28" srcpinname="Texture Out" dstnodeid="29" dstpinname="Input Node">
    </LINK>
    </PATCH>
