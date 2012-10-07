@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
    <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Sprite (ParticlesGPU Mesh).v4p">
-   <BOUNDS height="8250" left="-195" top="4200" type="Window" width="11940">
+   <BOUNDS height="8250" left="3225" top="4905" type="Window" width="11940">
    </BOUNDS>
    <NODE id="27" nodename="LinearSpread (Spreads)">
    <BOUNDS height="0" left="5265" top="3135" type="Node" width="0">
@@ -45,7 +45,7 @@
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|mesh out|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|mesh out|">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="23" nodename="IOBox (String)">
@@ -55,7 +55,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="0" top="0" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|TexCoord 01 (Used for position)|" encoded="0">
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|TexCoord 01 (Used for position)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -89,7 +89,7 @@
    </BOUNDS>
    <BOUNDS height="160" left="300" top="300" type="Window" width="215">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" visible="0" values="|TexCoord 02 (Used for Texture)|" encoded="0">
+   <PIN pinname="Input String" slicecount="1" visible="0" encoded="0" values="|TexCoord 02 (Used for Texture)|">
    </PIN>
    <PIN pinname="Output String" visible="0">
    </PIN>
@@ -119,7 +119,7 @@
    </PIN>
    <PIN pinname="Y Input Value" slicecount="1" visible="1" values="0">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Update" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Apply">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="19" nodename="S+H (Animation)">
@@ -243,7 +243,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Width" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Width">
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="11" nodename="IOBOX (VALUE ADVANCED)">
@@ -257,7 +257,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Height" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Height">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" hiddenwhenlocked="1" id="10" nodename="Multiply (Value)">

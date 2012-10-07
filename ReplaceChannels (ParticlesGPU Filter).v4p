@@ -1,15 +1,15 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ReplaceChannels (ParticlesGPU).v4p" systemname="ReplaceChannels (ParticlesGPU)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ReplaceChannels (ParticlesGPU).v4p">
+   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ReplaceChannels (ParticlesGPU Filter).v4p" systemname="ReplaceChannels (ParticlesGPU)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ReplaceChannels (ParticlesGPU).v4p">
    <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="0" hiddenwhenlocked="1">
-   <BOUNDS type="Node" left="2100" top="3090" width="100" height="100">
+   <BOUNDS type="Node" left="1650" top="1890" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Mesh" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="2">
-   <BOUNDS type="Node" left="3960" top="2265" width="100" height="100">
+   <BOUNDS type="Node" left="3510" top="1065" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3960" top="2265" width="795" height="960">
+   <BOUNDS type="Box" left="3510" top="1065" width="795" height="960">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="4">
    </PIN>
@@ -25,7 +25,7 @@
    </PIN>
    </NODE>
    <NODE systemname="ReplaceChannels (EX9.Effect)" filename="ReplaceChannels.fx" nodename="ReplaceChannels (EX9.Effect)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="1500" top="3870" width="4980" height="270">
+   <BOUNDS type="Node" left="1050" top="2670" width="4980" height="270">
    </BOUNDS>
    <PIN pinname="Input (XYZW)" visible="1" slicecount="1" values="||">
    </PIN>
@@ -39,7 +39,7 @@
    </PIN>
    </NODE>
    <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="4" hiddenwhenlocked="1">
-   <BOUNDS type="Node" left="2730" top="2670" width="100" height="100">
+   <BOUNDS type="Node" left="2280" top="1470" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -47,9 +47,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="5">
-   <BOUNDS type="Node" left="3360" top="1695" width="100" height="100">
+   <BOUNDS type="Node" left="2910" top="345" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3360" top="1695" width="795" height="240">
+   <BOUNDS type="Box" left="2910" top="345" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Output Node" visible="1">
    </PIN>
@@ -57,9 +57,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="6" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="4560" top="1500" width="0" height="0">
+   <BOUNDS type="Node" left="4110" top="345" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="4560" top="1500" width="795" height="240">
+   <BOUNDS type="Box" left="4110" top="345" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -76,50 +76,14 @@
    </LINK>
    <LINK srcnodeid="6" srcpinname="Output Node" dstnodeid="3" dstpinname="Input 2 (XYZW)">
    </LINK>
-   <BOUNDS type="Window" left="21960" top="10095" width="7980" height="10470">
+   <BOUNDS type="Window" left="14850" top="4455" width="6795" height="8895">
    </BOUNDS>
-   <LINK srcnodeid="1" srcpinname="EX9 Out" dstnodeid="9" dstpinname="Source">
-   </LINK>
-   <NODE id="1" systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden">
-   <PIN pinname="EX9 Out" visible="1">
-   </PIN>
-   <PIN pinname="Layers" visible="1">
-   </PIN>
-   <PIN pinname="Backbuffer Width" visible="1">
-   </PIN>
-   <PIN pinname="Backbuffer Height" visible="1">
-   </PIN>
-   <BOUNDS type="Node" left="1500" top="6435" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1500" top="6435" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="5910" top="3345" width="6240" height="5085">
-   </BOUNDS>
-   <PIN pinname="Actual Backbuffer Width" visible="1">
-   </PIN>
-   <PIN pinname="Actual Backbuffer Height" visible="1">
-   </PIN>
-   </NODE>
-   <NODE id="9" systemname="DX9Texture (EX9.Texture)" nodename="DX9Texture (EX9.Texture)" componentmode="Hidden">
-   <PIN pinname="Source" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out">
-   </PIN>
-   <PIN pinname="Format" visible="1" pintype="Input">
-   </PIN>
-   <BOUNDS type="Node" left="2070" top="8040" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="3" srcpinname="Layer" dstnodeid="1" dstpinname="Layers">
-   </LINK>
-   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="8" dstpinname="XY">
-   </LINK>
    <NODE id="7" systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox">
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <BOUNDS type="Node" left="6585" top="4770" width="100" height="100">
+   <BOUNDS type="Node" left="6270" top="270" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="6585" top="4770" width="795" height="480">
+   <BOUNDS type="Box" left="6270" top="270" width="795" height="480">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
@@ -132,40 +96,22 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
    </PIN>
    </NODE>
-   <NODE id="8" systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden">
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <BOUNDS type="Node" left="1965" top="5700" width="100" height="100">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="8" srcpinname="X" dstnodeid="1" dstpinname="Backbuffer Width">
-   </LINK>
-   <LINK srcnodeid="8" srcpinname="Y" dstnodeid="1" dstpinname="Backbuffer Height">
-   </LINK>
-   <LINK srcnodeid="9" srcpinname="Texture Out" dstnodeid="11" dstpinname="Input Node">
-   </LINK>
    <NODE id="11" nodename="IOBox (Node)" componentmode="InABox" systemname="IOBox (Node)">
-   <PIN pinname="Input Node">
+   <PIN pinname="Input Node" slicecount="1" visible="1" values="||">
    </PIN>
-   <BOUNDS type="Node" left="2055" top="8970" width="0" height="0">
+   <BOUNDS type="Node" left="1020" top="6105" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2055" top="8970" width="795" height="240">
+   <BOUNDS type="Box" left="1020" top="6105" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Texture Out|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="9" dstpinname="Format">
-   </LINK>
    <NODE id="10" nodename="IOBox (Enumerations)" componentmode="InABox" systemname="IOBox (Enumerations)">
-   <PIN pinname="Output Enum">
+   <PIN pinname="Output Enum" visible="1">
    </PIN>
-   <BOUNDS type="Node" left="2055" top="7425" width="0" height="0">
+   <BOUNDS type="Node" left="1815" top="4575" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2055" top="7425" width="1590" height="240">
+   <BOUNDS type="Box" left="1815" top="4575" width="1590" height="240">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
    </PIN>
@@ -175,13 +121,13 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="13">
-   <BOUNDS type="Node" left="4335" top="8730" width="100" height="100">
+   <BOUNDS type="Node" left="2640" top="5970" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4335" top="8730" width="795" height="480">
+   <BOUNDS type="Box" left="2640" top="5970" width="795" height="480">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Y Input Value" visible="1">
+   <PIN pinname="Y Input Value" visible="1" slicecount="2" values="256,256">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="2">
    </PIN>
@@ -190,20 +136,26 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
    </PIN>
    </NODE>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="4320" top="8115" width="100" height="100">
+   <NODE systemname="ProcessorRenderer (ParticlesGPU)" filename="ProcessorRenderer (ParticlesGPU).v4p" nodename="ProcessorRenderer (ParticlesGPU)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="1035" top="5280" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="XY" visible="1">
+   <PIN pinname="Format" visible="1">
    </PIN>
-   <PIN pinname="X" visible="1" slicecount="1" values="0">
+   <PIN pinname="SizeXY" visible="1">
    </PIN>
-   <PIN pinname="Y" visible="1" slicecount="1" values="0">
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="12" srcpinname="XY" dstnodeid="13" dstpinname="Y Input Value">
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="14" dstpinname="Format">
    </LINK>
-   <LINK srcnodeid="1" srcpinname="Actual Backbuffer Width" dstnodeid="12" dstpinname="X">
+   <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="14" dstpinname="SizeXY">
    </LINK>
-   <LINK srcnodeid="1" srcpinname="Actual Backbuffer Height" dstnodeid="12" dstpinname="Y">
+   <LINK srcnodeid="3" srcpinname="Layer" dstnodeid="14" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Texture Out" dstnodeid="11" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="SizeXY" dstnodeid="13" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

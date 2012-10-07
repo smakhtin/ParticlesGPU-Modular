@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
    <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
-   <BOUNDS type="Window" left="7155" top="11070" width="8025" height="7395">
+   <BOUNDS type="Window" left="10710" top="4875" width="8025" height="7395">
    </BOUNDS>
    <NODE systemname="Sprite (ParticlesGPU Mesh)" filename="Sprite (ParticlesGPU Mesh).v4p" nodename="Sprite (ParticlesGPU Mesh)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="1395" top="3240" width="100" height="100">
@@ -11,6 +11,8 @@
    </PIN>
    <PIN pinname="Height" visible="1">
    </PIN>
+   <BOUNDS type="Window" left="3225" top="4905" width="11940" height="8250">
+   </BOUNDS>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="2115" top="1095" width="0" height="0">
@@ -29,10 +31,10 @@
    </PIN>
    <PIN pinname="X Input Value" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Update">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Apply">
    </PIN>
    </NODE>
-   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Update">
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Apply">
    </LINK>
    <NODE systemname="Constant_ParticlesGPU_Sprite (EX9.Effect)" filename="Constant_ParticlesGPU_Sprite.fx" nodename="Constant_ParticlesGPU_Sprite (EX9.Effect)" componentmode="Hidden" id="7">
    <BOUNDS type="Node" left="795" top="4335" width="5460" height="270">
@@ -58,6 +60,8 @@
    <PIN pinname="TranslateXYZ (XYZ), UniformScale (W)" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Texture" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="9" srcpinname="mesh out" dstnodeid="7" dstpinname="Mesh">
@@ -177,9 +181,21 @@
    </BOUNDS>
    <PIN pinname="Input Node" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Layer" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layer">
    </PIN>
    </NODE>
    <LINK srcnodeid="7" srcpinname="Layer" dstnodeid="11" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="13" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="1080" top="3615" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1080" top="3615" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Transform">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Output Node" dstnodeid="7" dstpinname="Transform">
    </LINK>
    </PATCH>
