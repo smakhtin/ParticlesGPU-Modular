@@ -1,0 +1,29 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
+   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\All (ParticlesGPU Modules).v4p" systemname="_Nodes" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\_Nodes.v4p">
+   <BOUNDS type="Window" left="14715" top="5430" width="6315" height="6960">
+   </BOUNDS>
+   <NODE systemname="Constant (ParticlesGPU Sprite)" filename="Constant (ParticlesGPU Sprite).v4p" nodename="Constant (ParticlesGPU Sprite)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="480" top="750" width="3720" height="270">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Damper (ParticlesGPU Filter)" filename="Damper (ParticlesGPU Filter).v4p" nodename="Damper (ParticlesGPU Filter)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="540" top="1485" width="3690" height="270">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="GetLumiance (ParticlesGPU Filter)" filename="GetLumiance (ParticlesGPU Filter).v4p" nodename="GetLumiance (ParticlesGPU Filter)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="540" top="2550" width="3705" height="270">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="ReplaceChannels (ParticlesGPU Filter)" filename="ReplaceChannels (ParticlesGPU Filter).v4p" nodename="ReplaceChannels (ParticlesGPU Filter)" componentmode="Hidden" id="3">
+   <BOUNDS type="Node" left="555" top="3525" width="3720" height="270">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="Switch (ParticlesGPU Filter)" filename="Switch (ParticlesGPU Filter).v4p" nodename="Switch (ParticlesGPU Filter)" componentmode="Hidden" id="4">
+   <BOUNDS type="Node" left="525" top="4200" width="3750" height="270">
+   </BOUNDS>
+   </NODE>
+   <NODE systemname="ToGPU (ParticlesGPU)" filename="ToGPU (ParticlesGPU).v4p" nodename="ToGPU (ParticlesGPU)" componentmode="Hidden" id="5">
+   <BOUNDS type="Node" left="510" top="5250" width="3885" height="270">
+   </BOUNDS>
+   </NODE>
+   </PATCH>
