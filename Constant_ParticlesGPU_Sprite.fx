@@ -34,25 +34,25 @@ float4 Color :COLOR = 1;
 struct vs2ps
 {
     float4 Pos : POSITION ;
-    float4 TexCd2 : TEXCOORD2 ;
+    float4 TextureTexCd : TEXCOORD1;
     float Size : PSIZE ;
 };
 
 
 vs2ps VS(
     float4 Pos : POSITION ,
-    float4 TexCd : TEXCOORD0 ,
-    float4 TexCd2 : TEXCOORD2 )
+    float4 TransformTexCd : TEXCOORD0 ,
+    float4 TextureTexCd : TEXCOORD1 )
 {
     vs2ps Out = (vs2ps)0;
     
-    float4 particleTransform = tex2Dlod(TranslateScaleSamp, TexCd);
+    float4 particleTransform = tex2Dlod(TranslateScaleSamp, TransformTexCd);
     
     Pos.xyz  += particleTransform.xyz;
     
     Out.Pos = mul(Pos, tWVP);
     
-    Out.TexCd2 = TexCd2;
+    Out.TextureTexCd = TextureTexCd;
 	
 	float size = min(ViewportSize.x, ViewportSize.y);
 	
@@ -72,7 +72,7 @@ vs2ps VS(
 
 float4 MAIN_PS(vs2ps In): COLOR
 {
-    return tex2D(Samp, In.TexCd2) * Color;
+    return tex2D(Samp, In.TextureTexCd) * Color;
 }
 
 technique Main
