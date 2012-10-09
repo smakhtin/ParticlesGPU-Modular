@@ -11,6 +11,9 @@ float4x4 tWVP: WORLDVIEWPROJECTION;
 
 float2 ViewportSize;
 
+bool EnableTile = false;
+float TileSize = 16.0;
+
 texture TranslateScaleTex <string uiname="TranslateXYZ (XYZ), UniformScale (W)";>;
 sampler TranslateScaleSamp = sampler_state
 {
@@ -51,7 +54,14 @@ vs2ps VS(
     Pos.xyz  += particleTransform.xyz;
     
     Out.Pos = mul(Pos, tWVP);
+	
+//	if(EnableTile)
+//	{
+//		TextureTexCd.xy /= 16.;
+//    	TextureTexCd.xy += float2((translateTileIndex.w%16)/16.,floor(translateTileIndex.w/16.)/16.);
+//	}
     
+	//TextureTexCd.x *=-20;
     Out.TextureTexCd = TextureTexCd;
 	
 	float size = min(ViewportSize.x, ViewportSize.y);

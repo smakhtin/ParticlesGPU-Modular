@@ -10,7 +10,6 @@ float4x4 tVP: VIEWPROJECTION;
 float4x4 tWVP: WORLDVIEWPROJECTION;
 
 bool EnableTile = false;
-
 float TileSize = 16.0;
 
 texture TranslateTileIndexTex <string uiname="TranslateXYZ (XYZ), Tile Index (W)";>;
