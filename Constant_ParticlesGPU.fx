@@ -9,16 +9,26 @@ float4x4 tP: PROJECTION;
 float4x4 tVP: VIEWPROJECTION;
 float4x4 tWVP: WORLDVIEWPROJECTION;
 
-float2 ViewportSize;
+bool EnableTile = false;
+
 float TileSize = 16.0;
 
-texture TranslateScaleTex <string uiname="TranslateXYZ (XYZ), UniformScale (W)";>;
-sampler TranslateScaleSamp = sampler_state
+texture TranslateTileIndexTex <string uiname="TranslateXYZ (XYZ), Tile Index (W)";>;
+sampler TranslateTileIndexSamp = sampler_state
 {
-    Texture   = (TranslateScaleTex);          
-    MipFilter = LINEAR;                    
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+    Texture   = (TranslateTileIndexTex);          
+    MipFilter = none;                    
+    MinFilter = none;
+    MagFilter = none;
+};
+
+texture ScaleTex <string uiname="ScaleXYZ (XYZ)";>;
+sampler ScaleSamp = sampler_state
+{
+    Texture   = (ScaleTex);          
+    MipFilter = none;                    
+    MinFilter = none;
+    MagFilter = none;
 };
 
 texture Texture <string uiname="Texture";>;
@@ -30,98 +40,59 @@ sampler Samp = sampler_state
     MagFilter = LINEAR;
 };
 
-texture TileIndexTex <string uiname="Tile Index (W)";>;
-sampler TileIndexSamp = sampler_state
-{
-    Texture   = (TileIndexTex);          
-    MipFilter = none;        
-    MinFilter = none;
-    MagFilter = none;
-};
-
 float4 Color :COLOR = 1;
 
 struct vs2ps
 {
     float4 Pos : POSITION;
-    float4 TexCdTexture : TEXCOORD1;
-    float4 TexCdTile : TEXCOORD2;
-    float Size : PSIZE ;
+    float4 TextureTexCd : TEXCOORD1;
 };
 
 
 vs2ps VS(
     float4 Pos : POSITION ,
-    float4 TexCd : TEXCOORD0,
-    float4 TexCdTexture : TEXCOORD1,
-    float4 TexCdTile : TEXCOORD2)
+	float4 TransformTexCd : TEXCOORD0,
+    float4 TextureTexCd : TEXCOORD1)
 {
     vs2ps Out = (vs2ps)0;
     
-    float4 particleTransform = tex2Dlod(TranslateScaleSamp, TexCd);
-    float4 tileIndex = tex2Dlod(TileIndexSamp, TexCd);
-    
-    Pos.xyz  += particleTransform.xyz;
-    
-    Out.Pos = mul(Pos, tWVP);
-    
-    Out.TexCdTexture = TexCdTexture;
+    float4 translateTileIndex = tex2Dlod(TranslateTileIndexSamp, TransformTexCd);
+    float3 scale =  tex2Dlod(ScaleSamp, TransformTexCd);
 
-    //TexCdTile.xy /= 16.;
-    //TexCdTile.xy += float2((tileIndex.w%16)/16.,floor(tileIndex.w/16.)/16.);
-	
-	TexCdTile *= -1;
-	
-	Out.TexCdTile = TexCdTile;
-	
-	float size = min(ViewportSize.x, ViewportSize.y);
-	
-	float projScaleMax  = max(tP[0][0], tP[1][1]);
-	
-	//Detecting empty VIEW and PROJECTION matrixes (no camera)
-	if(abs(tV[0][0] - tP[0][0]) < 0.001 || abs(tV[1][1] - tP[1][1]) < 0.001)
+    Pos = mul(Pos, tW);
+
+    //Apply scale
+    Pos.xyz *= scale.xyz;
+    
+    //Apply rotation
+    //Pos.xyz  += particleTransform.xyz;
+    
+    //Apply translate
+    Pos.xyz += translateTileIndex.xyz;
+
+    Out.Pos = mul(Pos, tVP);
+    
+	if(EnableTile)
 	{
-		projScaleMax /=	2;
+		TextureTexCd.xy /= 16.;
+    	TextureTexCd.xy += float2((translateTileIndex.w%16)/16.,floor(translateTileIndex.w/16.)/16.);
 	}
-
 	
-	Out.Size = (size / 2) * (projScaleMax / Out.Pos.z) * particleTransform.w;
-    
+	Out.TextureTexCd = TextureTexCd;
+	
 	return Out;
 }
 
-float4 SINGLE_TEXTURE_PS(vs2ps In): COLOR
+float4 MAIN_PS(vs2ps In): COLOR
 {
-    return tex2D(Samp, In.TexCdTexture) * Color;
+    return tex2D(Samp, In.TextureTexCd) * Color;
 }
 
-float4 TILE_MAP_PS(vs2ps In): COLOR
-{
-    return tex2D(Samp, In.TexCdTexture) * float4(0, 1, 1, 1);
-}
-
-technique Single_Texture
+technique Main
 {
 	pass P0
     {
-		FillMode = POINT;
-		PointScaleEnable = true;
-		PointSpriteEnable = true;
-		
 		VertexShader = compile vs_3_0 VS();
-		PixelShader = compile ps_3_0 SINGLE_TEXTURE_PS();
-	}
-}
-
-technique Tile_Map
-{
-	pass P0
-    {
-		FillMode = POINT;
-		PointScaleEnable = true;
-		PointSpriteEnable = true;
-		
-		VertexShader = compile vs_3_0 VS();
-		PixelShader = compile ps_3_0 TILE_MAP_PS();
+		PixelShader = compile ps_3_0 MAIN_PS();
 	}
 }
