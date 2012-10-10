@@ -73,8 +73,8 @@ vs2ps VS(
     
 	if(EnableTile)
 	{
-		TextureTexCd.xy /= 16.;
-    	TextureTexCd.xy += float2((translateTileIndex.w%16)/16.,floor(translateTileIndex.w/16.)/16.);
+		TextureTexCd.xy /= TileSize;
+    	TextureTexCd.xy += float2((translateTileIndex.w%TileSize)/TileSize,floor(translateTileIndex.w/TileSize)/TileSize);
 	}
 	
 	Out.TextureTexCd = TextureTexCd;
