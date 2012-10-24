@@ -58,7 +58,7 @@ vs2ps VS(
     float4 translateTileIndex = tex2Dlod(TranslateTileIndexSamp, TransformTexCd);
     float3 scale =  tex2Dlod(ScaleSamp, TransformTexCd);
 
-    Pos = mul(Pos, tW);
+    //Pos = mul(Pos, tW);
 
     //Apply scale
     Pos.xyz *= scale.xyz;
@@ -69,7 +69,7 @@ vs2ps VS(
     //Apply translate
     Pos.xyz += translateTileIndex.xyz;
 
-    Out.Pos = mul(Pos, tVP);
+    Out.Pos = mul(Pos, tWVP);
     
 	if(EnableTile)
 	{

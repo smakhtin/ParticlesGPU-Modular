@@ -3,9 +3,9 @@
    <BOUNDS type="Window" left="4980" top="7245" width="10305" height="8295">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="8280" top="1155" width="0" height="0">
+   <BOUNDS type="Node" left="8265" top="1125" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="8280" top="1155" width="480" height="480">
+   <BOUNDS type="Box" left="8265" top="1125" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -67,9 +67,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="2">
-   <BOUNDS type="Node" left="4935" top="3570" width="100" height="100">
+   <BOUNDS type="Node" left="5775" top="3420" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4935" top="3570" width="2250" height="480">
+   <BOUNDS type="Box" left="5775" top="3420" width="2250" height="480">
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
@@ -79,9 +79,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="4215" top="2895" width="0" height="0">
+   <BOUNDS type="Node" left="5130" top="2880" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="4215" top="2895" width="795" height="240">
+   <BOUNDS type="Box" left="5130" top="2880" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -89,9 +89,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="3555" top="2040" width="0" height="0">
+   <BOUNDS type="Node" left="3915" top="2070" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3555" top="2040" width="795" height="240">
+   <BOUNDS type="Box" left="3915" top="2070" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -121,9 +121,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="16" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="3240" top="3210" width="0" height="0">
+   <BOUNDS type="Node" left="3300" top="3300" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3240" top="3210" width="795" height="240">
+   <BOUNDS type="Box" left="3300" top="3300" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="16">
    </PIN>
@@ -215,9 +215,9 @@
    <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="7" dstpinname="TranslateXYZ (XYZ), Tile Index (W)">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="19" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="5595" top="1575" width="0" height="0">
+   <BOUNDS type="Node" left="4545" top="1305" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="5595" top="1575" width="795" height="240">
+   <BOUNDS type="Box" left="4545" top="1305" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -227,13 +227,13 @@
    <LINK srcnodeid="19" srcpinname="Output Node" dstnodeid="7" dstpinname="ScaleXYZ (XYZ)">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2715" top="3210" width="0" height="0">
+   <BOUNDS type="Node" left="2685" top="3300" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2715" top="3210" width="480" height="480">
+   <BOUNDS type="Box" left="2685" top="3300" width="480" height="480">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
@@ -241,7 +241,7 @@
    </PIN>
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="EnableTile" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="EnableTile">
    </PIN>
    <PIN pinname="Pin Visibility" slicecount="1" values="Hidden">
    </PIN>
