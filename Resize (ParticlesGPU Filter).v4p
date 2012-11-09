@@ -1,0 +1,209 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
+   <PATCH nodename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Resize (ParticlesGPU Filter).v4p" systemname="Resize (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Resize (ParticlesGPU Filter).v4p">
+   <BOUNDS type="Window" left="3420" top="7965" width="6150" height="8925">
+   </BOUNDS>
+   <NODE systemname="CreateEnum (Enumerations)" nodename="CreateEnum (Enumerations)" componentmode="Hidden" id="7">
+   <BOUNDS type="Node" left="285" top="1575" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enum Name" slicecount="1" encoded="0" values="Interpolation">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Interpolation">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="8" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="270" top="615" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="270" top="615" width="840" height="840">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="3" encoded="0" values="Linear,Point,None">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" encoded="0" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Output String" dstnodeid="7" dstpinname="Strings">
+   </LINK>
+   <NODE systemname="NULL (Enumerations)" nodename="NULL (Enumerations)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="2490" top="1560" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="10" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="2475" top="615" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2475" top="615" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="Interpolation">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Output Enum" dstnodeid="9" dstpinname="Enum">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="11" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="2970" top="975" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2970" top="975" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="Linear">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Filter">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Output Enum" dstnodeid="9" dstpinname="Receive">
+   </LINK>
+   <NODE systemname="Enum2Ord (Enumerations)" nodename="Enum2Ord (Enumerations)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="3240" top="2130" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Enum" visible="1">
+   </PIN>
+   <PIN pinname="Ord Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Output Enum" dstnodeid="12" dstpinname="Enum">
+   </LINK>
+   <NODE systemname="Resize (EX9.Effect)" filename="Resize.fx" nodename="Resize (EX9.Effect)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="930" top="4425" width="3555" height="270">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Input (XYZW)" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Point (XYZW)" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="None (XYZW)" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="SelectedInterpolation" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="17" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1320" top="3765" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="16" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="1710" top="3180" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Mesh" dstnodeid="14" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Transform Out" dstnodeid="14" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="18" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="2115" top="2460" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2115" top="2460" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Input (XYZW)|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="14" dstpinname="Input (XYZW)">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="14" dstpinname="Point (XYZW)">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Output Node" dstnodeid="14" dstpinname="None (XYZW)">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Ord Value" dstnodeid="14" dstpinname="SelectedInterpolation">
+   </LINK>
+   <NODE id="22" nodename="IOBox (Node)" componentmode="InABox" systemname="IOBox (Node)">
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="915" top="7215" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="915" top="7215" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Texture Out|">
+   </PIN>
+   </NODE>
+   <NODE id="21" nodename="IOBox (Enumerations)" componentmode="InABox" systemname="IOBox (Enumerations)">
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="1695" top="5655" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1695" top="5655" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Format">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="20">
+   <BOUNDS type="Node" left="2535" top="7080" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2535" top="7080" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <NODE systemname="ProcessorRenderer (ParticlesGPU)" filename="ProcessorRenderer (ParticlesGPU).v4p" nodename="ProcessorRenderer (ParticlesGPU)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="915" top="6435" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="SizeXY" visible="1" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Texture Out" dstnodeid="22" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Output Enum" dstnodeid="19" dstpinname="Format">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="SizeXY" dstnodeid="20" dstpinname="Y Input Value">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Layer" dstnodeid="19" dstpinname="Layers">
+   </LINK>
+   <NODE id="23" systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox">
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="4755" top="5310" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4755" top="5310" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="19" dstpinname="SizeXY">
+   </LINK>
+   </PATCH>
