@@ -3,32 +3,14 @@
 //@tags: particles
 //@credits: dottore
 
-float4x4 tWVP: WORLDVIEWPROJECTION;
-
-struct vs2ps
-{
-    float4 Pos : POSITION;
-    float4 TexCd : TEXCOORD0;
-};
-
-vs2ps VS(
-    float4 Pos : POSITION,
-    float4 TexCd : TEXCOORD0)
-{
-    vs2ps Out = (vs2ps)0;
-
-    Out.Pos = mul(Pos, tWVP);
-
-    Out.TexCd = TexCd;
-
-    return Out;
-}
+#include "TextureProcessor.fxh"
 
 float4 BaseValue;
 
 float4 MAIN_PS(vs2ps In): COLOR
 {
-    return noise(BaseValue);
+    float4 input = tex2D(InputSamp, In.TexCd);
+    return input + noise(BaseValue);
 }
 
 // --------------------------------------------------------------------------------------------------
