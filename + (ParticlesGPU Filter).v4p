@@ -1,0 +1,143 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
+   <PATCH nodename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <BOUNDS type="Window" left="4620" top="5955" width="10605" height="10485">
+   </BOUNDS>
+   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="11" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="2775" top="2415" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="8" hiddenwhenlocked="1">
+   <BOUNDS type="Node" left="3195" top="1740" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="7">
+   <BOUNDS type="Node" left="3630" top="810" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3630" top="810" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Input 1 (XYZW)|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="6" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="4020" top="2175" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4020" top="2175" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Input 2 (XYZW)|">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="5" systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox">
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="7395" top="795" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7395" top="795" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <NODE id="4" nodename="IOBox (Node)" componentmode="InABox" systemname="IOBox (Node)">
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="2385" top="6750" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2385" top="6750" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Texture Out|">
+   </PIN>
+   </NODE>
+   <NODE id="3" nodename="IOBox (Enumerations)" componentmode="InABox" systemname="IOBox (Enumerations)">
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="3180" top="5220" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3180" top="5220" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Format">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="2">
+   <BOUNDS type="Node" left="4005" top="6615" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4005" top="6615" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <NODE systemname="ProcessorRenderer (ParticlesGPU)" filename="ProcessorRenderer (ParticlesGPU).v4p" nodename="ProcessorRenderer (ParticlesGPU)" componentmode="Hidden" id="1">
+   <BOUNDS type="Node" left="2400" top="5925" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output Enum" dstnodeid="1" dstpinname="Format">
+   </LINK>
+   <LINK srcnodeid="5" srcpinname="Y Output Value" dstnodeid="1" dstpinname="SizeXY">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="4" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="SizeXY" dstnodeid="2" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="+ (EX9.Effect)" filename="+.fx" nodename="+ (EX9.Effect)" componentmode="Hidden" id="12">
+   <BOUNDS type="Node" left="2385" top="3360" width="2940" height="270">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   <PIN pinname="Input (XYZW)" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input 2 (XYZW)" visible="1" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="11" srcpinname="Mesh" dstnodeid="12" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="12" srcpinname="Layer" dstnodeid="1" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Transform Out" dstnodeid="12" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Output Node" dstnodeid="12" dstpinname="Input (XYZW)">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output Node" dstnodeid="12" dstpinname="Input 2 (XYZW)">
+   </LINK>
+   </PATCH>
