@@ -109,11 +109,31 @@
    </PIN>
    <PIN pinname="random x" slicecount="1" values="0">
    </PIN>
+   <PIN pinname="Seed" visible="1" slicecount="1" values="0.396201106592165">
+   </PIN>
+   <PIN pinname="Time" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="1" dstpinname="Layers">
    </LINK>
    <LINK srcnodeid="11" srcpinname="Mesh" dstnodeid="13" dstpinname="Mesh">
    </LINK>
    <LINK srcnodeid="8" srcpinname="Transform Out" dstnodeid="13" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="20" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="4095" top="1755" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4095" top="1755" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0.396201106592165">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Seed" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Seed">
    </LINK>
    </PATCH>

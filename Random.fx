@@ -4,12 +4,17 @@
 
 #include "TextureProcessor.fxh"
 
-int Seed = 1;
+float Seed = 1.0;
 
-float rand_1_05(float2 uv)
+float4 rand_1_05(float2 uv)
 {
-    float2 noise = (frac(sin(dot(uv ,float2(12.9898,78.233)*2.0)) * 43758.5453));
-    return abs(noise.x + noise.y) * 0.5;
+	Seed += 0.1;
+    float noiseR = frac(sin(dot(float4(uv, uv) ,float4(12.9898 * pow(Seed, 2), 78.233 * Seed, 54.564 + Seed, 105.85 * -Seed)*2.0)) * 43758.5453);
+	float noiseG = frac(sin(dot(float4(uv, uv) ,float4(43.7 * pow(Seed, 0.5), 64.2 * (Seed +Seed), 647.9 * Seed / 0.5 , 25.01 * Seed -0.5 * Seed)*2.0)) * 43758.5453);
+	float noiseB = frac(sin(dot(float4(uv, uv) ,float4(54.2323 * Seed, 123.2 * Seed, 23.2 * Seed, 52.232 * Seed)*2.0)) * 43758.5453);
+	float noiseA = frac(sin(dot(float4(uv, uv) ,float4(33.3 * Seed, 34.4 * Seed, 23 * Seed, 2323 * Seed)*4.723)) * 43758.5453);
+	
+    return float4(noiseR, noiseG, noiseB, noiseA);
 }
 
 float4 MAIN_PS(vs2ps In): COLOR
