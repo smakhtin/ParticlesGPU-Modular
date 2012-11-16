@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Resize (ParticlesGPU Filter) help.v4p" systemname="Resize (ParticlesGPU Filter) help" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Resize (ParticlesGPU Filter) help.v4p">
+   <PATCH nodename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Random (ParticlesGPU Source) help.v4p" systemname="Resize (ParticlesGPU Filter) help" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\Resize (ParticlesGPU Filter) help.v4p">
    <BOUNDS type="Window" left="3555" top="6060" width="9000" height="6000">
    </BOUNDS>
    <NODE systemname="Random (ParticlesGPU Source)" filename="Random (ParticlesGPU Source).v4p" nodename="Random (ParticlesGPU Source)" componentmode="Hidden" id="0">
@@ -27,7 +27,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="4215" top="4410" width="2400" height="1800">
    </BOUNDS>
-   <BOUNDS type="Window" left="15120" top="0" width="13680" height="15375">
+   <BOUNDS type="Window" left="9585" top="1035" width="13680" height="15375">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>

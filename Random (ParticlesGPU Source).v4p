@@ -113,6 +113,10 @@
    </PIN>
    <PIN pinname="Time" visible="1">
    </PIN>
+   <PIN pinname="Min " visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Max " visible="1" slicecount="1" values="0.73">
+   </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="1" dstpinname="Layers">
    </LINK>
@@ -127,13 +131,53 @@
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.396201106592165">
    </PIN>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Seed" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Seed">
    </PIN>
    </NODE>
    <LINK srcnodeid="20" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Seed">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="23">
+   <BOUNDS type="Node" left="5220" top="870" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5220" top="870" width="795" height="960">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0, 1|" encoded="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Min |" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Min ">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="24">
+   <BOUNDS type="Node" left="5610" top="2415" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5610" top="2415" width="795" height="960">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="4" values="0.32,0.43,0.28,1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0, 0, 1|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Max |" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Max ">
    </LINK>
    </PATCH>
