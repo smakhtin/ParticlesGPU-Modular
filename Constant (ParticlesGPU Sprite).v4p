@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
+   <PATCH nodename="C:\Users\Smakhtin\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
    <BOUNDS type="Window" left="10710" top="4875" width="8025" height="7395">
    </BOUNDS>
    <NODE systemname="Sprite (ParticlesGPU Mesh)" filename="Sprite (ParticlesGPU Mesh).v4p" nodename="Sprite (ParticlesGPU Mesh)" componentmode="Hidden" id="9">
@@ -197,5 +197,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="13" srcpinname="Output Node" dstnodeid="7" dstpinname="Transform">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="14" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="5220" top="3930" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5220" top="3930" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="| Main|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique" encoded="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="14" srcpinname="Output Enum" dstnodeid="7" dstpinname="Technique">
    </LINK>
    </PATCH>

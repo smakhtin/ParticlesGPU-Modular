@@ -95,3 +95,39 @@ technique Main
 		PixelShader = compile ps_3_0 MAIN_PS();
 	}
 }
+
+technique WorkingAlpha
+{
+    pass P0
+    {
+        VertexShader = compile vs_3_0 VS();
+        PixelShader  = compile ps_3_0 MAIN_PS();
+        AlphaBlendEnable = false;
+ 
+        AlphaTestEnable = true;
+        AlphaFunc = Greater;
+        AlphaRef = 245;
+ 
+        ZEnable = true;
+        ZWriteEnable = true;
+ 
+        CullMode = None;
+    }
+    pass P1
+    {
+        VertexShader = compile vs_3_0 VS();
+        PixelShader  = compile ps_3_0 MAIN_PS();
+        AlphaBlendEnable = true;
+        SrcBlend = SrcAlpha;
+        DestBlend = InvSrcAlpha;
+ 
+        AlphaTestEnable = true;
+        AlphaFunc = LessEqual;
+        AlphaRef = 245;
+ 
+        ZEnable = true;
+        ZWriteEnable = false;
+ 
+        CullMode = None;
+    }
+}
