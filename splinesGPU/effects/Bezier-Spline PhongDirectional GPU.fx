@@ -114,7 +114,8 @@ vs2ps VS_Spline(float4 PosO: POSITION, float3 NormO: NORMAL, float4 TexCd : TEXC
 	float3 tang = normalize(curve.Tang);
 	float3 bitang= normalize(cross(tang,rVec));
 	float3x3 tBN = float3x3((float3)0,bitang,cross(tang,bitang));
-	PosO.xyz=spline.xyz+(mul(PosO.xyz,tBN)*spline.w);
+	//PosO.xyz=spline.xyz+(mul(PosO.xyz,tBN)*spline.w);
+	PosO.xyz=spline.xyz + PosO.xyz * spline.w;
 	
 	bitang = normalize(cross(tang,mul(NormO,tR)));
 	

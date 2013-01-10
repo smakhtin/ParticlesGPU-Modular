@@ -1,13 +1,13 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
-   <PATCH nodename="C:\Users\smakhtin\Desktop\SplinesGPU — Experiments\Bezier-Spline PhongDirectional GPU help.v4p" filename="D:\vvvv\sourceforge\SplinesGPU\Bezier-Spline PhongDirectional GPU help.v4p" systemname="Bezier-Spline PhongDirectional GPU help">
-   <BOUNDS height="9660" left="5745" top="6225" type="Window" width="15465">
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\Bezier-Spline PhongDirectional GPU help.v4p" filename="D:\vvvv\sourceforge\SplinesGPU\Bezier-Spline PhongDirectional GPU help.v4p" systemname="Bezier-Spline PhongDirectional GPU help">
+   <BOUNDS height="9660" left="10140" top="2865" type="Window" width="15465">
    </BOUNDS>
    <NODE componentmode="InAWindow" id="3" nodename="Renderer (EX9)" systemname="RENDERER (EX9)">
    <BOUNDS height="100" left="1140" top="11415" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="1800" left="1140" top="11415" type="Box" width="2400">
    </BOUNDS>
-   <BOUNDS height="6180" left="1920" top="300" type="Window" width="15480">
+   <BOUNDS height="16200" left="930" top="0" type="Window" width="13935">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -351,7 +351,7 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Pause" slicecount="1" values="0">
+   <PIN pinname="Pause" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE componentmode="Hidden" id="64" nodename="Rotate (Transform)" systemname="Rotate (Transform)">
