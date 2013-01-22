@@ -34,6 +34,17 @@ sampler pSamp = sampler_state    //sampler for doing the texture-lookup
 	ADDRESSV = wrap;
 };
 
+texture colorTex <string uiname="Color Texture";>;
+sampler colorSamp = sampler_state    //sampler for doing the texture-lookup
+{
+    Texture   = (colorTex);          //apply a texture to the sampler
+    MipFilter = POINT;         //sampler states
+    MinFilter = POINT;
+    MagFilter = POINT;
+    AddressU = clamp;
+    ADDRESSV = wrap;
+};
+
 struct vs2ps
 {
     float4 PosWVP: POSITION;
@@ -44,6 +55,7 @@ struct vs2ps
     float3 Tang : TEXCOORD4;
     float3 Bi : TEXCOORD5;
 	float4 Depth : TEXCOORD6;
+    float4 Color : COLOR0;
 };
 //---- B-Spline ----------------------------------------------------------------
 struct pota { float4 Pos; float4 Tang; };
@@ -75,6 +87,9 @@ vs2ps VS_Spline(float4 PosO: POSITION, float3 NormO: NORMAL, float4 TexCd : TEXC
     float4 p2 = tex2Dlod(pSamp, cCd);
 	float4 p3 = tex2Dlod(pSamp, float4(cCd.x+(1./cSize),cCd.yzw));
 	float4 p4 = tex2Dlod(pSamp, float4(cCd.x+(2./cSize),cCd.yzw));
+
+    float4 color = tex2Dlod(colorSamp, cCd);
+    Out.Color = color;
     
 	pota curve = BSplineCubic(p1,p2,p3,p4,PosCd.x*cSize);
     float4 spline = curve.Pos;
@@ -116,6 +131,13 @@ float4 PS_Depth(vs2ps In): COLOR
     col.a =1;
     return col;
 }
+
+float4 PS_COLOR_FROM_TEXTURE(vs2ps In): COLOR
+{
+    float4 col = In.Color;
+    return col;
+}
+
 // TECHNIQUES-------------------------------------------------------------------
 technique BSplineCubic_PhongDirectional
 {
@@ -125,11 +147,21 @@ technique BSplineCubic_PhongDirectional
         PixelShader = compile ps_3_0 PS();
     }
 }
+
 technique BSplineSplineCubic_Depth
 {
     pass P0
     {
         VertexShader = compile vs_3_0 VS_Spline();
         PixelShader = compile ps_3_0 PS_Depth();
+    }
+}
+
+technique Color_From_Texture
+{
+    pass P0
+    {
+        VertexShader = compile vs_3_0 VS_Spline();
+        PixelShader = compile ps_3_0 PS_COLOR_FROM_TEXTURE();
     }
 }

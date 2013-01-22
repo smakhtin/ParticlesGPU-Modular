@@ -95,7 +95,7 @@
    </BOUNDS>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="128">
+   <PIN pinname="Y Input Value" slicecount="1" values="512">
    </PIN>
    </NODE>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="4" dstpinname="SizeXY" hiddenwhenlocked="1" linkstyle="Bezier">
@@ -745,7 +745,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="3675" top="7215" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.001">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.006">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -770,22 +770,20 @@
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Apply">
-   </LINK>
    <LINK srcnodeid="13" srcpinname="SizeXY" dstnodeid="47" dstpinname="SizeXY">
    </LINK>
    <LINK srcnodeid="44" srcpinname="Texture Out" dstnodeid="43" dstpinname="TranslateXYZ (XYZ), UniformScale (W)">
    </LINK>
    <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="51">
-   <BOUNDS type="Node" left="2055" top="18900" width="100" height="100">
+   <BOUNDS type="Node" left="1995" top="19950" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Value" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="52" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2295" top="18420" width="0" height="0">
+   <BOUNDS type="Node" left="2235" top="19470" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2295" top="18420" width="795" height="240">
+   <BOUNDS type="Box" left="2235" top="19470" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" values="FSize">
    </PIN>
@@ -799,7 +797,7 @@
    <LINK srcnodeid="52" srcpinname="Output String" dstnodeid="51" dstpinname="Send String">
    </LINK>
    <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="53">
-   <BOUNDS type="Node" left="2040" top="17595" width="100" height="100">
+   <BOUNDS type="Node" left="1980" top="18645" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1" slicecount="1" values="400">
    </PIN>
@@ -883,7 +881,7 @@
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
-   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,0.08341|">
+   <PIN pinname="Color Input" slicecount="1" values="|0.15475,0.15475,0.15475,0.09638|">
    </PIN>
    </NODE>
    <LINK srcnodeid="60" srcpinname="Color Output" dstnodeid="43" dstpinname="Color">
@@ -935,7 +933,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2250" top="210" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.1">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.3">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -961,9 +959,9 @@
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="GlowShape" slicecount="1" values="0">
+   <PIN pinname="GlowShape" slicecount="1" values="-0.85">
    </PIN>
-   <PIN pinname="GlowAmount" slicecount="1" values="0">
+   <PIN pinname="GlowAmount" slicecount="1" values="1.52">
    </PIN>
    <PIN pinname="GlowRadius" slicecount="1" values="1">
    </PIN>
@@ -999,11 +997,11 @@
    <LINK srcnodeid="68" srcpinname="Transform Out" dstnodeid="67" dstpinname="Transform">
    </LINK>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="69">
-   <BOUNDS type="Node" left="2820" top="17100" width="100" height="100">
+   <BOUNDS type="Node" left="2760" top="18150" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2820" top="17100" width="2400" height="1800">
+   <BOUNDS type="Box" left="2760" top="18150" width="2400" height="1800">
    </BOUNDS>
-   <BOUNDS type="Window" left="37695" top="4980" width="6120" height="4965">
+   <BOUNDS type="Window" left="34455" top="3015" width="14835" height="10530">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -1012,22 +1010,20 @@
    <PIN pinname="Actual Backbuffer Height" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="69" dstpinname="Layers">
-   </LINK>
    <LINK srcnodeid="69" srcpinname="Actual Backbuffer Width" dstnodeid="53" dstpinname="X">
    </LINK>
    <LINK srcnodeid="69" srcpinname="Actual Backbuffer Height" dstnodeid="53" dstpinname="Y">
    </LINK>
    <NODE systemname="R (Value)" nodename="R (Value)" componentmode="Hidden" id="70">
-   <BOUNDS type="Node" left="3630" top="11190" width="100" height="100">
+   <BOUNDS type="Node" left="3105" top="11580" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Value" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="71" systemname="IOBox (Enumerations)">
-   <BOUNDS type="Node" left="3600" top="10695" width="0" height="0">
+   <BOUNDS type="Node" left="4065" top="11340" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3600" top="10695" width="1590" height="240">
+   <BOUNDS type="Box" left="4065" top="11340" width="1590" height="240">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="FSize">
    </PIN>
@@ -1035,7 +1031,7 @@
    <LINK srcnodeid="71" srcpinname="Output Enum" dstnodeid="70" dstpinname="Receive String">
    </LINK>
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="72">
-   <BOUNDS type="Node" left="3705" top="11850" width="100" height="100">
+   <BOUNDS type="Node" left="3180" top="12240" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XY" visible="1">
    </PIN>
@@ -1085,5 +1081,35 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="76" srcpinname="Output" dstnodeid="74" dstpinname="Color">
+   </LINK>
+   <NODE systemname="MainLoop (VVVV)" nodename="MainLoop (VVVV)" componentmode="Hidden" id="-6">
+   <BOUNDS type="Node" left="11535" top="6045" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Time Mode" slicecount="1" values="Filtered">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="77">
+   <BOUNDS type="Node" left="4035" top="16965" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="PerfMeter (Debug)" filename="%VVVV%\lib\nodes\modules\Debug\PerfMeter (Debug).v4p" nodename="PerfMeter (Debug)" componentmode="Hidden" id="78">
+   <BOUNDS type="Node" left="4485" top="16005" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="78" srcpinname="Layer" dstnodeid="77" dstpinname="Layer 2">
+   </LINK>
+   <LINK srcnodeid="67" srcpinname="Layer" dstnodeid="77" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="77" srcpinname="Layer" dstnodeid="69" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="50" srcpinname="Y Output Value" dstnodeid="47" dstpinname="Apply">
    </LINK>
    </PATCH>
