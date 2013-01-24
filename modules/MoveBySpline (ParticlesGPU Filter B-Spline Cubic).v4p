@@ -1,0 +1,187 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\MoveBySpline (ParticlesGPU Filter B-Spline Cubic).v4p" systemname="GetLumiance (ParticlesGPU)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\GetLumiance (ParticlesGPU).v4p">
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="3" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="3405" top="3240" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3405" top="3240" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="| Main|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Technique">
+   </PIN>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   </NODE>
+   <NODE id="8" systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox">
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="5160" top="5070" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5160" top="5070" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <NODE id="10" nodename="IOBox (Node)" componentmode="InABox" systemname="IOBox (Node)">
+   <PIN pinname="Input Node" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="705" top="7440" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="705" top="7440" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Texture Out|">
+   </PIN>
+   </NODE>
+   <NODE id="11" nodename="IOBox (Enumerations)" componentmode="InABox" systemname="IOBox (Enumerations)">
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="1485" top="4920" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1485" top="4920" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Format">
+   </PIN>
+   <PIN pinname="Pin Visibility" slicecount="1" values="OnlyInspector">
+   </PIN>
+   </NODE>
+   <BOUNDS type="Window" left="13170" top="4530" width="6525" height="9690">
+   </BOUNDS>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="13">
+   <BOUNDS type="Node" left="2235" top="7440" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2235" top="7440" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
+   </PIN>
+   </NODE>
+   <NODE systemname="ProcessorRenderer (ParticlesGPU)" filename="ProcessorRenderer (ParticlesGPU).v4p" nodename="ProcessorRenderer (ParticlesGPU)" componentmode="Hidden" id="14">
+   <BOUNDS type="Node" left="705" top="6660" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="Format" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="14" dstpinname="SizeXY">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Texture Out" dstnodeid="10" dstpinname="Input Node">
+   </LINK>
+   <LINK srcnodeid="11" srcpinname="Output Enum" dstnodeid="14" dstpinname="Format">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="SizeXY" dstnodeid="13" dstpinname="Y Input Value">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="16" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="1875" top="3060" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1875" top="3060" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Position (XYZ) PositionU Offset (W)|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="17" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="2268" top="165" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2268" top="165" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Control Points (XYZ)|">
+   </PIN>
+   </NODE>
+   <NODE id="1" systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" hiddenwhenlocked="1">
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="1095" top="2850" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <NODE id="2" systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" hiddenwhenlocked="1">
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="1440" top="2355" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZ" slicecount="1" values="2">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="18" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2625" top="900" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2625" top="900" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Control Points Per Spline|">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="3015" top="1605" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3015" top="1605" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="PositionU">
+   </PIN>
+   </NODE>
+   <NODE systemname="MoveBySpline_B-Spline_Cubic (EX9.Effect)" filename="MoveBySpline_B-Spline_Cubic.fx" nodename="MoveBySpline_B-Spline_Cubic (EX9.Effect)" componentmode="Hidden" id="15">
+   <BOUNDS type="Node" left="705" top="4095" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Technique" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Transform" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="Output Enum" dstnodeid="15" dstpinname="Technique">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Layer" dstnodeid="14" dstpinname="Layers">
+   </LINK>
+   <LINK srcnodeid="16" srcpinname="Output Node" dstnodeid="15" dstpinname="Input (XYZW)">
+   </LINK>
+   <LINK srcnodeid="17" srcpinname="Output Node" dstnodeid="15" dstpinname="Control Points (XYZ)">
+   </LINK>
+   <LINK srcnodeid="1" srcpinname="Mesh" dstnodeid="15" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Transform Out" dstnodeid="15" dstpinname="Transform">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Control Points Count">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="15" dstpinname="PositionU">
+   </LINK>
+   </PATCH>
