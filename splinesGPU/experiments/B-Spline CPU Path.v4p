@@ -83,7 +83,7 @@
    </BOUNDS>
    <BOUNDS height="240" left="720" top="3900" type="Box" width="510">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="24">
+   <PIN pinname="Y Input Value" slicecount="1" values="66">
    </PIN>
    <PIN encoded="0" pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -225,13 +225,13 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="120">
-   <BOUNDS type="Node" left="6735" top="1365" width="100" height="100">
+   <BOUNDS type="Node" left="6795" top="1335" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="6735" top="1365" width="795" height="720">
+   <BOUNDS type="Box" left="6795" top="1335" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="-0.65,-0.01,0">
+   <PIN pinname="Y Input Value" slicecount="3" values="-0.56,-0.08,0">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
@@ -241,13 +241,13 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="121">
-   <BOUNDS type="Node" left="8205" top="1770" width="100" height="100">
+   <BOUNDS type="Node" left="8490" top="1560" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="8205" top="1770" width="795" height="720">
+   <BOUNDS type="Box" left="8490" top="1560" width="795" height="720">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="3">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="-0.4,0.23,0">
+   <PIN pinname="Y Input Value" slicecount="3" values="-0.18,-0.01,0">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="3">
    </PIN>
@@ -310,28 +310,6 @@
    </NODE>
    <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="119" dstpinname="Input 4">
    </LINK>
-   <NODE systemname="FindPointOnCurve (B-Spline Cubic 4Points)" filename="FindPointOnCurve (B-Spline Cubic 4Points).v4p" nodename="FindPointOnCurve (B-Spline Cubic 4Points)" componentmode="Hidden" id="134">
-   <BOUNDS type="Node" left="8010" top="6210" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="P1" visible="1" slicecount="3" values="-1.3,-0.02,0">
-   </PIN>
-   <PIN pinname="P2" visible="1" slicecount="3" values="-0.8,0.46,0">
-   </PIN>
-   <PIN pinname="P3" visible="1" slicecount="3" values="-0.18,-0.24,0">
-   </PIN>
-   <PIN pinname="P4" visible="1" slicecount="3" values="0.62,0,0">
-   </PIN>
-   <PIN pinname="Point Position" visible="1">
-   </PIN>
-   <PIN pinname="Linear Position" slicecount="1" visible="1" values="1.96">
-   </PIN>
-   <PIN pinname="Point XYZ" visible="1">
-   </PIN>
-   <PIN pinname="Line Width" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="17490" top="930" width="11310" height="16380">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Quad (DX9)" nodename="Quad (DX9)" componentmode="Hidden" id="135">
    <BOUNDS type="Node" left="4965" top="8355" width="100" height="100">
    </BOUNDS>
@@ -379,7 +357,7 @@
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="XYZ" visible="1" slicecount="3" values="0.335559333333333,-0.068356,0">
+   <PIN pinname="XYZ" visible="1" slicecount="3" values="-0.0912418744642996,-0.0289172692593609,0">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>
@@ -402,10 +380,6 @@
    </NODE>
    <LINK srcnodeid="139" srcpinname="Y Output Value" dstnodeid="105" dstpinname="Alpha">
    </LINK>
-   <LINK srcnodeid="139" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Line Width">
-   </LINK>
-   <LINK srcnodeid="134" srcpinname="Point XYZ" dstnodeid="138" dstpinname="XYZ">
-   </LINK>
    <LINK srcnodeid="121" srcpinname="Y Output Value" dstnodeid="119" dstpinname="Input 2">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="143" systemname="IOBox (Value Advanced)">
@@ -413,7 +387,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="11070" top="4890" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1.28">
+   <PIN pinname="Y Input Value" slicecount="1" values="0.98">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -462,14 +436,60 @@
    </LINK>
    <LINK srcnodeid="120" srcpinname="Y Output Value" dstnodeid="119" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="143" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Linear Position">
-   </LINK>
-   <LINK srcnodeid="120" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P1">
-   </LINK>
-   <LINK srcnodeid="121" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P2">
+   <NODE systemname="FindPointOnCurve (B-Spline Cubic NPoints)" filename="FindPointOnCurve (B-Spline Cubic NPoints).v4p" nodename="FindPointOnCurve (B-Spline Cubic NPoints)" componentmode="Hidden" id="147">
+   <BOUNDS type="Node" left="7170" top="6240" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Point XYZ" visible="1">
+   </PIN>
+   <PIN pinname="Conrols XYZ" visible="1" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Control Points Count" visible="1">
+   </PIN>
+   <PIN pinname="Line Width" visible="1">
+   </PIN>
+   <PIN pinname="Position In Linear Coordinates" slicecount="1" values="0.59">
+   </PIN>
+   </NODE>
+   <NODE id="134" systemname="FindPointOnCurve (B-Spline Cubic 4Points)" filename="FindPointOnCurve (B-Spline Cubic 4Points).v4p" nodename="FindPointOnCurve (B-Spline Cubic 4Points)" componentmode="Hidden">
+   <PIN pinname="Line Width" visible="1">
+   </PIN>
+   <PIN pinname="Linear Position" visible="1">
+   </PIN>
+   <PIN pinname="P1" visible="1">
+   </PIN>
+   <PIN pinname="P2" visible="1">
+   </PIN>
+   <PIN pinname="P3" visible="1">
+   </PIN>
+   <PIN pinname="P4" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="13110" top="5625" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Point Position" visible="1">
+   </PIN>
+   <PIN pinname="Point XYZ" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="17490" top="930" width="11310" height="16380">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P4">
    </LINK>
    <LINK srcnodeid="122" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P3">
    </LINK>
-   <LINK srcnodeid="133" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P4">
+   <LINK srcnodeid="121" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P2">
+   </LINK>
+   <LINK srcnodeid="120" srcpinname="Y Output Value" dstnodeid="134" dstpinname="P1">
+   </LINK>
+   <LINK srcnodeid="143" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Linear Position">
+   </LINK>
+   <LINK srcnodeid="139" srcpinname="Y Output Value" dstnodeid="134" dstpinname="Line Width">
+   </LINK>
+   <LINK srcnodeid="147" srcpinname="Point XYZ" dstnodeid="138" dstpinname="XYZ">
+   </LINK>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="147" dstpinname="Control Points Count">
+   </LINK>
+   <LINK srcnodeid="119" srcpinname="Output" dstnodeid="147" dstpinname="Conrols XYZ">
+   </LINK>
+   <LINK srcnodeid="139" srcpinname="Y Output Value" dstnodeid="147" dstpinname="Line Width">
    </LINK>
    </PATCH>

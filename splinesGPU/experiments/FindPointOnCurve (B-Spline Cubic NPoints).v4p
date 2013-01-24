@@ -2,20 +2,126 @@
    <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\FindPointOnCurve (B-Spline Cubic NPoints).v4p" systemname="FindPointOnCurve (Bezier NPoints)" filename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\FindPointOnCurve (Bezier NPoints).v4p">
    <BOUNDS type="Window" left="15105" top="150" width="11715" height="14580">
    </BOUNDS>
-   <NODE systemname="MultiPointsLogic" filename="MultiPointsLogic.v4p" nodename="MultiPointsLogic.v4p" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="4095" top="4935" width="100" height="100">
+   <NODE systemname="FindPointOnCurve (B-Spline Cubic 4Points)" filename="FindPointOnCurve (B-Spline Cubic 4Points).v4p" nodename="FindPointOnCurve (B-Spline Cubic 4Points)" componentmode="Hidden" id="19">
+   <BOUNDS type="Node" left="1401" top="5340" width="3975" height="270">
    </BOUNDS>
-   <PIN pinname="Linear Position In Segment" visible="1">
+   <PIN pinname="Point XYZ" visible="1">
    </PIN>
-   <PIN pinname="Start Point Index" visible="1">
+   <PIN pinname="P1" visible="1">
    </PIN>
-   <PIN pinname="End Point Index" visible="1">
+   <PIN pinname="P2" visible="1">
+   </PIN>
+   <PIN pinname="P3" visible="1">
+   </PIN>
+   <PIN pinname="P4" visible="1">
+   </PIN>
+   <PIN pinname="Linear Position" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="1" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="4080" top="1260" width="0" height="0">
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="22">
+   <BOUNDS type="Node" left="1386" top="6720" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4080" top="1260" width="795" height="240">
+   <BOUNDS type="Box" left="1386" top="6720" width="795" height="720">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Point XYZ|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="19" srcpinname="Point XYZ" dstnodeid="22" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="24">
+   <BOUNDS type="Node" left="5031" top="1170" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5031" top="1170" width="795" height="720">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Conrols XYZ|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="2181" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Output" dstnodeid="19" dstpinname="P1">
+   </LINK>
+   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="2976" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="26" srcpinname="Output" dstnodeid="19" dstpinname="P2">
+   </LINK>
+   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="3771" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="Output" dstnodeid="19" dstpinname="P3">
+   </LINK>
+   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="4557" top="4665" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Bin Size" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Index" visible="1" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="19" dstpinname="P4">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="25" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="26" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="27" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="29" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="1476" top="600" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1476" top="600" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -25,15 +131,15 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Position In Linear Coordinates|">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Position In Linear Coordinates" hiddenwhenlocked="1">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="2" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="5460" top="1635" width="0" height="0">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="30" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="2856" top="1020" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="5460" top="1635" width="795" height="240">
+   <BOUNDS type="Box" left="2856" top="1020" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="5">
+   <PIN pinname="Y Input Value" slicecount="1" values="8">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -41,39 +147,11 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Control Points Count|">
    </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Control Points Count" hiddenwhenlocked="1">
-   </LINK>
-   <NODE systemname="FindPointOnCurve (Bezier 2Points)" filename="FindPointOnCurve (Bezier 2Points).v4p" nodename="FindPointOnCurve (Bezier 2Points)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="2625" top="8625" width="4980" height="270">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="31" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="1395" top="4215" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Linear Position" visible="1">
-   </PIN>
-   <PIN pinname="Control Points Count" visible="1">
-   </PIN>
-   <PIN pinname="P1" slicecount="3" visible="1" values="-1,0.79,0">
-   </PIN>
-   <PIN pinname="P2" visible="1">
-   </PIN>
-   <PIN pinname="T1" visible="1">
-   </PIN>
-   <PIN pinname="T2" visible="1">
-   </PIN>
-   <PIN pinname="Point Position" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="15300" top="495" width="11310" height="16500">
-   </BOUNDS>
-   </NODE>
-   <LINK srcnodeid="0" srcpinname="Linear Position In Segment" dstnodeid="3" dstpinname="Linear Position">
-   </LINK>
-   <LINK srcnodeid="2" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Control Points Count" hiddenwhenlocked="1">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="4" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="2643" top="5070" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2643" top="5070" width="795" height="240">
+   <BOUNDS type="Box" left="1395" top="4215" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
@@ -84,132 +162,28 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="|Line Width|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Line Width" hiddenwhenlocked="1">
+   <LINK srcnodeid="31" srcpinname="Y Output Value" dstnodeid="19" dstpinname="Line Width">
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="11">
-   <BOUNDS type="Node" left="7845" top="1635" width="100" height="100">
+   <NODE systemname="MultiPointsLogic (4Points Fix)" filename="MultiPointsLogic (4Points Fix).v4p" nodename="MultiPointsLogic (4Points Fix)" componentmode="Hidden" id="34">
+   <BOUNDS type="Node" left="1491" top="1905" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="7845" top="1635" width="795" height="720">
+   <BOUNDS type="Window" left="15675" top="780" width="16485" height="16200">
    </BOUNDS>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Points">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
+   <PIN pinname="Position In Linear Coordinates" slicecount="1" visible="1" values="0.48">
    </PIN>
    </NODE>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="12">
-   <BOUNDS type="Node" left="9945" top="1635" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="9945" top="1635" width="795" height="720">
-   </BOUNDS>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" values="0,0,0">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Tangents">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="3432" top="6975" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Bin Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Index" visible="1">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="13" dstpinname="Input" hiddenwhenlocked="1">
+   <LINK srcnodeid="34" srcpinname="P1 Index" dstnodeid="25" dstpinname="Index">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Start Point Index" dstnodeid="13" dstpinname="Index">
+   <LINK srcnodeid="34" srcpinname="P2 Index" dstnodeid="26" dstpinname="Index">
    </LINK>
-   <LINK srcnodeid="13" srcpinname="Output" dstnodeid="3" dstpinname="P1">
+   <LINK srcnodeid="34" srcpinname="P3 Index" dstnodeid="27" dstpinname="Index">
    </LINK>
-   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="5070" top="6975" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Bin Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Index" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="14" srcpinname="Output" dstnodeid="3" dstpinname="P2">
+   <LINK srcnodeid="34" srcpinname="P4 Index" dstnodeid="28" dstpinname="Index">
    </LINK>
-   <LINK srcnodeid="11" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Input" hiddenwhenlocked="1">
+   <LINK srcnodeid="30" srcpinname="Y Output Value" dstnodeid="34" dstpinname="Control Points Count">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="End Point Index" dstnodeid="14" dstpinname="Index">
+   <LINK srcnodeid="34" srcpinname="Cubic Segment Linear Position" dstnodeid="19" dstpinname="Linear Position">
    </LINK>
-   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="15">
-   <BOUNDS type="Node" left="4275" top="7818" width="675" height="270">
-   </BOUNDS>
-   <PIN pinname="Bin Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Index" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="15" srcpinname="Output" dstnodeid="3" dstpinname="T1">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="15" dstpinname="Input" hiddenwhenlocked="1">
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="Start Point Index" dstnodeid="15" dstpinname="Index">
-   </LINK>
-   <NODE systemname="GetSlice (Spreads)" nodename="GetSlice (Spreads)" componentmode="Hidden" id="16">
-   <BOUNDS type="Node" left="5910" top="7830" width="675" height="270">
-   </BOUNDS>
-   <PIN pinname="Bin Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Index" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="16" srcpinname="Output" dstnodeid="3" dstpinname="T2">
-   </LINK>
-   <LINK srcnodeid="0" srcpinname="End Point Index" dstnodeid="16" dstpinname="Index">
-   </LINK>
-   <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="16" dstpinname="Input" hiddenwhenlocked="1">
-   </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="18">
-   <BOUNDS type="Node" left="2610" top="9360" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2610" top="9360" width="795" height="720">
-   </BOUNDS>
-   <PIN pinname="Rows" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Y Input Value" slicecount="3" visible="1" values="0,0,0">
-   </PIN>
-   <PIN pinname="Vector Size" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0, 0|">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Point Position|">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="3" srcpinname="Point Position" dstnodeid="18" dstpinname="Y Input Value">
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="34" dstpinname="Position In Linear Coordinates">
    </LINK>
    </PATCH>
