@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Field (ParticlesGPU Filter 3d) help.v4p" systemname="callmenames" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\callmenames.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\Field (ParticlesGPU Filter 3d) help.v4p" systemname="callmenames" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\callmenames.v4p">
    <BOUNDS type="Window" left="3195" top="1410" width="15405" height="12270">
    </BOUNDS>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="2">
@@ -221,7 +221,7 @@
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Filename" slicecount="1" encoded="0" values="|textures\Circle Halo 64.png|">
+   <PIN pinname="Filename" slicecount="1" encoded="0" values="|..\textures\Circle Halo 64.png|">
    </PIN>
    </NODE>
    <LINK srcnodeid="15" srcpinname="Texture Out" dstnodeid="10" dstpinname="Texture">

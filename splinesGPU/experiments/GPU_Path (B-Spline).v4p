@@ -2,20 +2,6 @@
    <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\GPU_Path (B-Spline).v4p" systemname="GPU_Path" filename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\GPU_Path.v4p">
    <BOUNDS type="Window" left="6615" top="3285" width="20640" height="9795">
    </BOUNDS>
-   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="1">
-   <BOUNDS type="Node" left="1830" top="4800" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Mesh" visible="1">
-   </PIN>
-   </NODE>
-   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="3">
-   <BOUNDS type="Node" left="2205" top="5166" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="XYZ" slicecount="1" values="2">
-   </PIN>
-   </NODE>
    <NODE systemname="ToGPU (ParticlesGPU)" filename="..\..\ToGPU (ParticlesGPU).v4p" nodename="ToGPU (ParticlesGPU)" componentmode="Hidden" id="4">
    <BOUNDS type="Node" left="2865" top="3345" width="100" height="100">
    </BOUNDS>
@@ -136,22 +122,6 @@
    <LINKPOINT x="570" y="2295">
    </LINKPOINT>
    <LINKPOINT x="3225" y="2295">
-   </LINKPOINT>
-   </LINK>
-   <NODE systemname="ProcessorRenderer (ParticlesGPU)" filename="..\..\ProcessorRenderer (ParticlesGPU).v4p" nodename="ProcessorRenderer (ParticlesGPU)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="1440" top="6705" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="SizeXY" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="13" dstpinname="SizeXY" hiddenwhenlocked="1" linkstyle="Bezier">
-   <LINKPOINT x="1290" y="3593">
-   </LINKPOINT>
-   <LINKPOINT x="2985" y="3593">
    </LINKPOINT>
    </LINK>
    <NODE systemname="Spline (EX9 Mesh)" filename="..\subpatches\Spline (EX9 Mesh).v4p" nodename="Spline (EX9 Mesh)" componentmode="Hidden" id="30">
@@ -324,8 +294,6 @@
    <BOUNDS type="Box" left="2355" top="8790">
    </BOUNDS>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="SizeXY" dstnodeid="44" dstpinname="SizeXY">
-   </LINK>
    <LINK srcnodeid="47" srcpinname="Texture Out" dstnodeid="44" dstpinname="Input 2 (XYZW)">
    </LINK>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="48">
@@ -366,8 +334,6 @@
    <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="SizeXY" dstnodeid="47" dstpinname="SizeXY">
-   </LINK>
    <LINK srcnodeid="44" srcpinname="Texture Out" dstnodeid="43" dstpinname="TranslateXYZ (XYZ), UniformScale (W)">
    </LINK>
    <NODE systemname="R (Value)" nodename="R (Value)" componentmode="Hidden" id="54">
@@ -579,7 +545,7 @@
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
-   <PIN pinname="Height" slicecount="1" values="1" visible="1">
+   <PIN pinname="Height" slicecount="1" visible="1" values="1">
    </PIN>
    <PIN pinname="Blue" slicecount="1" visible="1" values="0">
    </PIN>
@@ -738,28 +704,6 @@
    </LINK>
    <LINK srcnodeid="32" srcpinname="Actual Backbuffer Height" dstnodeid="88" dstpinname="Aspect Height">
    </LINK>
-   <LINK srcnodeid="13" srcpinname="Texture Out" dstnodeid="44" dstpinname="Input (XYZW)">
-   </LINK>
-   <NODE systemname="MoveBySpline (ParticlesGPU Filter B-Spline Cubic) (EX9.Effect)" filename="..\..\MoveBySpline (ParticlesGPU Filter B-Spline Cubic).fx" nodename="MoveBySpline (ParticlesGPU Filter B-Spline Cubic) (EX9.Effect)" componentmode="Hidden" id="89">
-   <BOUNDS type="Node" left="1440" top="5895" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="PositionU" slicecount="1" values="2.02" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Control Points Count">
-   </LINK>
-   <LINK srcnodeid="89" srcpinname="Layer" dstnodeid="13" dstpinname="Layers">
-   </LINK>
-   <LINK srcnodeid="1" srcpinname="Mesh" dstnodeid="89" dstpinname="Mesh">
-   </LINK>
-   <LINK srcnodeid="3" srcpinname="Transform Out" dstnodeid="89" dstpinname="Transform">
-   </LINK>
-   <LINK srcnodeid="4" srcpinname="Texture Out" dstnodeid="89" dstpinname="Input (XYZW)">
-   </LINK>
-   <LINK srcnodeid="29" srcpinname="Texture Out" dstnodeid="89" dstpinname="Control Points (XYZ)">
-   </LINK>
-   <LINK srcnodeid="58" srcpinname="Position Out" dstnodeid="89" dstpinname="PositionU">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="94">
    <BOUNDS type="Node" left="19275" top="210" width="100" height="100">
    </BOUNDS>
@@ -859,5 +803,35 @@
    <LINK srcnodeid="92" srcpinname="Y Output Value" dstnodeid="81" dstpinname="Input 7">
    </LINK>
    <LINK srcnodeid="91" srcpinname="Y Output Value" dstnodeid="81" dstpinname="Input 8">
+   </LINK>
+   <NODE systemname="MoveBySpline (ParticlesGPU Filter B-Spline Cubic)" filename="..\..\modules\MoveBySpline (ParticlesGPU Filter B-Spline Cubic).v4p" nodename="MoveBySpline (ParticlesGPU Filter B-Spline Cubic)" componentmode="Hidden" id="89">
+   <BOUNDS type="Node" left="1440" top="5895" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="PositionU" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <PIN pinname="SizeXY" visible="1">
+   </PIN>
+   <PIN pinname="Position (XYZ) PositionU Offset (W)" visible="1">
+   </PIN>
+   <PIN pinname="Control Points Per Spline" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Texture Out" dstnodeid="89" dstpinname="Control Points (XYZ)">
+   </LINK>
+   <LINK srcnodeid="58" srcpinname="Position Out" dstnodeid="89" dstpinname="PositionU">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Texture Out" dstnodeid="44" dstpinname="Input (XYZW)">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="89" dstpinname="SizeXY">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="SizeXY" dstnodeid="47" dstpinname="SizeXY">
+   </LINK>
+   <LINK srcnodeid="47" srcpinname="SizeXY" dstnodeid="44" dstpinname="SizeXY">
+   </LINK>
+   <LINK srcnodeid="4" srcpinname="Texture Out" dstnodeid="89" dstpinname="Position (XYZ) PositionU Offset (W)">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Control Points Per Spline">
    </LINK>
    </PATCH>
