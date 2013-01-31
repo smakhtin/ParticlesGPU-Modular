@@ -32,6 +32,15 @@ sampler Samp = sampler_state
     MagFilter = LINEAR;
 };
 
+texture ColorTex <string uiname="Color RGBA (XYZW)";>;
+sampler ColorSamp = sampler_state
+{
+	Texture   = (ColorTex);
+	MipFilter = LINEAR;        
+    MinFilter = LINEAR;
+    MagFilter = LINEAR;
+};
+
 float4 Color :COLOR = 1;
 
 struct vs2ps
@@ -39,6 +48,7 @@ struct vs2ps
     float4 Pos : POSITION ;
     float4 TextureTexCd : TEXCOORD1;
     float Size : PSIZE ;
+	float4 Color : COLOR;
 };
 
 
@@ -50,6 +60,7 @@ vs2ps VS(
     vs2ps Out = (vs2ps)0;
     
     float4 particleTransform = tex2Dlod(TranslateScaleSamp, TransformTexCd);
+	Out.Color = tex2Dlod(ColorSamp, TransformTexCd);
     
     Pos.xyz  += particleTransform.xyz;
     
@@ -80,12 +91,17 @@ vs2ps VS(
 	return Out;
 }
 
-float4 MAIN_PS(vs2ps In): COLOR
+float4 SINGLE_COLOLOR_PS(vs2ps In): COLOR
 {
     return tex2D(Samp, In.TextureTexCd) * Color;
 }
 
-technique Main
+float4 COLOLOR_FROM_TEXTURE_PS(vs2ps In): COLOR
+{
+    return tex2D(Samp, In.TextureTexCd) * In.Color;
+}
+
+technique Single_Color
 {
 	pass P0
     {
@@ -94,42 +110,19 @@ technique Main
 		PointSpriteEnable = true;
 		
 		VertexShader = compile vs_3_0 VS();
-		PixelShader = compile ps_3_0 MAIN_PS();
+		PixelShader = compile ps_3_0 SINGLE_COLOLOR_PS();
 	}
 }
 
-technique WorkingAlpha
+technique Color_From_Texture
 {
-    pass P0
+	pass P0
     {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader  = compile ps_3_0 MAIN_PS();
-        AlphaBlendEnable = false;
- 
-        AlphaTestEnable = true;
-        AlphaFunc = Greater;
-        AlphaRef = 245;
- 
-        ZEnable = true;
-        ZWriteEnable = true;
- 
-        CullMode = None;
-    }
-    pass P1
-    {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader  = compile ps_3_0 MAIN_PS();
-        AlphaBlendEnable = true;
-        SrcBlend = SrcAlpha;
-        DestBlend = InvSrcAlpha;
- 
-        AlphaTestEnable = true;
-        AlphaFunc = LessEqual;
-        AlphaRef = 245;
- 
-        ZEnable = true;
-        ZWriteEnable = false;
- 
-        CullMode = None;
-    }
+		FillMode = POINT;
+		PointScaleEnable = true;
+		PointSpriteEnable = true;
+		
+		VertexShader = compile vs_3_0 VS();
+		PixelShader = compile ps_3_0 COLOLOR_FROM_TEXTURE_PS();
+	}
 }
