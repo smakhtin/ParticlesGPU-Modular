@@ -11,8 +11,8 @@ float4x4 tWVP: WORLDVIEWPROJECTION;
 
 float2 ViewportSize;
 
-bool EnableTile = false;
-float TileSize = 16.0;
+//bool EnableTile = false;
+//float TileSize = 16.0;
 
 texture TranslateScaleTex <string uiname="TranslateXYZ (XYZ), UniformScale (W)";>;
 sampler TranslateScaleSamp = sampler_state

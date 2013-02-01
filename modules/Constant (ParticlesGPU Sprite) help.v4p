@@ -1,13 +1,13 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite) help.v4p" systemname="_Test" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\_Test.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\Constant (ParticlesGPU Sprite) help.v4p" systemname="_Test" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\_Test.v4p">
    <BOUNDS type="Window" left="13155" top="480" width="8385" height="12540">
    </BOUNDS>
    <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="61">
-   <BOUNDS type="Node" left="630" top="9555" width="100" height="100">
+   <BOUNDS type="Node" left="630" top="11115" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="630" top="9555" width="2400" height="1800">
+   <BOUNDS type="Box" left="630" top="11115" width="2400" height="1800">
    </BOUNDS>
-   <BOUNDS type="Window" left="1215" top="2580" width="8460" height="6525">
+   <BOUNDS type="Window" left="1215" top="2580" width="8370" height="7275">
    </BOUNDS>
    <PIN pinname="Layers" visible="1" slicecount="1" values="||">
    </PIN>
@@ -22,28 +22,8 @@
    <PIN pinname="Actual Backbuffer Width" visible="1">
    </PIN>
    </NODE>
-   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="84">
-   <BOUNDS type="Node" left="1590" top="8760" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="View" visible="1">
-   </PIN>
-   <PIN pinname="Projection" visible="1">
-   </PIN>
-   <PIN pinname="Inital Distance" slicecount="1" values="0.43">
-   </PIN>
-   <PIN pinname="Initial FOV" slicecount="1" values="0.83" visible="1">
-   </PIN>
-   <PIN pinname="Near Plane" slicecount="1" values="1E-005">
-   </PIN>
-   <PIN pinname="Far Plane" slicecount="1" values="574">
-   </PIN>
-   <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.345251485763183">
-   </PIN>
-   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="-0.55">
-   </PIN>
-   </NODE>
    <NODE systemname="AspectRatio (Transform)" nodename="AspectRatio (Transform)" componentmode="Hidden" id="92">
-   <BOUNDS type="Node" left="1440" top="11265" width="100" height="100">
+   <BOUNDS type="Node" left="1440" top="12825" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -59,7 +39,7 @@
    <LINK srcnodeid="61" srcpinname="Actual Backbuffer Height" dstnodeid="92" dstpinname="Aspect Height">
    </LINK>
    <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="108">
-   <BOUNDS type="Node" left="2835" top="11010" width="100" height="100">
+   <BOUNDS type="Node" left="2835" top="12570" width="100" height="100">
    </BOUNDS>
    <PIN pinname="X" visible="1">
    </PIN>
@@ -74,10 +54,6 @@
    </LINK>
    <LINK srcnodeid="92" srcpinname="Transform Out" dstnodeid="61" dstpinname="Aspect Ratio">
    </LINK>
-   <LINK srcnodeid="84" srcpinname="View" dstnodeid="61" dstpinname="View">
-   </LINK>
-   <LINK srcnodeid="84" srcpinname="Projection" dstnodeid="61" dstpinname="Projection">
-   </LINK>
    <NODE systemname="ToGPU (ParticlesGPU)" filename="ToGPU (ParticlesGPU).v4p" nodename="ToGPU (ParticlesGPU)" componentmode="Hidden" id="128">
    <BOUNDS type="Node" left="4125" top="6300" width="100" height="100">
    </BOUNDS>
@@ -89,7 +65,7 @@
    </PIN>
    <PIN pinname="XYZW" visible="1">
    </PIN>
-   <PIN pinname="Apply" visible="1">
+   <PIN pinname="Apply" visible="1" slicecount="1" values="0">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="149">
@@ -99,7 +75,7 @@
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="2" values="1024,1024">
+   <PIN pinname="Y Input Value" slicecount="2" values="256,256">
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="2">
    </PIN>
@@ -123,7 +99,7 @@
    </PIN>
    <PIN pinname="Z" visible="1">
    </PIN>
-   <PIN pinname="W" slicecount="1" values="1E-006">
+   <PIN pinname="W" slicecount="1" values="0.02">
    </PIN>
    </NODE>
    <LINK srcnodeid="150" srcpinname="XYZW" dstnodeid="128" dstpinname="XYZW">
@@ -220,20 +196,10 @@
    <PIN pinname="Draw Mode" slicecount="1" values="Add">
    </PIN>
    </NODE>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="163">
-   <BOUNDS type="Node" left="1800" top="7995" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Period" slicecount="1" values="180">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="163" srcpinname="Output" dstnodeid="84" dstpinname="Initial Yaw">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="165">
-   <BOUNDS type="Node" left="1455" top="2160" width="100" height="100">
+   <BOUNDS type="Node" left="6195" top="2235" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="1455" top="2160" width="2070" height="525">
+   <BOUNDS type="Box" left="6195" top="2235" width="2070" height="525">
    </BOUNDS>
    <PIN pinname="Y Input Value" visible="1">
    </PIN>
@@ -263,11 +229,15 @@
    </PIN>
    <PIN pinname="SizeXY" visible="1" slicecount="2" values="512,512">
    </PIN>
+   <PIN pinname="Color" slicecount="1" values="|1.00000,1.00000,1.00000,0.46525|">
+   </PIN>
+   <PIN pinname="Technique" slicecount="1" values="| Single_Color|">
+   </PIN>
    </NODE>
    <LINK srcnodeid="108" srcpinname="XY" dstnodeid="166" dstpinname="ViewportSize XY" linkstyle="Bezier" hiddenwhenlocked="1">
-   <LINKPOINT x="2865" y="8928">
+   <LINKPOINT x="2865" y="9968">
    </LINKPOINT>
-   <LINKPOINT x="2970" y="9628">
+   <LINKPOINT x="2970" y="10148">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="162" srcpinname="Render State Out" dstnodeid="166" dstpinname="Render State">
@@ -285,8 +255,6 @@
    <LINK srcnodeid="153" srcpinname="Y Output Value" dstnodeid="167" dstpinname="Simulate">
    </LINK>
    <LINK srcnodeid="167" srcpinname="Bang" dstnodeid="166" dstpinname="Apply">
-   </LINK>
-   <LINK srcnodeid="167" srcpinname="Bang" dstnodeid="128" dstpinname="Apply">
    </LINK>
    <LINK srcnodeid="166" srcpinname="Layer" dstnodeid="61" dstpinname="Layers">
    </LINK>
@@ -312,50 +280,84 @@
    </NODE>
    <LINK srcnodeid="168" srcpinname="Output String" dstnodeid="161" dstpinname="Filename">
    </LINK>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="169">
-   <BOUNDS type="Node" left="2010" top="8355" width="100" height="100">
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\lib\nodes\modules\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="173">
+   <BOUNDS type="Node" left="1605" top="10395" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Output" visible="1">
+   <PIN pinname="View" visible="1">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="200">
+   <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Phase" slicecount="1" values="0.03">
+   <PIN pinname="Initial Yaw" slicecount="1" visible="1" values="0.23">
+   </PIN>
+   <PIN pinname="Initial Pitch" slicecount="1" visible="1" values="0.5">
+   </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" visible="1" values="2.45">
+   </PIN>
+   <PIN pinname="Initial FOV" slicecount="1" visible="1" values="0.19">
    </PIN>
    </NODE>
-   <LINK srcnodeid="169" srcpinname="Output" dstnodeid="84" dstpinname="Initial Pitch">
+   <LINK srcnodeid="173" srcpinname="View" dstnodeid="61" dstpinname="View">
    </LINK>
-   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="170">
-   <BOUNDS type="Node" left="4290" top="8280" width="100" height="100">
+   <LINK srcnodeid="173" srcpinname="Projection" dstnodeid="61" dstpinname="Projection">
+   </LINK>
+   <LINK srcnodeid="167" srcpinname="Bang" dstnodeid="128" dstpinname="Apply">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="176">
+   <BOUNDS type="Node" left="1800" top="9345" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
-   <PIN pinname="Period" slicecount="1" values="200">
+   <PIN pinname="Period" slicecount="1" values="30">
    </PIN>
    </NODE>
-   <NODE systemname="WaveShaper (Value)" nodename="WaveShaper (Value)" componentmode="Hidden" id="171">
-   <BOUNDS type="Node" left="4275" top="8925" width="100" height="100">
+   <LINK srcnodeid="176" srcpinname="Output" dstnodeid="173" dstpinname="Initial Yaw">
+   </LINK>
+   <LINK srcnodeid="176" srcpinname="Output" dstnodeid="173" dstpinname="Initial Pitch">
+   </LINK>
+   <NODE systemname="LFO (Animation)" nodename="LFO (Animation)" componentmode="Hidden" id="177">
+   <BOUNDS type="Node" left="3420" top="8070" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Period" slicecount="1" values="10">
+   </PIN>
+   </NODE>
+   <NODE systemname="WaveShaper (Value)" nodename="WaveShaper (Value)" componentmode="Hidden" id="178">
+   <BOUNDS type="Node" left="3420" top="8580" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input" visible="1">
    </PIN>
-   <PIN pinname="Shape" slicecount="1" values="Triangle">
+   <PIN pinname="Shape" slicecount="1" values="Sine">
    </PIN>
    <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="170" srcpinname="Output" dstnodeid="171" dstpinname="Input">
+   <LINK srcnodeid="177" srcpinname="Output" dstnodeid="178" dstpinname="Input">
    </LINK>
-   <NODE systemname="Damper (Animation)" nodename="Damper (Animation)" componentmode="Hidden" id="172">
-   <BOUNDS type="Node" left="4290" top="9555" width="100" height="100">
+   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="179">
+   <BOUNDS type="Node" left="3405" top="9165" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Go To Position" visible="1">
+   <PIN pinname="Input 1" visible="1">
    </PIN>
-   <PIN pinname="Position Out" visible="1">
+   <PIN pinname="Input 2" slicecount="1" values="0.25">
    </PIN>
-   <PIN pinname="FilterTime" slicecount="1" values="30">
+   <PIN pinname="Output" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="171" srcpinname="Output" dstnodeid="172" dstpinname="Go To Position">
+   <LINK srcnodeid="178" srcpinname="Output" dstnodeid="179" dstpinname="Input 1">
    </LINK>
-   <LINK srcnodeid="172" srcpinname="Position Out" dstnodeid="84" dstpinname="Initial FOV">
+   <NODE systemname="Add (Value)" nodename="Add (Value)" componentmode="Hidden" id="181">
+   <BOUNDS type="Node" left="3420" top="9795" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="0.1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="179" srcpinname="Output" dstnodeid="181" dstpinname="Input 1">
+   </LINK>
+   <LINK srcnodeid="181" srcpinname="Output" dstnodeid="173" dstpinname="Initial FOV">
    </LINK>
    </PATCH>

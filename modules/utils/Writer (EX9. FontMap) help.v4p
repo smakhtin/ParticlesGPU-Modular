@@ -1,0 +1,195 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\Writer (EX9. FontMap) help.v4p">
+   <BOUNDS height="7095" left="8745" top="6150" type="Window" width="9000">
+   </BOUNDS>
+   <NODE componentmode="Hidden" id="10" nodename="Writer (EX9. FontMap).v4p" systemname="Writer (EX9. FontMap)" filename="Writer (EX9. FontMap).v4p">
+   <BOUNDS height="270" left="990" top="4275" type="Node" width="4230">
+   </BOUNDS>
+   <BOUNDS height="16200" left="5505" top="0" type="Window" width="17700">
+   </BOUNDS>
+   <BOUNDS left="990" top="4275" type="Box">
+   </BOUNDS>
+   <PIN pinname="done!" visible="1">
+   </PIN>
+   <PIN pinname="write" visible="1">
+   </PIN>
+   <PIN pinname="Font" visible="1">
+   </PIN>
+   <PIN pinname="Texture Size" visible="1">
+   </PIN>
+   <PIN pinname="key black threshold" visible="1">
+   </PIN>
+   <PIN pinname="Dir" visible="1">
+   </PIN>
+   <PIN pinname="File" visible="1">
+   </PIN>
+   <PIN pinname="Do Write" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="9" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="300" top="195" type="Node" width="2025">
+   </BOUNDS>
+   <BOUNDS height="465" left="300" top="195" type="Box" width="3675">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|Writer (EX9. FontMap) help|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="12">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="690" left="300" top="735" type="Node" width="3315">
+   </BOUNDS>
+   <BOUNDS height="960" left="300" top="735" type="Box" width="3990">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|create fontmaps with alpha and a textfile with the fontmetrics (.met)  for use with the Text (EX9 Metrics).v4p module&cr;&lf;|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="7" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="3780" top="2280" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="14820" top="6810" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="240" left="3780" top="2280" type="Box" width="975">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="2048">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Size|">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="6" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="3075" top="3495" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="17130" top="5820" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="285" left="3075" top="3495" type="Box" width="1860">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Dir">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" values="||">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="5" nodename="IOBox (Enumerations)" systemname="IOBox (Enumerations)">
+   <BOUNDS height="0" left="2370" top="1530" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="9630" top="13020" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="300" left="2370" top="1530" type="Box" width="1740">
+   </BOUNDS>
+   <PIN pinname="Output Enum" visible="1">
+   </PIN>
+   <PIN pinname="Input Enum" slicecount="1" values="Arial">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Font">
+   </PIN>
+   <PIN pinname="Size" slicecount="1" values="10">
+   </PIN>
+   <PIN pinname="Style" slicecount="1" values="PullDown">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Texture Size" srcnodeid="7" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="10" dstpinname="Dir" srcnodeid="6" srcpinname="Output String">
+   </LINK>
+   <NODE componentmode="InABox" id="4" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="5340" top="2295" type="Node" width="2325">
+   </BOUNDS>
+   <BOUNDS height="240" left="5340" top="2295" type="Box" width="2325">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|&lt;- tex.size must be power of 2|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="2" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="990" top="4770" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="17430" top="6120" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="270" left="990" top="4770" type="Box" width="1605">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|resulted File|">
+   </PIN>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="1" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="5835" top="4365" type="Node" width="780">
+   </BOUNDS>
+   <BOUNDS height="1170" left="5835" top="4365" type="Box" width="2235">
+   </BOUNDS>
+   <BOUNDS height="160" left="0" top="0" type="Window" width="215">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" visible="0" values="|mashup from woeis and wests fontmapbuilder 13.August.07 &cr;&lf;by elektromeier&cr;&lf;&cr;&lf;fixes for b29 by alg|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="0" nodename="IOBOX (VALUE ADVANCED)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="975" top="2865" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="160" left="1260" top="15930" type="Window" width="215">
+   </BOUNDS>
+   <BOUNDS height="510" left="975" top="2865" type="Box" width="660">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Do Write|">
+   </PIN>
+   <PIN pinname="Slider Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Minimum" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Maximum" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Slider" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Show Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="2" dstpinname="Input String" srcnodeid="10" srcpinname="File">
+   </LINK>
+   <LINK dstnodeid="10" dstpinname="Font" srcnodeid="5" srcpinname="Output Enum">
+   </LINK>
+   <LINK srcnodeid="0" srcpinname="Y Output Value" dstnodeid="10" dstpinname="Do Write">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="17" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Node" left="4470" top="2925" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4470" top="2925" width="1590" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Format">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Output Enum" dstnodeid="10" dstpinname="Format">
+   </LINK>
+   </PATCH>
