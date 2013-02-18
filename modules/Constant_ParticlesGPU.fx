@@ -30,6 +30,15 @@ sampler ScaleSamp = sampler_state
     MagFilter = none;
 };
 
+texture RotateTex <string uiname="RotateXYZ (XYZ)";>;
+sampler RotateSamp = sampler_state
+{
+    Texture   = (RotateTex);          
+    MipFilter = none;                    
+    MinFilter = none;
+    MagFilter = none;
+};
+
 texture Texture <string uiname="Texture";>;
 sampler Samp = sampler_state
 {
@@ -47,6 +56,39 @@ struct vs2ps
     float4 TextureTexCd : TEXCOORD1;
 };
 
+#define minTwoPi -6.283185307179586476925286766559
+#define TwoPi 6.283185307179586476925286766559
+
+//rotate point by quaternion
+
+float3 rotPbyQ (float3 p, float4 q){
+
+   return  p*(q.x*q.x - q.y*q.y - q.z*q.z - q.w*q.w) +
+         2*q.yzw*dot(q.yzw, p) + 2*cross(p, q.yzw)*q.x;
+
+}
+
+//rotate point by euler angles
+float3 rotate(float3 pointPos, float pitch, float yaw, float roll)
+{
+
+  pitch *= minTwoPi;
+  yaw    = minTwoPi*(yaw+0.25);
+  roll  *= minTwoPi;
+
+  pointPos.xyz = float3(-pointPos.z, pointPos.y, pointPos.x);
+
+  float4 es;
+  float coy = cos(yaw*0.5);
+  float siy = sin(yaw*0.5);
+
+  es.x = cos(0.5*(roll+pitch))*coy;
+  es.y = sin(0.5*(roll-pitch))*siy;
+  es.z = cos(0.5*(roll-pitch))*siy;
+  es.w = sin(0.5*(roll+pitch))*coy;
+
+  return rotPbyQ(pointPos, es);
+}
 
 vs2ps VS(
     float4 Pos : POSITION ,
@@ -57,14 +99,15 @@ vs2ps VS(
     
     float4 translateTileIndex = tex2Dlod(TranslateTileIndexSamp, TransformTexCd);
     float3 scale =  tex2Dlod(ScaleSamp, TransformTexCd);
+    float3 rotateXYZ = tex2Dlod(RotateSamp, TransformTexCd);
 
-    //Pos = mul(Pos, tW);
+    Pos = mul(Pos, tW);
 
     //Apply scale
     Pos.xyz *= scale.xyz;
     
     //Apply rotation
-    //Pos.xyz  += particleTransform.xyz;
+    Pos.xyz = rotate(Pos.xyz, rotateXYZ.x, rotateXYZ.y, rotateXYZ.z);
     
     //Apply translate
     Pos.xyz += translateTileIndex.xyz;

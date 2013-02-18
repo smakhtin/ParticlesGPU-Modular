@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Smakhtin\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\Constant (ParticlesGPU).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
    <BOUNDS type="Window" left="4980" top="7245" width="10305" height="8295">
    </BOUNDS>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
@@ -79,9 +79,9 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="5130" top="2880" width="0" height="0">
+   <BOUNDS type="Node" left="5355" top="2970" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="5130" top="2880" width="795" height="240">
+   <BOUNDS type="Box" left="5355" top="2970" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -231,7 +231,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2685" top="3300" width="480" height="480">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" encoded="0" values="||">
    </PIN>
@@ -255,9 +255,21 @@
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="| Main|">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Technique" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Technique">
    </PIN>
    </NODE>
    <LINK srcnodeid="21" srcpinname="Output Enum" dstnodeid="7" dstpinname="Technique">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="22" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="5715" top="1320" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5715" top="1320" width="870" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|RotateXYZ (XYZ)|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output Node" dstnodeid="7" dstpinname="RotateXYZ (XYZ)">
    </LINK>
    </PATCH>

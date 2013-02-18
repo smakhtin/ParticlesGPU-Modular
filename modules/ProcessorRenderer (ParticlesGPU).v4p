@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ProcessorRenderer (ParticlesGPU).v4p" systemname="ProcessorRenderer (ParticlesGPU)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ProcessorRenderer (ParticlesGPU).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\ProcessorRenderer (ParticlesGPU).v4p" systemname="ProcessorRenderer (ParticlesGPU)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\ProcessorRenderer (ParticlesGPU).v4p">
    <NODE id="0" systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="Hidden">
    <PIN pinname="EX9 Out" visible="1">
    </PIN>
@@ -23,11 +23,11 @@
    <NODE id="1" systemname="DX9Texture (EX9.Texture)" nodename="DX9Texture (EX9.Texture)" componentmode="Hidden">
    <PIN pinname="Source" visible="1">
    </PIN>
-   <PIN pinname="Texture Out">
+   <PIN pinname="Texture Out" visible="1">
    </PIN>
    <PIN pinname="Format" visible="1" pintype="Input">
    </PIN>
-   <BOUNDS type="Node" left="2070" top="3840" width="100" height="100">
+   <BOUNDS type="Node" left="2094" top="4440" width="100" height="100">
    </BOUNDS>
    </NODE>
    <NODE id="2" systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden">
@@ -43,9 +43,9 @@
    <NODE id="3" nodename="IOBox (Enumerations)" componentmode="InABox" systemname="IOBox (Enumerations)">
    <PIN pinname="Output Enum">
    </PIN>
-   <BOUNDS type="Node" left="2055" top="3225" width="0" height="0">
+   <BOUNDS type="Node" left="2079" top="3225" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="2055" top="3225" width="1590" height="240">
+   <BOUNDS type="Box" left="2079" top="3225" width="1590" height="240">
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="A32B32G32R32F">
    </PIN>
@@ -55,7 +55,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="4">
-   <BOUNDS type="Node" left="4305" top="3915" width="100" height="100">
+   <BOUNDS type="Node" left="4329" top="4515" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XY" visible="1">
    </PIN>
@@ -65,7 +65,7 @@
    </PIN>
    </NODE>
    <NODE id="5" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
-   <PIN pinname="Descriptive Name" slicecount="1" values="Layers" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layers">
    </PIN>
    <BOUNDS type="Box" left="1500" top="500" width="750" height="240">
    </BOUNDS>
@@ -83,11 +83,11 @@
    <LINK srcnodeid="0" srcpinname="EX9 Out" dstnodeid="1" dstpinname="Source">
    </LINK>
    <NODE id="7" systemname="IOBox (Node)" componentmode="InABox" nodename="IOBox (Node)">
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Texture Out|" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Texture Out|">
    </PIN>
-   <BOUNDS type="Box" left="2070" top="4515" width="750" height="240">
+   <BOUNDS type="Box" left="2094" top="5115" width="750" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2070" top="4515" width="750" height="240">
+   <BOUNDS type="Node" left="2094" top="5115" width="750" height="240">
    </BOUNDS>
    </NODE>
    <LINK srcnodeid="1" srcpinname="Texture Out" dstnodeid="7" dstpinname="Input Node">
@@ -109,9 +109,9 @@
    </PIN>
    <PIN pinname="Vector Size" slicecount="1" values="2">
    </PIN>
-   <PIN pinname="Default" slicecount="1" values="|0, 0|" encoded="0">
+   <PIN pinname="Default" slicecount="1" encoded="0" values="|0, 0|">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="SizeXY" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="SizeXY">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -119,9 +119,9 @@
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="2" dstpinname="XY">
    </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="10">
-   <BOUNDS type="Node" left="4320" top="4680" width="100" height="100">
+   <BOUNDS type="Node" left="4344" top="5280" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="4320" top="4680" width="795" height="480">
+   <BOUNDS type="Box" left="4344" top="5280" width="795" height="480">
    </BOUNDS>
    <PIN pinname="Rows" slicecount="1" values="2">
    </PIN>

@@ -1,4 +1,4 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
    <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\GPU_Path (B-Spline).v4p" systemname="GPU_Path" filename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\splinesGPU\experiments\GPU_Path.v4p">
    <BOUNDS type="Window" left="6615" top="3285" width="20640" height="9795">
    </BOUNDS>
@@ -186,32 +186,6 @@
    <PIN pinname="SliceCount Mode" slicecount="1" values="ColsRowsPages">
    </PIN>
    </NODE>
-   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="32">
-   <BOUNDS type="Node" left="1470" top="13740" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="1470" top="13740" width="2400" height="1800">
-   </BOUNDS>
-   <BOUNDS type="Window" left="28800" top="0" width="6120" height="4965">
-   </BOUNDS>
-   <PIN pinname="Layers" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Actual Backbuffer Width" visible="1">
-   </PIN>
-   <PIN pinname="Actual Backbuffer Height" visible="1">
-   </PIN>
-   <PIN pinname="EX9 Out" visible="1">
-   </PIN>
-   <PIN pinname="Backbuffer Width" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Backbuffer Height" visible="1" slicecount="1" values="0">
-   </PIN>
-   <PIN pinname="Clear" slicecount="1" values="1">
-   </PIN>
-   <PIN pinname="Aspect Ratio" visible="1">
-   </PIN>
-   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="4">
-   </PIN>
-   </NODE>
    <LINK srcnodeid="12" srcpinname="Y Output Value" dstnodeid="30" dstpinname="Update" hiddenwhenlocked="1">
    </LINK>
    <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="33">
@@ -228,8 +202,6 @@
    <PIN pinname="Layer 3" visible="1" slicecount="1" values="||">
    </PIN>
    </NODE>
-   <LINK srcnodeid="33" srcpinname="Layer" dstnodeid="32" dstpinname="Layers">
-   </LINK>
    <NODE systemname="Constant (ParticlesGPU Sprite)" filename="..\..\Constant (ParticlesGPU Sprite).v4p" nodename="Constant (ParticlesGPU Sprite)" componentmode="Hidden" id="43">
    <BOUNDS type="Node" left="1695" top="10635" width="4545" height="270">
    </BOUNDS>
@@ -251,7 +223,7 @@
    <NODE systemname="ReplaceChannels (ParticlesGPU Filter)" filename="..\..\ReplaceChannels (ParticlesGPU Filter).v4p" nodename="ReplaceChannels (ParticlesGPU Filter)" componentmode="Hidden" id="44">
    <BOUNDS type="Node" left="1440" top="9330" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Input (XYZW)" visible="1">
+   <PIN pinname="Input (XYZW)" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="ReplaceXYZW " slicecount="4" visible="1" values="0,0,0,0">
    </PIN>
@@ -648,61 +620,7 @@
    </LINK>
    <LINK srcnodeid="84" srcpinname="Z" dstnodeid="29" dstpinname="Blue">
    </LINK>
-   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="85">
-   <BOUNDS type="Node" left="2565" top="14505" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="X" visible="1">
-   </PIN>
-   <PIN pinname="Y" visible="1">
-   </PIN>
-   <PIN pinname="XY" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="32" srcpinname="Actual Backbuffer Width" dstnodeid="85" dstpinname="X">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Actual Backbuffer Height" dstnodeid="85" dstpinname="Y">
-   </LINK>
-   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="86">
-   <BOUNDS type="Node" left="2580" top="15825" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Input Value" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="85" srcpinname="XY" dstnodeid="86" dstpinname="Input Value">
-   </LINK>
-   <NODE nodename="IOBox (String)" componentmode="InABox" id="87" systemname="IOBox (String)">
-   <BOUNDS type="Node" left="2835" top="14985" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2835" top="14985" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values="FSize">
-   </PIN>
-   <PIN pinname="Default" slicecount="1" values="devnul">
-   </PIN>
-   <PIN pinname="File Mask" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="87" srcpinname="Output String" dstnodeid="86" dstpinname="Send String">
-   </LINK>
    <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="80" dstpinname="Size">
-   </LINK>
-   <NODE systemname="AspectRatio (Transform)" nodename="AspectRatio (Transform)" componentmode="Hidden" id="88">
-   <BOUNDS type="Node" left="2910" top="13095" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Transform Out" visible="1">
-   </PIN>
-   <PIN pinname="Aspect Width" visible="1">
-   </PIN>
-   <PIN pinname="Aspect Height" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="88" srcpinname="Transform Out" dstnodeid="32" dstpinname="Aspect Ratio">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Actual Backbuffer Width" dstnodeid="88" dstpinname="Aspect Width">
-   </LINK>
-   <LINK srcnodeid="32" srcpinname="Actual Backbuffer Height" dstnodeid="88" dstpinname="Aspect Height">
    </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="94">
    <BOUNDS type="Node" left="19275" top="210" width="100" height="100">
@@ -817,12 +735,12 @@
    </PIN>
    <PIN pinname="Control Points Per Spline" visible="1">
    </PIN>
+   <PIN pinname="Position XYZ" visible="1">
+   </PIN>
    </NODE>
    <LINK srcnodeid="29" srcpinname="Texture Out" dstnodeid="89" dstpinname="Control Points (XYZ)">
    </LINK>
    <LINK srcnodeid="58" srcpinname="Position Out" dstnodeid="89" dstpinname="PositionU">
-   </LINK>
-   <LINK srcnodeid="89" srcpinname="Texture Out" dstnodeid="44" dstpinname="Input (XYZW)">
    </LINK>
    <LINK srcnodeid="9" srcpinname="Y Output Value" dstnodeid="89" dstpinname="SizeXY">
    </LINK>
@@ -833,5 +751,79 @@
    <LINK srcnodeid="4" srcpinname="Texture Out" dstnodeid="89" dstpinname="Position (XYZ) PositionU Offset (W)">
    </LINK>
    <LINK srcnodeid="28" srcpinname="Y Output Value" dstnodeid="89" dstpinname="Control Points Per Spline">
+   </LINK>
+   <NODE systemname="Renderer (EX9)" nodename="Renderer (EX9)" componentmode="InAWindow" id="96">
+   <BOUNDS type="Node" left="5220" top="13425" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5220" top="13425" width="2400" height="1800">
+   </BOUNDS>
+   <BOUNDS type="Window" left="18540" top="9555" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="Aspect Ratio" visible="1">
+   </PIN>
+   <PIN pinname="Actual Backbuffer Width" visible="1">
+   </PIN>
+   <PIN pinname="Actual Backbuffer Height" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="33" srcpinname="Layer" dstnodeid="96" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="AspectRatio (Transform)" nodename="AspectRatio (Transform)" componentmode="Hidden" id="97">
+   <BOUNDS type="Node" left="6615" top="12705" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Aspect Width" visible="1">
+   </PIN>
+   <PIN pinname="Aspect Height" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="97" srcpinname="Transform Out" dstnodeid="96" dstpinname="Aspect Ratio">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Actual Backbuffer Width" dstnodeid="97" dstpinname="Aspect Width">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Actual Backbuffer Height" dstnodeid="97" dstpinname="Aspect Height">
+   </LINK>
+   <NODE systemname="Vector (2d Join)" nodename="Vector (2d Join)" componentmode="Hidden" id="100">
+   <BOUNDS type="Node" left="6150" top="14340" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="X" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y" visible="1" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="XY" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="S (Value)" nodename="S (Value)" componentmode="Hidden" id="99">
+   <BOUNDS type="Node" left="6165" top="15660" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="XY" dstnodeid="99" dstpinname="Input Value">
+   </LINK>
+   <NODE nodename="IOBox (String)" componentmode="InABox" id="98" systemname="IOBox (String)">
+   <BOUNDS type="Node" left="6420" top="14820" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="6420" top="14820" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input String" slicecount="1" values="FSize">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="devnul">
+   </PIN>
+   <PIN pinname="File Mask" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="98" srcpinname="Output String" dstnodeid="99" dstpinname="Send String">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Actual Backbuffer Width" dstnodeid="100" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Actual Backbuffer Height" dstnodeid="100" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="89" srcpinname="Position XYZ" dstnodeid="44" dstpinname="Input (XYZW)">
    </LINK>
    </PATCH>

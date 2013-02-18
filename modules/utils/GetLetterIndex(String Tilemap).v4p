@@ -1,0 +1,91 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.dtd" >
+   <PATCH nodename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\utils\GetLetterIndex(String Tilemap).v4p" systemname="GetLetterIndex (String Tilemap)" filename="C:\Users\smakhtin\Documents\GitRepos\ParticlesGPU-Modular\modules\utils\GetLetterIndex(String Tilemap).v4p">
+   <BOUNDS type="Window" left="16305" top="5085" width="3180" height="4575">
+   </BOUNDS>
+   <NODE id="5" systemname="Ord (String)" nodename="Ord (String)" componentmode="Hidden">
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Offset" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Node" left="570" top="2205" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Format" slicecount="1" values="Unsigned8Bit">
+   </PIN>
+   </NODE>
+   <NODE id="4" systemname="I (Spreads)" nodename="I (Spreads)" componentmode="Hidden">
+   <PIN pinname=".. To [" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <BOUNDS type="Node" left="960" top="1710" width="100" height="100">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Output" dstnodeid="5" dstpinname="Offset">
+   </LINK>
+   <NODE systemname="Length (String)" nodename="Length (String)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1140" top="1260" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Count" dstnodeid="4" dstpinname=".. To [">
+   </LINK>
+   <NODE systemname="IOBox (String)" nodename="IOBox (String)" componentmode="InABox" id="6">
+   <BOUNDS type="Node" left="1155" top="390" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1155" top="390" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Output String" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   <PIN pinname="Input String" slicecount="1" values="Lalalalalalal">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="0" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="6" srcpinname="Output String" dstnodeid="5" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="555" top="3030" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="555" top="3030" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Index">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="7" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="8">
+   <BOUNDS type="Node" left="1665" top="2595" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="5" srcpinname="Output" dstnodeid="8" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="9" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Node" left="1665" top="3030" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1665" top="3030" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Integer">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Count">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Count" dstnodeid="9" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>

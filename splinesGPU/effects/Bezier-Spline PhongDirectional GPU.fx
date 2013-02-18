@@ -10,10 +10,10 @@ float4x4 tWVP: WORLDVIEWPROJECTION;
 
 //texture
 texture Tex <string uiname="Texture";>;
-sampler Samp = sampler_state    //sampler for doing the texture-lookup
+sampler Samp = sampler_state
 {
-    Texture   = (Tex);          //apply a texture to the sampler
-    MipFilter = LINEAR;         //sampler states
+    Texture   = (Tex);
+    MipFilter = LINEAR;
     MinFilter = LINEAR;
     MagFilter = LINEAR;
 };
@@ -24,20 +24,20 @@ float alpha = 1.;
 
 int Size;
 texture pTex <string uiname="Position Texture";>;
-sampler pSamp = sampler_state    //sampler for doing the texture-lookup
+sampler pSamp = sampler_state
 {
-    Texture   = (pTex);          //apply a texture to the sampler
-    MipFilter = POINT;         //sampler states
+    Texture   = (pTex);
+    MipFilter = POINT;
     MinFilter = POINT;
     MagFilter = POINT;
 	AddressU = clamp;
 	ADDRESSV = wrap;
 };
 texture cTex <string uiname="Control Texture";>;
-sampler cSamp = sampler_state    //sampler for doing the texture-lookup
+sampler cSamp = sampler_state
 {
-    Texture   = (cTex);          //apply a texture to the sampler
-    MipFilter = POINT;         //sampler states
+    Texture   = (cTex);
+    MipFilter = POINT;
     MinFilter = POINT;
     MagFilter = POINT;
 	AddressU = clamp;
@@ -45,10 +45,21 @@ sampler cSamp = sampler_state    //sampler for doing the texture-lookup
 };
 
 texture colorTex <string uiname="Color Texture";>;
-sampler colorSamp = sampler_state    //sampler for doing the texture-lookup
+sampler colorSamp = sampler_state
 {
-    Texture   = (colorTex);          //apply a texture to the sampler
-    MipFilter = POINT;         //sampler states
+    Texture   = (colorTex);
+    MipFilter = POINT;
+    MinFilter = POINT;
+    MagFilter = POINT;
+	AddressU = clamp;
+	ADDRESSV = wrap;
+};
+
+texture endColorTex <string uiname="End Color Texture";>;
+sampler endColorSamp = sampler_state
+{
+    Texture   = (endColorTex);
+    MipFilter = POINT;
     MinFilter = POINT;
     MagFilter = POINT;
 	AddressU = clamp;
@@ -66,6 +77,8 @@ struct vs2ps
     float3 Bi : TEXCOORD5;
 	float4 Depth : TEXCOORD6;
 	float4 Color : COLOR0;
+	float4 EndColor : COLOR1;
+	float U : TEXCOORD7;
 };
  //---- Bezier-Spline -----------------------------------------------------------
 bool rel <string uiname="Relative Tangent";> = true;
@@ -98,11 +111,18 @@ vs2ps VS_Spline(float4 PosO: POSITION, float3 NormO: NORMAL, float4 TexCd : TEXC
 	
     float4 p1 = tex2Dlod(pSamp, cCd);
 	float4 t1 = tex2Dlod(cSamp, cCd);
+	
+	float u = PosCd.x*cSize;
+	Out.U = u;
+	
 	float4 p2 = tex2Dlod(pSamp, float4(cCd.x+(1./cSize),cCd.yzw));
 	float4 t2 = tex2Dlod(cSamp, float4(cCd.x+(1./cSize),cCd.yzw));
 	
 	float4 color = tex2Dlod(colorSamp, cCd);
 	Out.Color = color;
+	
+	float4 endColor = tex2Dlod(endColorSamp, cCd);
+	Out.EndColor = endColor;
     
 	pota curve = BezierSpline(p1,float4(t1.xyz,0),p2,float4(t2.xyz,0),PosCd.x*cSize);
     float4 spline = curve.Pos;
@@ -114,8 +134,8 @@ vs2ps VS_Spline(float4 PosO: POSITION, float3 NormO: NORMAL, float4 TexCd : TEXC
 	float3 tang = normalize(curve.Tang);
 	float3 bitang= normalize(cross(tang,rVec));
 	float3x3 tBN = float3x3((float3)0,bitang,cross(tang,bitang));
-	//PosO.xyz=spline.xyz+(mul(PosO.xyz,tBN)*spline.w);
-	PosO.xyz=spline.xyz + PosO.xyz * spline.w;
+	PosO.xyz=spline.xyz+(mul(PosO.xyz,tBN)*spline.w);
+	//PosO.xyz=spline.xyz + PosO.xyz * spline.w; - simplified version for CPU implementation. Also can creaate lines, that become thinner at the end.
 	
 	bitang = normalize(cross(tang,mul(NormO,tR)));
 	
@@ -152,6 +172,11 @@ float4 PS_COLOR_FROM_TEXTURE(vs2ps In): COLOR
     return col;
 }
 
+float4 PS_COLOR_FROM_TWO_TEXTURES(vs2ps In): COLOR
+{	
+    return lerp(In.Color, In.EndColor, In.U);
+}
+
 // TECHNIQUES-------------------------------------------------------------------
 technique BezierSpline_PhongDirectional
 {
@@ -176,5 +201,14 @@ technique Color_From_Texture
     {
         VertexShader = compile vs_3_0 VS_Spline();
         PixelShader = compile ps_3_0 PS_COLOR_FROM_TEXTURE();
+    }
+}
+
+technique Color_From_Two_Textures
+{
+    pass P0
+    {
+        VertexShader = compile vs_3_0 VS_Spline();
+        PixelShader = compile ps_3_0 PS_COLOR_FROM_TWO_TEXTURES();
     }
 }
