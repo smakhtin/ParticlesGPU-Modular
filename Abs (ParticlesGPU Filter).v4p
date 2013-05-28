@@ -1,9 +1,9 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\- (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
-   <BOUNDS type="Window" left="11505" top="5670" width="6735" height="6960">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Abs (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <BOUNDS type="Window" left="11535" top="5550" width="6735" height="6960">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="1335" top="2790" width="100" height="100">
+   <BOUNDS type="Node" left="1455" top="2805" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -11,7 +11,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="1335" top="1905" width="100" height="100">
+   <BOUNDS type="Node" left="1455" top="1920" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -40,26 +40,6 @@
    </NODE>
    <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="19" dstpinname="Input Node">
    </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="20" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="2655" top="2010" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="2655" top="2010" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Input1">
-   </PIN>
-   </NODE>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="21" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="3300" top="2655" width="0" height="0">
-   </BOUNDS>
-   <BOUNDS type="Box" left="3300" top="2655" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Input Node" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Input2">
-   </PIN>
-   </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="22">
    <BOUNDS type="Node" left="5175" top="450" width="100" height="100">
    </BOUNDS>
@@ -108,20 +88,32 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Stride">
    </LINK>
-   <NODE systemname="- (DX11.Effect)" filename="-.fx" nodename="- (DX11.Effect)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
-   </BOUNDS>
+   <NODE id="13" systemname="Abs (DX11.Effect)" filename="Abs.fx" nodename="Abs (DX11.Effect)" componentmode="Hidden">
    <PIN pinname="Geometry" visible="1">
    </PIN>
+   <PIN pinname="Input1">
+   </PIN>
+   <PIN pinname="Input2">
+   </PIN>
+   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
+   </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
-   </LINK>
    <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
    </LINK>
-   <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Input1">
+   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="25" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="3030" top="2340" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="3030" top="2340" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Output Node" dstnodeid="13" dstpinname="Input">
    </LINK>
    </PATCH>

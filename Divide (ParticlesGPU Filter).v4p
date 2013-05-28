@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\- (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
-   <BOUNDS type="Window" left="11505" top="5670" width="6735" height="6960">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Divide (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <BOUNDS type="Window" left="11535" top="5550" width="6735" height="6960">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1335" top="2790" width="100" height="100">
@@ -108,20 +108,24 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Stride">
    </LINK>
-   <NODE systemname="- (DX11.Effect)" filename="-.fx" nodename="- (DX11.Effect)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
-   </BOUNDS>
+   <NODE id="13" systemname="Divide (DX11.Effect)" filename="Divide.fx" nodename="Divide (DX11.Effect)" componentmode="Hidden">
    <PIN pinname="Geometry" visible="1">
    </PIN>
+   <PIN pinname="Input1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input2" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
+   </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
+   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
    </LINK>
    <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Input1">
    </LINK>
-   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
+   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
    </LINK>
    </PATCH>
