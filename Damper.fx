@@ -2,35 +2,22 @@
 //@help: Damping incoming values
 //@tags: particles
 //@credits: dottore, vvvv group, processing community
-
-#include "TextureProcessor.fxh"
+StructuredBuffer<float> Input;
+RWStructuredBuffer<float> Output : BACKBUFFER;
 
 float Power = 0.1;
 
-texture TargetTex <string uiname="Target Value (XYZW)";>;
-sampler TargetSamp = sampler_state
-{
-    Texture   = (TargetTex);          
-    MipFilter = LINEAR;         
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
-};
-
-float4 LINEAR_PS(vs2ps In): COLOR
-{
-    float4 current = tex2D(InputSamp, In.TexCd);
-	float4 target = tex2D(TargetSamp, In.TexCd);
-	
-	current += (target - current) * Power;
-    return current;
+[numthreads(64, 1, 1)]
+void MainCS( uint3 DTid : SV_DispatchThreadID )
+{       
+    float current = Output[DTid.x];
+    Output[DTid.x] += (Input[DTid.x] - current) * Power;
 }
 
-technique Linear
+technique11 Main
 {
     pass P0
     {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader = compile ps_3_0 LINEAR_PS();
-    	AlphaBlendEnable = false;
+        SetComputeShader( CompileShader( cs_5_0, MainCS() ) );
     }
 }

@@ -3,133 +3,99 @@
 //@tags: particles sprites
 //@credits: dottore, Viktor Vicsek for Sprites Function
 
-float4x4 tW: WORLD;
 float4x4 tV: VIEW;
-float4x4 tP: PROJECTION;
 float4x4 tVP: VIEWPROJECTION;
-float4x4 tWVP: WORLDVIEWPROJECTION;
+float4x4 tVI : VIEWINVERSE;
+ 
+StructuredBuffer<float> Radius;
+StructuredBuffer<float3> TranslateXYZ;
 
-float2 ViewportSize;
+Texture2D Texture;
+float4 Color <bool color=true;> = 1;
 
-bool EnableTile = false;
-float TileSize = 16.0;
+float3 g_positions[4]:IMMUTABLE =
+    {
+        float3( -1, 1, 0 ),
+        float3( 1, 1, 0 ),
+        float3( -1, -1, 0 ),
+        float3( 1, -1, 0 ),
+    };
 
-texture TranslateScaleTex <string uiname="TranslateXYZ (XYZ), UniformScale (W)";>;
-sampler TranslateScaleSamp = sampler_state
+float2 g_texcoords[4]:IMMUTABLE = 
+    { 
+        float2(0,1), 
+        float2(1,1),
+        float2(0,0),
+        float2(1,0),
+    };
+
+SamplerState textureSampler : IMMUTABLE
 {
-    Texture   = (TranslateScaleTex);          
-    MipFilter = LINEAR;                    
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+    Filter = MIN_MAG_MIP_LINEAR;
+    AddressU = Clamp;
+    AddressV = Clamp;
 };
 
-texture Texture <string uiname="Texture";>;
-sampler Samp = sampler_state
+struct VS_IN
 {
-    Texture   = (Texture);          
-    MipFilter = LINEAR;        
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
+    uint id : SV_VertexID;  
 };
 
-float4 Color :COLOR = 1;
-
-struct vs2ps
+struct vs2gs
 {
     float4 Pos : POSITION ;
-    float4 TextureTexCd : TEXCOORD1;
-    float Size : PSIZE ;
 };
 
-
-vs2ps VS(
-    float4 Pos : POSITION ,
-    float4 TransformTexCd : TEXCOORD0 ,
-    float4 TextureTexCd : TEXCOORD1 )
+struct gs2ps
 {
-    vs2ps Out = (vs2ps)0;
-    
-    float4 particleTransform = tex2Dlod(TranslateScaleSamp, TransformTexCd);
-    
-    Pos.xyz  += particleTransform.xyz;
-    
-    Out.Pos = mul(Pos, tWVP);
-	
-//	if(EnableTile)
-//	{
-//		TextureTexCd.xy /= 16.;
-//    	TextureTexCd.xy += float2((translateTileIndex.w%16)/16.,floor(translateTileIndex.w/16.)/16.);
-//	}
-    
-	//TextureTexCd.x *=-20;
-    Out.TextureTexCd = TextureTexCd;
-	
-	float size = min(ViewportSize.x, ViewportSize.y);
-	
-	float projScaleMax  = max(tP[0][0], tP[1][1]);
-	
-	//Detecting empty VIEW and PROJECTION matrixes (no camera)
-	if(abs(tV[0][0] - tP[0][0]) < 0.001 || abs(tV[1][1] - tP[1][1]) < 0.001)
-	{
-		projScaleMax /=	2;
-	}
+    float4 PosWVP : SV_POSITION ;
+    float2 TexCd : TEXCOORD0;
+};
 
-	
-	Out.Size = (size / 2) * (projScaleMax / Out.Pos.z) * particleTransform.w;
-    
-	return Out;
+vs2gs VS(VS_IN input)
+{
+    vs2gs Out = (vs2gs)0;
+    float3 position = TranslateXYZ[input.id];
+    Out.Pos = float4(position, Radius[input.id]);
+    return Out;
 }
 
-float4 MAIN_PS(vs2ps In): COLOR
+[maxvertexcount(4)]
+void GS(point vs2gs input[1], inout TriangleStream<gs2ps> SpriteStream)
 {
-    return tex2D(Samp, In.TextureTexCd) * Color;
-}
-
-technique Main
-{
-	pass P0
+    gs2ps output;
+    
+    //
+    // Emit two new triangles
+    //
+    for(int i=0; i<4; i++)
     {
-		FillMode = POINT;
-		PointScaleEnable = true;
-		PointSpriteEnable = true;
-		
-		VertexShader = compile vs_3_0 VS();
-		PixelShader = compile ps_3_0 MAIN_PS();
-	}
+        float4 p = input[0].Pos;    
+        float3 position = g_positions[i].xyz * p.w;
+        position = mul( position, (float3x3)tVI ) + p.xyz;
+        
+        float3 norm = mul(float3(0,0,-1),(float3x3)tVI );
+        output.PosWVP = mul( float4(position,1.0), tVP );
+        
+        output.TexCd = g_texcoords[i];
+        SpriteStream.Append(output);
+    }
+    SpriteStream.RestartStrip();
 }
 
-technique WorkingAlpha
+float4 PS_Tex(gs2ps In): SV_Target
+{
+    float4 col = Texture.Sample( textureSampler, In.TexCd) * Color;
+    //if (col.r < 0.5f) { discard; }
+    return col;
+}
+
+technique10 Main
 {
     pass P0
     {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader  = compile ps_3_0 MAIN_PS();
-        AlphaBlendEnable = false;
- 
-        AlphaTestEnable = true;
-        AlphaFunc = Greater;
-        AlphaRef = 245;
- 
-        ZEnable = true;
-        ZWriteEnable = true;
- 
-        CullMode = None;
-    }
-    pass P1
-    {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader  = compile ps_3_0 MAIN_PS();
-        AlphaBlendEnable = true;
-        SrcBlend = SrcAlpha;
-        DestBlend = InvSrcAlpha;
- 
-        AlphaTestEnable = true;
-        AlphaFunc = LessEqual;
-        AlphaRef = 245;
- 
-        ZEnable = true;
-        ZWriteEnable = false;
- 
-        CullMode = None;
+        SetVertexShader( CompileShader( vs_4_0, VS() ) );
+        SetGeometryShader( CompileShader( gs_4_0, GS() ) );
+        SetPixelShader( CompileShader( ps_4_0, PS_Tex() ) );
     }
 }

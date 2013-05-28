@@ -3,12 +3,12 @@
 //@tags: particles
 //@credits: desaxismundi, dottore
 //Source: http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
-
-#include "TextureProcessor.fxh"
+Texture2D Texture;
 
 float Power = 1;
 
-float4 AVERAGE_BASE_PS(vs2ps In): COLOR
+[numthreads(64, 1, 1)]
+void AverageBaseCS(vs2ps In)
 {
     float4 input = tex2D(InputSamp, In.TexCd);
 	
@@ -17,7 +17,8 @@ float4 AVERAGE_BASE_PS(vs2ps In): COLOR
     return lumiance * Power;
 }
 
-float4 LUMINANCE_STANDARD_OBJECTIVE_PS(vs2ps In): COLOR
+[numthreads(64, 1, 1)]
+void LuminanceStandardObjectiveCS(vs2ps In)
 {
     float4 input = tex2D(InputSamp, In.TexCd);
     
@@ -26,7 +27,8 @@ float4 LUMINANCE_STANDARD_OBJECTIVE_PS(vs2ps In): COLOR
     return lumiance * Power;
 }
 
-float4 LUMINANCE_PERCEIVED_OPTION_1_PS(vs2ps In): COLOR
+[numthreads(64, 1, 1)]
+void LuminancePerceivedOption1CS(vs2ps In)
 {
     float4 input = tex2D(InputSamp, In.TexCd);
     
@@ -35,7 +37,8 @@ float4 LUMINANCE_PERCEIVED_OPTION_1_PS(vs2ps In): COLOR
     return lumiance * Power;
 }
 
-float4 LUMINANCE_PERCEIVED_OPTION_2_PS(vs2ps In): COLOR
+[numthreads(64, 1, 1)]
+void LuminancePerceivedOption2CS(vs2ps In)
 {
     float4 input = tex2D(InputSamp, In.TexCd);
     

@@ -1,6 +1,6 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta28.1.dtd" >
-   <PATCH nodename="C:\Users\Smakhtin\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
-   <BOUNDS type="Window" left="10710" top="4875" width="8025" height="7395">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta29.2.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p" systemname="Constant (ParticlesGPU Sprite)" filename="C:\Users\Vadim\Documents\GitRepos\ParticlesGPU-Modular\Constant (ParticlesGPU Sprite).v4p">
+   <BOUNDS type="Window" left="7590" top="5550" width="8025" height="7395">
    </BOUNDS>
    <NODE systemname="Sprite (ParticlesGPU Mesh)" filename="Sprite (ParticlesGPU Mesh).v4p" nodename="Sprite (ParticlesGPU Mesh)" componentmode="Hidden" id="9">
    <BOUNDS type="Node" left="1395" top="3240" width="100" height="100">
@@ -36,36 +36,6 @@
    </NODE>
    <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Apply">
    </LINK>
-   <NODE systemname="Constant_ParticlesGPU_Sprite (EX9.Effect)" filename="Constant_ParticlesGPU_Sprite.fx" nodename="Constant_ParticlesGPU_Sprite (EX9.Effect)" componentmode="Hidden" id="7">
-   <BOUNDS type="Node" left="795" top="4335" width="5460" height="270">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Mesh" visible="1">
-   </PIN>
-   <PIN pinname="Calculate Scale From Perspective" visible="1">
-   </PIN>
-   <PIN pinname="ViewportHeight" visible="1">
-   </PIN>
-   <PIN pinname="Transform Texture" visible="1">
-   </PIN>
-   <PIN pinname="Color" visible="1">
-   </PIN>
-   <PIN pinname="NoCamera">
-   </PIN>
-   <PIN pinname="ViewportSizeXY XY" visible="1">
-   </PIN>
-   <PIN pinname="ViewportSize XY" visible="1">
-   </PIN>
-   <PIN pinname="TranslateXYZ (XYZ), UniformScale (W)" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Texture" visible="1" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Enabled" slicecount="1" values="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="9" srcpinname="mesh out" dstnodeid="7" dstpinname="Mesh">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="6">
    <BOUNDS type="Node" left="2610" top="3270" width="100" height="100">
    </BOUNDS>
@@ -86,8 +56,6 @@
    <PIN pinname="X Input Value" slicecount="2" values="0,0">
    </PIN>
    </NODE>
-   <LINK srcnodeid="6" srcpinname="Y Output Value" dstnodeid="7" dstpinname="ViewportSize XY">
-   </LINK>
    <NODE systemname="Vector (2d Split)" nodename="Vector (2d Split)" componentmode="Hidden" id="5">
    <BOUNDS type="Node" left="1380" top="2700" width="100" height="100">
    </BOUNDS>
@@ -134,8 +102,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|Render State|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="3" srcpinname="Output Node" dstnodeid="7" dstpinname="Render State">
-   </LINK>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="2">
    <BOUNDS type="Node" left="4410" top="3195" width="100" height="100">
    </BOUNDS>
@@ -148,8 +114,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Color">
    </PIN>
    </NODE>
-   <LINK srcnodeid="2" srcpinname="Color Output" dstnodeid="7" dstpinname="Color">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="3795" top="2580" width="0" height="0">
    </BOUNDS>
@@ -160,8 +124,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Texture">
    </PIN>
    </NODE>
-   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="7" dstpinname="Texture">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="0" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="3225" top="1920" width="0" height="0">
    </BOUNDS>
@@ -172,20 +134,16 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="|TranslateXYZ (XYZ), UniformScale (W)|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="0" srcpinname="Output Node" dstnodeid="7" dstpinname="TranslateXYZ (XYZ), UniformScale (W)">
-   </LINK>
    <NODE systemname="IOBox (Node)" nodename="IOBox (Node)" componentmode="InABox" id="11">
    <BOUNDS type="Node" left="795" top="5595" width="100" height="100">
    </BOUNDS>
    <BOUNDS type="Box" left="795" top="5595" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Input Node" visible="1">
+   <PIN pinname="Input Node" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Layer">
    </PIN>
    </NODE>
-   <LINK srcnodeid="7" srcpinname="Layer" dstnodeid="11" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="13" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="1080" top="3615" width="0" height="0">
    </BOUNDS>
@@ -196,8 +154,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Transform">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Output Node" dstnodeid="7" dstpinname="Transform">
-   </LINK>
    <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="14" systemname="IOBox (Enumerations)">
    <BOUNDS type="Node" left="5220" top="3930" width="0" height="0">
    </BOUNDS>
@@ -205,9 +161,21 @@
    </BOUNDS>
    <PIN pinname="Input Enum" slicecount="1" values="| Main|">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Technique" encoded="0">
+   <PIN pinname="Descriptive Name" slicecount="1" encoded="0" values="Technique">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Output Enum" dstnodeid="7" dstpinname="Technique">
+   <NODE systemname="Constant_ParticlesGPU_Sprite (DX11.Effect)" filename="Constant_ParticlesGPU_Sprite.fx" nodename="Constant_ParticlesGPU_Sprite (DX11.Effect)" componentmode="Hidden" id="17">
+   <BOUNDS type="Node" left="2910" top="5160" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="18">
+   <BOUNDS type="Node" left="2835" top="5745" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="17" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
    </LINK>
    </PATCH>

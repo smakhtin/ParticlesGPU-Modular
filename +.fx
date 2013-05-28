@@ -1,40 +1,18 @@
-//@author: alg
-//@help: Replace Input 1 data by data from Input 2 channel by channel
-//@tags: particles
-//@credits: dottore
+StructuredBuffer<float> Input1;
+StructuredBuffer<float> Input2;
 
-#include "TextureProcessor.fxh"
+RWStructuredBuffer<float> Output : BACKBUFFER;
 
-texture AddTex <string uiname="Input 2 (XYZW)";>;
-sampler AddSamp = sampler_state
-{
-    Texture   = (AddTex);          
-    MipFilter = LINEAR;         
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
-};
-
-float4 MAIN_PS(vs2ps In): COLOR
-{
-    float4 input = tex2D(InputSamp, In.TexCd);
-	
-	float4 add = tex2D(AddSamp, In.TexCd);
-	
-	input += add;
-	
-    return input;
+[numthreads(64, 1, 1)]
+void MainCS( uint3 DTid : SV_DispatchThreadID )
+{		
+	Output[DTid.x] = Input1[DTid.x] + Input2[DTid.x];
 }
 
-// --------------------------------------------------------------------------------------------------
-// TECHNIQUES:
-// --------------------------------------------------------------------------------------------------
-
-technique Main
+technique11 Main
 {
-    pass P0
-    {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader = compile ps_3_0 MAIN_PS();
-    	AlphaBlendEnable = false;
-    }
+	pass P0
+	{
+		SetComputeShader( CompileShader( cs_5_0, MainCS() ) );
+	}
 }

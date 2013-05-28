@@ -2,32 +2,23 @@
 //@help: Switch between 2 textures
 //@tags: particles
 //@credits:
+StructuredBuffer<float> Input1;
+StructuredBuffer<float> Input2;
 
-#include "TextureProcessor.fxh"
-
-texture SecondTex <string uiname="Input 2 (XYZW)";>;
-sampler SecondSamp = sampler_state
-{
-    Texture   = (SecondTex);          
-    MipFilter = LINEAR;         
-    MinFilter = LINEAR;
-    MagFilter = LINEAR;
-};
+RWStructuredBuffer<float> Output : BACKBUFFER;
 
 bool Switch = false;
 
-float4 MAIN_PS(vs2ps In): COLOR
-{
-    float4 input = tex2D(InputSamp, In.TexCd);
-	float4 secondInput = tex2D(SecondSamp, In.TexCd);
-	
+[numthreads(64, 1, 1)]
+float4 MainCS(uint3 DTid : SV_DispatchThreadID)
+{	
 	if(!Switch)
 	{
-		return input;
+        Output[DTid.x] = Input1[DTid.x]
 	}
 	else
 	{
-		return secondInput;
+		Output[DTid.x] = Input2[DTid.x]
 	}
 }
 
@@ -35,8 +26,6 @@ technique Main
 {
     pass P0
     {
-        VertexShader = compile vs_3_0 VS();
-        PixelShader = compile ps_3_0 MAIN_PS();
-    	AlphaBlendEnable = false;
+        SetComputeShader( CompileShader( cs_5_0, MainCS() ) );
     }
 }
