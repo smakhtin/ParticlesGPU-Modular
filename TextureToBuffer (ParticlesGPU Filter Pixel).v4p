@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha30.1.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\TextureToBuffer (ParticlesGPU Filter 2d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" locked="0">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\TextureToBuffer (ParticlesGPU Filter Pixel).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" locked="0">
    <BOUNDS type="Window" left="19620" top="5115" width="7350" height="8250">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
@@ -7,7 +7,7 @@
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="Thread X" visible="1" slicecount="1" values="64">
+   <PIN pinname="Thread X" visible="1" slicecount="1" values="0.09375">
    </PIN>
    </NODE>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">
@@ -33,15 +33,15 @@
    </BOUNDS>
    <BOUNDS type="Box" left="345" top="5790" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Pixel">
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="19" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="20" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="3345" top="2955" width="0" height="0">
+   <BOUNDS type="Node" left="3315" top="3360" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3345" top="2955" width="795" height="240">
+   <BOUNDS type="Box" left="3315" top="3360" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -87,7 +87,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1005" top="4515" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="16">
+   <PIN pinname="Y Input Value" slicecount="1" values="28">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -128,7 +128,9 @@
    </LINK>
    <LINK srcnodeid="32" srcpinname="Output" dstnodeid="22" dstpinname="Y Input Value">
    </LINK>
-   <NODE systemname="TextureToBuffer2d (DX11.Effect)" filename="TextureToBuffer2d.fx" nodename="TextureToBuffer2d (DX11.Effect)" componentmode="Hidden" id="13">
+   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="14" dstpinname="Thread X">
+   </LINK>
+   <NODE systemname="TextureToBufferPixel (DX11.Effect)" filename="TextureToBufferPixel.fx" nodename="TextureToBufferPixel (DX11.Effect)" componentmode="Hidden" id="13">
    <BOUNDS type="Node" left="675" top="4125" width="4020" height="270">
    </BOUNDS>
    <PIN pinname="Geometry" visible="1">
@@ -151,7 +153,5 @@
    <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Texture">
    </LINK>
    <LINK srcnodeid="31" srcpinname="Y Output Value" dstnodeid="13" dstpinname="SizeXY">
-   </LINK>
-   <LINK srcnodeid="17" srcpinname="Output" dstnodeid="14" dstpinname="Thread X">
    </LINK>
    </PATCH>
