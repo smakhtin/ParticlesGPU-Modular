@@ -1,9 +1,9 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\GetLifeTime (Particle ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Multiply (ParticlesGPU Filter 4d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
    <BOUNDS type="Window" left="11535" top="5550" width="6735" height="6960">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="1470" top="2745" width="100" height="100">
+   <BOUNDS type="Node" left="1335" top="2790" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
@@ -11,7 +11,7 @@
    </PIN>
    </NODE>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="1470" top="1860" width="100" height="100">
+   <BOUNDS type="Node" left="1335" top="1905" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -35,21 +35,29 @@
    </BOUNDS>
    <BOUNDS type="Box" left="345" top="5040" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Life Time|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Output">
    </PIN>
    </NODE>
    <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="19" dstpinname="Input Node">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="20" systemname="IOBox (Node)">
-   <BOUNDS type="Node" left="3060" top="2010" width="0" height="0">
+   <BOUNDS type="Node" left="2655" top="2010" width="0" height="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="3060" top="2010" width="795" height="240">
+   <BOUNDS type="Box" left="2655" top="2010" width="795" height="240">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Particle">
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input1">
    </PIN>
-   <PIN pinname="Output Node" visible="1">
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="21" systemname="IOBox (Node)">
+   <BOUNDS type="Node" left="3300" top="2655" width="0" height="0">
+   </BOUNDS>
+   <BOUNDS type="Box" left="3300" top="2655" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Input2">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="22">
@@ -89,7 +97,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1005" top="3765" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="4">
+   <PIN pinname="Y Input Value" slicecount="1" values="16">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -100,28 +108,24 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Stride">
    </LINK>
-   <NODE id="13" systemname="GetLifeTimeParticle (DX11.Effect)" filename="GetLifeTimeParticle.fx" nodename="GetLifeTimeParticle (DX11.Effect)" componentmode="Hidden">
+   <NODE id="13" systemname="Multiply4d (DX11.Effect)" filename="Multiply4d.fx" nodename="Multiply4d (DX11.Effect)" componentmode="Hidden">
    <PIN pinname="Geometry" visible="1">
    </PIN>
-   <PIN pinname="Input1">
+   <PIN pinname="Input1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Input2">
+   <PIN pinname="Input2" slicecount="1" values="||">
    </PIN>
    <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <PIN pinname="XYZW" visible="1">
-   </PIN>
-   <PIN pinname="XYZ" visible="1">
-   </PIN>
-   <PIN pinname="Particle" visible="1" slicecount="1" values="||">
-   </PIN>
    </NODE>
+   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Input1">
+   </LINK>
    <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
    </LINK>
    <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Particle">
    </LINK>
    </PATCH>

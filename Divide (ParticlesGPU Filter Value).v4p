@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Divide (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Divide (ParticlesGPU Filter Value).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
    <BOUNDS type="Window" left="11535" top="5550" width="6735" height="6960">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
@@ -108,7 +108,7 @@
    </NODE>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Stride">
    </LINK>
-   <NODE id="13" systemname="Divide (DX11.Effect)" filename="Divide.fx" nodename="Divide (DX11.Effect)" componentmode="Hidden">
+   <NODE id="13" systemname="DivideValue (DX11.Effect)" filename="DivideValue.fx" nodename="DivideValue (DX11.Effect)" componentmode="Hidden">
    <PIN pinname="Geometry" visible="1">
    </PIN>
    <PIN pinname="Input1" slicecount="1" values="||">

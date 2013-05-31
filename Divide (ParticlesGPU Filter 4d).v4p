@@ -1,15 +1,7 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
-   <BOUNDS type="Window" left="18570" top="4155" width="6735" height="6960">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\Divide (ParticlesGPU Filter 4d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+   <BOUNDS type="Window" left="11535" top="5550" width="6735" height="6960">
    </BOUNDS>
-   <NODE systemname="+ (DX11.Effect)" filename="+.fx" nodename="+ (DX11.Effect)" componentmode="Hidden" id="13">
-   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
-   </BOUNDS>
-   <PIN pinname="Geometry" visible="1">
-   </PIN>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   </NODE>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1335" top="2790" width="100" height="100">
    </BOUNDS>
@@ -18,8 +10,6 @@
    <PIN pinname="Thread X" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
-   </LINK>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">
    <BOUNDS type="Node" left="1335" top="1905" width="100" height="100">
    </BOUNDS>
@@ -35,13 +25,11 @@
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="18">
    <BOUNDS type="Node" left="360" top="4290" width="100" height="100">
    </BOUNDS>
-   <PIN pinname="Layer" visible="1">
+   <PIN pinname="Layer" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Element Count" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="19" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="345" top="5040" width="0" height="0">
    </BOUNDS>
@@ -62,8 +50,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Input1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Input1">
-   </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="21" systemname="IOBox (Node)">
    <BOUNDS type="Node" left="3300" top="2655" width="0" height="0">
    </BOUNDS>
@@ -74,8 +60,6 @@
    <PIN pinname="Descriptive Name" slicecount="1" values="Input2">
    </PIN>
    </NODE>
-   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
-   </LINK>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="22">
    <BOUNDS type="Node" left="5175" top="450" width="100" height="100">
    </BOUNDS>
@@ -113,7 +97,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="1005" top="3765" width="795" height="240">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="4">
+   <PIN pinname="Y Input Value" slicecount="1" values="16">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -123,5 +107,25 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Stride">
+   </LINK>
+   <NODE id="13" systemname="DivideValue (DX11.Effect)" filename="DivideValue.fx" nodename="DivideValue (DX11.Effect)" componentmode="Hidden">
+   <PIN pinname="Geometry" visible="1">
+   </PIN>
+   <PIN pinname="Input1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Input2" slicecount="1" values="||">
+   </PIN>
+   <BOUNDS type="Node" left="675" top="3375" width="4020" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Output Node" dstnodeid="13" dstpinname="Input2">
+   </LINK>
+   <LINK srcnodeid="20" srcpinname="Output Node" dstnodeid="13" dstpinname="Input1">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Layer" dstnodeid="18" dstpinname="Layer">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Geometry Out" dstnodeid="13" dstpinname="Geometry">
    </LINK>
    </PATCH>

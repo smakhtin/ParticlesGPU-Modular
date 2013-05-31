@@ -1,13 +1,14 @@
-#include "Particle.fxh"
-
-StructuredBuffer<particle> Particle;
+StructuredBuffer<float> Input;
 
 RWStructuredBuffer<float> Output : BACKBUFFER;
 
 [numthreads(64, 1, 1)]
 void MainCS( uint3 DTid : SV_DispatchThreadID )
-{		
-	Output[DTid.x] = Particle[DTid.x].lifeTime;
+{	
+	uint count,dummy;	
+	Input.GetDimensions(count,dummy);
+	
+	Output[DTid.x] = Input[DTid.x % count];
 }
 
 technique11 Main
