@@ -14,11 +14,11 @@ RWStructuredBuffer<float4> Output : BACKBUFFER;
 void MainCS( uint3 DTid : SV_DispatchThreadID )
 {	
 	float x = DTid.x % Size.x;
-	float y = DTid.x / Size.y;
+	float y = DTid.x / Size.x;
 	y = y - frac(y);
 	
-	x /= Size.x;
-	y /= Size.y;
+	x /= (Size.x - 1);
+	y /= (Size.y - 1);
 	
 	Output[DTid.x] = texture2d.SampleLevel(g_samLinear, float2(x, y), 0, 0);
 }

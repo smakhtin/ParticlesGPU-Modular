@@ -1,13 +1,13 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\TextureToBuffer (ParticlesGPU Filter 2d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
-   <BOUNDS type="Window" left="7740" top="4515" width="7350" height="8250">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha30.1.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\TextureToBuffer (ParticlesGPU Filter 2d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" locked="0">
+   <BOUNDS type="Window" left="19620" top="5115" width="7350" height="8250">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
    <BOUNDS type="Node" left="1350" top="3525" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
-   <PIN pinname="Thread X" visible="1">
+   <PIN pinname="Thread X" visible="1" slicecount="1" values="64">
    </PIN>
    </NODE>
    <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">

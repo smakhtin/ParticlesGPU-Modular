@@ -50,7 +50,7 @@ float4 PS(vs2ps In): SV_Target
 {
 	float x = In.TexCd.x * Size.x;
 	float y = In.TexCd.y * Size.y;
-    float4 col = Input[In.PosWVP.x + In.PosWVP.y * Size.x];
+    float4 col = Input[x + y * Size.x];
 	
 	//float4 col = texture2d.Sample(g_samLinear, In.TexCd.xy);
     return col;
