@@ -1,0 +1,65 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha30.1.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\ReadBack (ParticlesGPU Pixel).v4p" systemname="ReadBack (ParticlesGPU Pixel)" filename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\ReadBack (ParticlesGPU Pixel).v4p">
+   <BOUNDS type="Window" left="4995" top="7575" width="2685" height="4905">
+   </BOUNDS>
+   <NODE systemname="ReadBack (DX11.Buffer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="ReadBack (DX11.Buffer)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="495" top="915" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layout" slicecount="1" values="|float4,float2,uint|">
+   </PIN>
+   <PIN pinname="Output 1XYZW" visible="1">
+   </PIN>
+   <PIN pinname="Output 2XY" visible="1">
+   </PIN>
+   <PIN pinname="Output 3" visible="1">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="1" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="480" top="150" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="480" top="150" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Pixel Buffer|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="1" srcpinname="Output Node" dstnodeid="0" dstpinname="Input">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="4">
+   <BOUNDS type="Node" left="495" top="2160" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="495" top="2160" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Color RGBA|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output 1XYZW" dstnodeid="4" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="5">
+   <BOUNDS type="Node" left="885" top="2925" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="885" top="2925" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Pixel XY|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output 2XY" dstnodeid="5" dstpinname="Y Input Value">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="6">
+   <BOUNDS type="Node" left="1245" top="1650" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1245" top="1650" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Id">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Output 3" dstnodeid="6" dstpinname="Y Input Value">
+   </LINK>
+   </PATCH>
