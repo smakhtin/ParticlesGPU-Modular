@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha30.1.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\TextureToBuffer (ParticlesGPU Filter Pixel).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" locked="0">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\TextureToBuffer (ParticlesGPU Filter Pixel).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p" locked="0">
    <BOUNDS type="Window" left="19620" top="5115" width="7350" height="8250">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
@@ -8,16 +8,6 @@
    <PIN pinname="Geometry Out" visible="1">
    </PIN>
    <PIN pinname="Thread X" visible="1" slicecount="1" values="0.09375">
-   </PIN>
-   </NODE>
-   <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="17">
-   <BOUNDS type="Node" left="1350" top="2640" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Output" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1">
-   </PIN>
-   <PIN pinname="Input 2" slicecount="1" values="64">
    </PIN>
    </NODE>
    <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="18">
@@ -63,8 +53,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="18" dstpinname="Element Count">
-   </LINK>
-   <LINK srcnodeid="22" srcpinname="Y Output Value" dstnodeid="17" dstpinname="Input">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="23" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Node" left="5190" top="5790" width="0" height="0">

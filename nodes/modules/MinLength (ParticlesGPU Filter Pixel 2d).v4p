@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha30.1.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\MinLength (ParticlesGPU Filter Pixel 2d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\MinLength (ParticlesGPU Filter Pixel 2d).v4p" systemname="+ (ParticlesGPU Filter)" filename="C:\Users\algar_000\Documents\GitRepos\ParticlesGPU-Modular\+ (ParticlesGPU Filter).v4p">
    <BOUNDS type="Window" left="18435" top="2940" width="8475" height="10215">
    </BOUNDS>
    <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="14">
@@ -154,54 +154,6 @@
    </NODE>
    <LINK srcnodeid="45" srcpinname="Buffer Out" dstnodeid="44" dstpinname="Input">
    </LINK>
-   <NODE systemname="CopyBuffer (DX11.Effect)" filename="..\CopyBuffer.fx" nodename="CopyBuffer (DX11.Effect)" componentmode="Hidden" id="42">
-   <BOUNDS type="Node" left="1350" top="9675" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Geometry" visible="1">
-   </PIN>
-   <PIN pinname="Input" visible="1" slicecount="1" values="||">
-   </PIN>
-   </NODE>
-   <NODE systemname="Renderer (DX11 Buffer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11 Buffer)" componentmode="Hidden" id="41">
-   <BOUNDS type="Node" left="1050" top="10530" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Element Count" visible="1">
-   </PIN>
-   <PIN pinname="Buffers" visible="1">
-   </PIN>
-   <PIN pinname="Stride" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="42" srcpinname="Layer" dstnodeid="41" dstpinname="Layer">
-   </LINK>
-   <NODE systemname="Dispatcher (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Dispatcher (DX11.Drawer)" componentmode="Hidden" id="40">
-   <BOUNDS type="Node" left="1545" top="9135" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Geometry Out" visible="1">
-   </PIN>
-   <PIN pinname="Thread X" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="40" srcpinname="Geometry Out" dstnodeid="42" dstpinname="Geometry">
-   </LINK>
-   <LINK srcnodeid="44" srcpinname="Output 1" dstnodeid="40" dstpinname="Thread X">
-   </LINK>
-   <LINK srcnodeid="44" srcpinname="Output 1" dstnodeid="41" dstpinname="Element Count">
-   </LINK>
-   <NODE nodename="IOBox (Node)" componentmode="InABox" id="46" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1065" top="11370" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1065" top="11370" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Pixel">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="41" srcpinname="Buffers" dstnodeid="46" dstpinname="Input Node">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="47" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3075" top="7170" width="795" height="240">
    </BOUNDS>
@@ -234,10 +186,16 @@
    </NODE>
    <LINK srcnodeid="44" srcpinname="Output 1" dstnodeid="48" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="24" srcpinname="Y Output Value" dstnodeid="41" dstpinname="Stride">
-   </LINK>
    <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="45" dstpinname="Buffer In">
    </LINK>
-   <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="42" dstpinname="Input">
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="49" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="360" top="8865" width="945" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="360" top="8865" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Pixel">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="18" srcpinname="Buffers" dstnodeid="49" dstpinname="Input Node">
    </LINK>
    </PATCH>
