@@ -6,8 +6,17 @@ RWStructuredBuffer<float3> Output : BACKBUFFER;
 
 [numthreads(64, 1, 1)]
 void MainCS( uint3 DTid : SV_DispatchThreadID )
-{		
-	Output[DTid.x] = float3(X[DTid.x], Y[DTid.x], Z[DTid.x]);
+{	
+	uint countX, dummyX;
+	X.GetDimensions(countX, dummyX);
+
+	uint countY, dummyY;
+	Y.GetDimensions(countY, dummyY);
+
+	uint countZ, dummyZ;	
+	Z.GetDimensions(countZ, dummyZ);
+
+	Output[DTid.x] = float3(X[DTid.x % countX], Y[DTid.x % countY], Z[DTid.x % countZ]);
 }
 
 technique11 Main
