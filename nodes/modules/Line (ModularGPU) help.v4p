@@ -1,0 +1,163 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Line (ModularGPU) help.v4p" systemname="Line (ModularGPU) help" filename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Line (ModularGPU) help.v4p">
+   <BOUNDS type="Window" left="15870" top="6750" width="8790" height="6825">
+   </BOUNDS>
+   <NODE systemname="Line (ModularGPU)" filename="Line (ModularGPU).v4p" nodename="Line (ModularGPU)" componentmode="Hidden" id="0">
+   <BOUNDS type="Node" left="1470" top="3600" width="5580" height="270">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Lines Count" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="VerticesXYZ" visible="1">
+   </PIN>
+   <PIN pinname="XYZ Width(W)">
+   </PIN>
+   <PIN pinname="Buffer - VerticesXYZ" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Width" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="1">
+   <BOUNDS type="Node" left="1080" top="4965" width="4110" height="270">
+   </BOUNDS>
+   <BOUNDS type="Box" left="1080" top="4965" width="6000" height="4500">
+   </BOUNDS>
+   <BOUNDS type="Window" left="18450" top="1020" width="6240" height="5085">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="1" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="4">
+   <BOUNDS type="Node" left="4755" top="765" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="4755" top="765" width="795" height="480">
+   </BOUNDS>
+   <PIN pinname="Rows" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="2" values="-0.5,0.5">
+   </PIN>
+   <PIN pinname="Vector Size" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Default" slicecount="1" values="|0, 0|">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="X">
+   </PIN>
+   </NODE>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="8" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="2580" top="2955" width="735" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2580" top="2955" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Bin Size|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="8" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Bin Size">
+   </LINK>
+   <NODE nodename="Vector (3d Join)" id="3" systemname="Vector (3d Join)">
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.62">
+   </PIN>
+   <PIN pinname="Z" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="W">
+   </PIN>
+   <BOUNDS type="Node" left="4770" top="1560" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="4" srcpinname="Y Output Value" dstnodeid="3" dstpinname="X">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 3d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 3d)" componentmode="Hidden" id="2">
+   <BOUNDS type="Node" left="4770" top="1995" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="DataXYZW">
+   </PIN>
+   <PIN pinname="DataXYZ" visible="1">
+   </PIN>
+   <PIN pinname="Keep In Memory" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="3" srcpinname="XYZ" dstnodeid="2" dstpinname="DataXYZ">
+   </LINK>
+   <LINK srcnodeid="2" srcpinname="Buffer" dstnodeid="0" dstpinname="VerticesXYZ">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Value)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Value)" componentmode="Hidden" id="9">
+   <BOUNDS type="Node" left="7005" top="2265" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Data" slicecount="1" values="3" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="9" srcpinname="Buffer" dstnodeid="0" dstpinname="Width">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="10">
+   <BOUNDS type="Node" left="5865" top="2940" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   <PIN pinname="Data" slicecount="1" values="|0.00000,0.93069,1.00000,1.00000|" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Buffer" dstnodeid="0" dstpinname="Color">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5040" top="285" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5040" top="285" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Y">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="3" dstpinname="Y">
+   </LINK>
+   <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="15">
+   <BOUNDS type="Node" left="5880" top="2355" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="5880" top="2355" width="330" height="435">
+   </BOUNDS>
+   <PIN pinname="Color Output" visible="1">
+   </PIN>
+   <PIN pinname="Color Input" slicecount="1" values="|0.38914,0.00000,1.00000,1.00000|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="15" srcpinname="Color Output" dstnodeid="10" dstpinname="Data">
+   </LINK>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="16">
+   <BOUNDS type="Node" left="7020" top="1530" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="7020" top="1530" width="795" height="240">
+   </BOUNDS>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Width">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="16" srcpinname="Y Output Value" dstnodeid="9" dstpinname="Data">
+   </LINK>
+   </PATCH>

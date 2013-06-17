@@ -1,11 +1,8 @@
-//@author: gregsn
-//@help: standard line shader
-//@tags: 
-//@credits: 
-
 Texture2D texture2d <string uiname="Texture";>;
 
 StructuredBuffer<float3> VerticesXYZ;
+StructuredBuffer<float4> Color;
+StructuredBuffer<float> Width;
 
 SamplerState g_samLinear : IMMUTABLE
 {
@@ -18,9 +15,8 @@ cbuffer cbPerDraw : register( b0 )
 {
 	float4x4 tWVP : WORLDVIEWPROJECTION;
 	float4x4 tP : PROJECTION;
-	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
+	float4 cAmb <bool color=true;String uiname="Ambient Color";> = { 1.0f,1.0f,1.0f,1.0f };
 	float4x4 tTex <string uiname="Texture Transform";>;
-	float Width = 0.01;
 	float BinSize = 2;
 };
 
@@ -36,6 +32,7 @@ struct vs2ps
 {
     float4 PosP: SV_POSITION;
     float4 TexCd: TEXCOORD0;
+	float4 Color: COLOR;
 };
 
 uint getIndex(uint instanceIndex, int binSize, uint vertexIndex)
@@ -59,7 +56,7 @@ vs2ps VS(VS_IN input)
 	
 	float u = input.PosO.x + 0.5;
 	
-    float w = Width * 0.003;
+    float w = Width[input.ii] * 0.003;
    
     //Out.uv = float2(u, Pos.y*2);
     
@@ -104,7 +101,8 @@ vs2ps VS(VS_IN input)
 
     //ouput texturecoordinates
     Out.TexCd = mul(input.TexCd, tTex);
-
+	
+	Out.Color = Color[input.ii];
     return Out;
 }
 
@@ -115,7 +113,7 @@ vs2ps VS(VS_IN input)
 
 float4 PS(vs2ps In): SV_Target
 {
-    float4 col = texture2d.Sample(g_samLinear, In.TexCd.xy) * cAmb;
+    float4 col = texture2d.Sample(g_samLinear, In.TexCd.xy) * In.Color;
     //col.a *= 1 - pow(abs(In.uv.y), 4);
     return col;
 }

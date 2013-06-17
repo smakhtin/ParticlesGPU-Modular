@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Desktop\Working with curves\DX11 GPU Lines.v4p" systemname="DX11 GPU Lines" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU Lines.v4p">
+   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Line (ModularGPU).v4p" systemname="DX11 GPU Lines" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU Lines.v4p">
    <BOUNDS type="Window" left="2970" top="0" width="5745" height="12720">
    </BOUNDS>
    <NODE systemname="Line (DX11.Effect)" filename="dx11\Line.fx" nodename="Line (DX11.Effect)" componentmode="Hidden" id="0">
@@ -13,15 +13,17 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Color" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   <PIN pinname="Color" slicecount="1" values="||" visible="1">
    </PIN>
    <PIN pinname="VerticesXYZ" visible="1" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Technique" slicecount="1" values="TLine">
    </PIN>
-   <PIN pinname="Width" slicecount="1" values="3">
+   <PIN pinname="Width" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="VerticesXYZW" visible="1">
    </PIN>
    </NODE>
    <NODE systemname="Instancer (DX11.Drawer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Instancer (DX11.Drawer)" componentmode="Hidden" id="5">
@@ -43,24 +45,6 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="37" srcpinname="Render State" dstnodeid="0" dstpinname="Render State">
-   </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="47" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="1860" top="7575" width="795" height="240">
-   </BOUNDS>
-   <BOUNDS type="Node" left="1860" top="7575" width="0" height="0">
-   </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="3">
-   </PIN>
-   <PIN pinname="Units" slicecount="1" values="||">
-   </PIN>
-   <PIN pinname="Precision" slicecount="1" values="4">
-   </PIN>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="Width">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="47" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Width">
    </LINK>
    <NODE systemname="Grid (DX11.Geometry)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Grid (DX11.Geometry)" componentmode="Hidden" id="67">
    <BOUNDS type="Node" left="1245" top="4080" width="100" height="100">
@@ -109,7 +93,7 @@
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="2">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="95">
@@ -131,13 +115,15 @@
    <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="0" dstpinname="BinSize">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="96" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2340" top="5835" width="795" height="240">
+   <BOUNDS type="Box" left="1995" top="7080" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2340" top="5835" width="0" height="0">
+   <BOUNDS type="Node" left="1995" top="7080" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="VerticesXYZ">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="96" srcpinname="Output Node" dstnodeid="0" dstpinname="VerticesXYZ">
@@ -153,5 +139,45 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="98" dstpinname="Input Node">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="99" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="1050" top="5595" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="1050" top="5595" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Render State|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="99" srcpinname="Output Node" dstnodeid="37" dstpinname="Render State">
+   </LINK>
+   <LINK srcnodeid="96" srcpinname="Output Node" dstnodeid="0" dstpinname="VerticesXYZW">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="100" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2490" top="7755" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2490" top="7755" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Width">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="100" srcpinname="Output Node" dstnodeid="0" dstpinname="Width">
+   </LINK>
+   <NODE nodename="IOBox (Node)" componentmode="InABox" id="102" systemname="IOBox (Node)">
+   <BOUNDS type="Box" left="2190" top="6120" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="2190" top="6120" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Node" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Output Node" visible="1">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Color">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="102" srcpinname="Output Node" dstnodeid="0" dstpinname="Color">
    </LINK>
    </PATCH>

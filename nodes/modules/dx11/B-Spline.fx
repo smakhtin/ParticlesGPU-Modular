@@ -19,11 +19,12 @@ SamplerState g_samLinear : IMMUTABLE
 
 float4x4 tTex: TEXTUREMATRIX <string uiname="Texture Transform";>;
 float4x4 tColor <string uiname="Color Transform";>;
-float alpha = 1.;
-float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
+float Alpha = 1.;
 
 int Size;
+
 StructuredBuffer<float4> Position;
+StructuredBuffer<float4> Color;
 
 struct VS_IN
 {
@@ -44,6 +45,7 @@ struct vs2ps
     float3 Tang : TEXCOORD4;
     float3 Bi : TEXCOORD5;
 	float4 Depth : TEXCOORD6;
+	float4 Color : COLOR;
 };
 //---- B-Spline ----------------------------------------------------------------
 struct pota { float4 Pos; float4 Tang; };
@@ -111,15 +113,17 @@ vs2ps VS_Spline(VS_IN input)
     Out.Tang = tang;
     Out.Bi = bitang;
 	Out.Depth = mul(input.PosO, tWVP);
+	
+	Out.Color = Color[input.ii];
     return Out;
 }
 // PIXELSHADER------------------------------------------------------------------
 float4 PS(vs2ps In): SV_Target
 {
-	float4 col = Tex.Sample(g_samLinear,In.TexCd.xy) * cAmb;
+	float4 col = Tex.Sample(g_samLinear,In.TexCd.xy) * In.Color;
     float3 n = normalize(cross(In.Tang,In.Bi));    
     col.rgb *= PhongDirectional(n, In.ViewDirV, In.LightDirV);
-    col.a*=alpha;
+    col.a *= Alpha;
     return mul(col, tColor);
 }
 
