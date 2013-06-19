@@ -2,18 +2,6 @@
    <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise) help.v4p" systemname="B-Spline (ModularGPU) help" filename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\B-Spline (ModularGPU) help.v4p">
    <BOUNDS type="Window" left="9885" top="3255" width="9225" height="11970">
    </BOUNDS>
-   <NODE systemname="B-Spline (ModularGPU)" filename="..\..\..\..\Desktop\Working with curves\B-Spline (ModularGPU).v4p" nodename="B-Spline (ModularGPU)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="2100" top="4935" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Layer" visible="1">
-   </PIN>
-   <PIN pinname="Position(XYZ) Scale(W)" visible="1">
-   </PIN>
-   <PIN pinname="Color" visible="1">
-   </PIN>
-   <BOUNDS type="Window" left="7905" top="2295" width="12480" height="10170">
-   </BOUNDS>
-   </NODE>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="6">
    <BOUNDS type="Node" left="1785" top="10110" width="100" height="100">
    </BOUNDS>
@@ -34,6 +22,10 @@
    <PIN pinname="Layer 1" visible="1">
    </PIN>
    <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   <PIN pinname="Input Count" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Layer 3" visible="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="5" srcpinname="Layer Out" dstnodeid="6" dstpinname="Layers">
@@ -95,51 +87,53 @@
    <LINK srcnodeid="1" srcpinname="Z" dstnodeid="2" dstpinname="Z">
    </LINK>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="12">
-   <BOUNDS type="Node" left="4485" top="1050" width="100" height="100">
+   <BOUNDS type="Node" left="3600" top="1020" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XYZW" visible="1">
    </PIN>
    <PIN pinname="X" slicecount="1" values="-0.73">
    </PIN>
+   <PIN pinname="Y" slicecount="1" values="0">
+   </PIN>
    </NODE>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="11">
-   <BOUNDS type="Node" left="5340" top="1050" width="100" height="100">
+   <BOUNDS type="Node" left="4455" top="1020" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XYZW" visible="1">
    </PIN>
    <PIN pinname="W" visible="1">
    </PIN>
-   <PIN pinname="X" slicecount="1" values="0.36">
+   <PIN pinname="X" slicecount="1" values="0.37">
    </PIN>
    <PIN pinname="Y" slicecount="1" values="0.41">
    </PIN>
    </NODE>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="10">
-   <BOUNDS type="Node" left="6270" top="1050" width="100" height="100">
+   <BOUNDS type="Node" left="5385" top="1020" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XYZW" visible="1">
    </PIN>
    <PIN pinname="W" visible="1">
    </PIN>
-   <PIN pinname="X" slicecount="1" values="0.89">
+   <PIN pinname="X" slicecount="1" values="0.85">
    </PIN>
    <PIN pinname="Y" slicecount="1" values="-0.16">
    </PIN>
    </NODE>
    <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="9">
-   <BOUNDS type="Node" left="7260" top="1050" width="100" height="100">
+   <BOUNDS type="Node" left="6375" top="1020" width="100" height="100">
    </BOUNDS>
    <PIN pinname="XYZW" visible="1">
    </PIN>
    <PIN pinname="W" visible="1">
    </PIN>
-   <PIN pinname="X" slicecount="1" values="0.89">
+   <PIN pinname="X" slicecount="1" values="0.79">
    </PIN>
    <PIN pinname="Y" slicecount="1" values="0.3">
    </PIN>
    </NODE>
    <NODE systemname="Cons (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Spreads)" componentmode="Hidden" id="8">
-   <BOUNDS type="Node" left="4470" top="2265" width="100" height="100">
+   <BOUNDS type="Node" left="3585" top="2235" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Input Count" slicecount="1" values="4">
    </PIN>
@@ -163,9 +157,9 @@
    <LINK srcnodeid="12" srcpinname="XYZW" dstnodeid="8" dstpinname="Input 1">
    </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="7" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5520" top="300" width="795" height="240">
+   <BOUNDS type="Box" left="4635" top="270" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="5520" top="300" width="0" height="0">
+   <BOUNDS type="Node" left="4635" top="270" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="0.04">
    </PIN>
@@ -184,8 +178,6 @@
    </LINK>
    <LINK srcnodeid="7" srcpinname="Y Output Value" dstnodeid="9" dstpinname="W">
    </LINK>
-   <LINK srcnodeid="0" srcpinname="Layer" dstnodeid="5" dstpinname="Layer 1">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="13" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="3390" top="4170" width="795" height="240">
    </BOUNDS>
@@ -201,11 +193,11 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Controls Per Spline|">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Controls Per Spline">
-   </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="14">
-   <BOUNDS type="Node" left="4470" top="3240" width="100" height="100">
+   <BOUNDS type="Node" left="3585" top="3210" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXYZW" visible="1">
    </PIN>
@@ -214,24 +206,20 @@
    </NODE>
    <LINK srcnodeid="8" srcpinname="Output" dstnodeid="14" dstpinname="DataXYZW">
    </LINK>
-   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="0" dstpinname="Position(XYZ) Scale(W)">
-   </LINK>
    <LINK srcnodeid="8" srcpinname="Output" dstnodeid="1" dstpinname="XYZW">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer Color)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer Color)" componentmode="Hidden" id="15">
-   <BOUNDS type="Node" left="5040" top="4200" width="100" height="100">
+   <BOUNDS type="Node" left="6960" top="4785" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Buffer" visible="1">
    </PIN>
    <PIN pinname="Data" slicecount="1" visible="1" values="|0.00000,1.00000,0.00000,1.00000|">
    </PIN>
    </NODE>
-   <LINK srcnodeid="15" srcpinname="Buffer" dstnodeid="0" dstpinname="Color">
-   </LINK>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="17">
-   <BOUNDS type="Node" left="5055" top="3735" width="100" height="100">
+   <BOUNDS type="Node" left="6975" top="4320" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="5055" top="3735" width="330" height="285">
+   <BOUNDS type="Box" left="6975" top="4320" width="330" height="285">
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
@@ -253,9 +241,9 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Splines Count|">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Splines Count">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="19" systemname="IOBox (Value Advanced)">
    <BOUNDS type="Box" left="2250" top="2970" width="795" height="240">
    </BOUNDS>
@@ -271,11 +259,237 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="Resolution">
    </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Resolution">
-   </LINK>
    <NODE systemname="Bezier (ModularGPU Piecewise)" filename="Bezier (ModularGPU Piecewise).v4p" nodename="Bezier (ModularGPU Piecewise)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="4650" top="5325" width="100" height="100">
+   <BOUNDS type="Node" left="2130" top="5880" width="100" height="100">
    </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Controls Per Spline" visible="1">
+   </PIN>
+   <PIN pinname="Splines Count" visible="1">
+   </PIN>
+   <PIN pinname="Resolution" visible="1">
+   </PIN>
+   <PIN pinname="Color" visible="1">
+   </PIN>
+   <PIN pinname="Position(XYZ) Scale(W)" visible="1">
+   </PIN>
+   <PIN pinname="Tangent(XYZ) Pitch(W)" visible="1">
+   </PIN>
    </NODE>
+   <LINK srcnodeid="20" srcpinname="Layer" dstnodeid="5" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="13" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Controls Per Spline">
+   </LINK>
+   <LINK srcnodeid="18" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Splines Count">
+   </LINK>
+   <LINK srcnodeid="19" srcpinname="Y Output Value" dstnodeid="20" dstpinname="Resolution">
+   </LINK>
+   <LINK srcnodeid="15" srcpinname="Buffer" dstnodeid="20" dstpinname="Color">
+   </LINK>
+   <LINK srcnodeid="14" srcpinname="Buffer" dstnodeid="20" dstpinname="Position(XYZ) Scale(W)">
+   </LINK>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="7230" top="1290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="-0.77">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.46">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="8085" top="1290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.18">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.68">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="9015" top="1290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.55">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.19">
+   </PIN>
+   </NODE>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="10005" top="1290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.59">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="-0.31">
+   </PIN>
+   <PIN pinname="Z" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <NODE systemname="Cons (Spreads)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Cons (Spreads)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="7215" top="2505" width="4575" height="270">
+   </BOUNDS>
+   <PIN pinname="Input Count" slicecount="1" values="6">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Input 3" visible="1">
+   </PIN>
+   <PIN pinname="Input 4" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   <PIN pinname="Input 5" visible="1">
+   </PIN>
+   <PIN pinname="Input 6" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 3">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 4">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 1">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="21" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="8265" top="540" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="8265" top="540" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="26" dstpinname="W">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="25" dstpinname="W">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="24" dstpinname="W">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="23" dstpinname="W">
+   </LINK>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="27">
+   <BOUNDS type="Node" left="10860" top="1290" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.95">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="27" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 5">
+   </LINK>
+   <NODE systemname="Vector (4d Join)" nodename="Vector (4d Join)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="11730" top="1320" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1">
+   </PIN>
+   <PIN pinname="W" visible="1" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="X" slicecount="1" values="0.86">
+   </PIN>
+   <PIN pinname="Y" slicecount="1" values="0.27">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="28" srcpinname="XYZW" dstnodeid="22" dstpinname="Input 6">
+   </LINK>
+   <NODE systemname="DynamicBuffer (DX11.Buffer 4d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 4d)" componentmode="Hidden" id="29">
+   <BOUNDS type="Node" left="4035" top="5175" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="DataXYZW" visible="1" slicecount="4" values="0,0,0,0">
+   </PIN>
+   <PIN pinname="Buffer" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="29" dstpinname="DataXYZW">
+   </LINK>
+   <LINK srcnodeid="29" srcpinname="Buffer" dstnodeid="20" dstpinname="Tangent(XYZ) Pitch(W)">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="27" dstpinname="W">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Y Output Value" dstnodeid="28" dstpinname="W">
+   </LINK>
+   <NODE systemname="Quad (DX11.Layer)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Quad (DX11.Layer)" componentmode="Hidden" id="33">
+   <BOUNDS type="Node" left="3840" top="8340" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer Out" visible="1">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   <PIN pinname="Color" slicecount="1" values="|0.00000,0.42992,0.93327,1.00000|">
+   </PIN>
+   </NODE>
+   <NODE systemname="UniformScale (Transform)" nodename="UniformScale (Transform)" componentmode="Hidden" id="32">
+   <BOUNDS type="Node" left="4020" top="7800" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" slicecount="1" values="0.02">
+   </PIN>
+   <PIN pinname="Transform In" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="32" srcpinname="Transform Out" dstnodeid="33" dstpinname="Transform In">
+   </LINK>
+   <NODE systemname="Translate (Transform)" nodename="Translate (Transform)" componentmode="Hidden" id="31">
+   <BOUNDS type="Node" left="4035" top="7140" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Transform Out" dstnodeid="32" dstpinname="Transform In">
+   </LINK>
+   <NODE systemname="Vector (4d Split)" nodename="Vector (4d Split)" componentmode="Hidden" id="30">
+   <BOUNDS type="Node" left="4275" top="6495" width="690" height="270">
+   </BOUNDS>
+   <PIN pinname="XYZW" visible="1" slicecount="4" values="0,0,0,1">
+   </PIN>
+   <PIN pinname="X" visible="1">
+   </PIN>
+   <PIN pinname="Y" visible="1">
+   </PIN>
+   <PIN pinname="Z" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="30" srcpinname="X" dstnodeid="31" dstpinname="X">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Y" dstnodeid="31" dstpinname="Y">
+   </LINK>
+   <LINK srcnodeid="30" srcpinname="Z" dstnodeid="31" dstpinname="Z">
+   </LINK>
+   <LINK srcnodeid="33" srcpinname="Layer Out" dstnodeid="5" dstpinname="Layer 3">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Output" dstnodeid="30" dstpinname="XYZW">
+   </LINK>
    </PATCH>

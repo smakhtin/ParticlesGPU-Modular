@@ -211,9 +211,9 @@
    <LINK srcnodeid="32" srcpinname="Output Node" dstnodeid="22" dstpinname="Render State">
    </LINK>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="35">
-   <BOUNDS type="Node" left="3330" top="5205" width="100" height="100">
+   <BOUNDS type="Node" left="3330" top="4605" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="3330" top="5205" width="2250" height="480">
+   <BOUNDS type="Box" left="3330" top="4605" width="2250" height="480">
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
@@ -223,9 +223,9 @@
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Color)" nodename="IOBox (Color)" componentmode="InABox" id="37">
-   <BOUNDS type="Node" left="2955" top="3870" width="100" height="100">
+   <BOUNDS type="Node" left="2955" top="3720" width="100" height="100">
    </BOUNDS>
-   <BOUNDS type="Box" left="2955" top="3870" width="2250" height="480">
+   <BOUNDS type="Box" left="2955" top="3720" width="2250" height="480">
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
@@ -277,7 +277,7 @@
    </PIN>
    </NODE>
    <NODE systemname="BezierPiecewise (DX11.Effect)" filename="dx11\BezierPiecewise.fx" nodename="BezierPiecewise (DX11.Effect)" componentmode="Hidden" id="0">
-   <BOUNDS type="Node" left="1080" top="6495" width="6825" height="270">
+   <BOUNDS type="Node" left="1080" top="7095" width="6825" height="270">
    </BOUNDS>
    <PIN pinname="Technique" slicecount="1" values="BSplineCubic_PhongDirectional">
    </PIN>
@@ -337,5 +337,45 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="42" srcpinname="Output Node" dstnodeid="0" dstpinname="Tangent">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="43" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5220" top="5325" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5220" top="5325" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Relative Tangent|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="43" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Relative Tangent">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="44" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="5580" top="6090" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="5580" top="6090" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Relative to n/n+1|">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Relative to n/n+1">
    </LINK>
    </PATCH>
