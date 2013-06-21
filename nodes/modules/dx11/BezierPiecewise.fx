@@ -21,7 +21,8 @@ float4x4 tTex: TEXTUREMATRIX <string uiname="Texture Transform";>;
 float4x4 tColor <string uiname="Color Transform";>;
 float Alpha = 1.;
 
-int Size;
+StructuredBuffer<int> Size;
+StructuredBuffer<int> BackSize;
 
 StructuredBuffer<float4> Position;
 StructuredBuffer<float4> Tangent;
@@ -86,24 +87,24 @@ vs2ps VS_Spline(VS_IN input)
 	
 	float4 pos = input.PosO * 0.9999;
 	float linPos = frac(pos.x + 0.5f);
-	float segmentLength = 1.0f / (Size - 1.0f);
+	float segmentLength = 1.0f / (Size[input.ii] - 1.0f);
 	float currentSegment = linPos / segmentLength;
 	currentSegment = currentSegment - frac(currentSegment);
 	
 	int p1Index = currentSegment;
-	int p2Index = min(currentSegment + 1, Size - 1);
+	int p2Index = min(currentSegment + 1, Size[input.ii] - 1);
 	int t1Index = currentSegment * 2;
 	int t2Index = t1Index + 1;
 	
 	float range = frac(linPos / segmentLength);
 
-	int tangentSize = (Size - 1) * 2;
+	int tangentSize = (max(BackSize[input.ii] - 1, 0)) * 2;
 
-	float4 p1 = Position[globalIndex(p1Index, input.ii, Size)];
-	float4 p2 = Position[globalIndex(p2Index, input.ii, Size)];
+	float4 p1 = Position[p1Index + max(BackSize[input.ii] - 1, 0)];
+	float4 p2 = Position[p2Index + max(BackSize[input.ii] - 1, 0)];
 
-	float4 t1 = Tangent[globalIndex(t1Index, input.ii, tangentSize)];
-	float4 t2 = Tangent[globalIndex(t2Index, input.ii, tangentSize)];
+	float4 t1 = Tangent[t1Index + max(tangentSize - 1, 0)];
+	float4 t2 = Tangent[t2Index + max(tangentSize - 1, 0)];
 	
 	pota curve = BezierSplinePW(p1, float4(t1.xyz, 0), p2, float4(t2.xyz, 0), range);
     

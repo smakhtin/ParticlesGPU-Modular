@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
    <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise) help.v4p" systemname="B-Spline (ModularGPU) help" filename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\B-Spline (ModularGPU) help.v4p">
-   <BOUNDS type="Window" left="9885" top="3255" width="9225" height="11970">
+   <BOUNDS type="Window" left="9885" top="3255" width="14775" height="11970">
    </BOUNDS>
    <NODE systemname="Renderer (DX11)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="Renderer (DX11)" componentmode="InAWindow" id="6">
    <BOUNDS type="Node" left="1785" top="10110" width="100" height="100">
