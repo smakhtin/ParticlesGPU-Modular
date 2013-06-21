@@ -23,6 +23,7 @@ float Alpha = 1.;
 
 StructuredBuffer<int> Size;
 StructuredBuffer<int> BackSize;
+StructuredBuffer<int> TangentBackSize;
 
 StructuredBuffer<float4> Position;
 StructuredBuffer<float4> Tangent;
@@ -98,10 +99,11 @@ vs2ps VS_Spline(VS_IN input)
 	
 	float range = frac(linPos / segmentLength);
 
-	int tangentSize = (max(BackSize[input.ii] - 1, 0)) * 2;
+	//int tangentSize = (max(BackSize[input.ii] - 1, 0)) * 2;
+	int tangentSize = TangentBackSize[input.ii];
 
-	float4 p1 = Position[p1Index + max(BackSize[input.ii], 0)];
-	float4 p2 = Position[p2Index + max(BackSize[input.ii], 0)];
+	float4 p1 = Position[p1Index + BackSize[input.ii]];
+	float4 p2 = Position[p2Index + BackSize[input.ii]];
 
 	float4 t1 = Tangent[t1Index + tangentSize];
 	float4 t2 = Tangent[t2Index + tangentSize];
