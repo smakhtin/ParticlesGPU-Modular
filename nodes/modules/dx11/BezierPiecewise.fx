@@ -103,8 +103,8 @@ vs2ps VS_Spline(VS_IN input)
 	float4 p1 = Position[p1Index + max(BackSize[input.ii], 0)];
 	float4 p2 = Position[p2Index + max(BackSize[input.ii], 0)];
 
-	float4 t1 = Tangent[t1Index + max(tangentSize, 0)];
-	float4 t2 = Tangent[t2Index + max(tangentSize, 0)];
+	float4 t1 = Tangent[t1Index + tangentSize];
+	float4 t2 = Tangent[t2Index + tangentSize];
 	
 	pota curve = BezierSplinePW(p1, float4(t1.xyz, 0), p2, float4(t2.xyz, 0), range);
     
