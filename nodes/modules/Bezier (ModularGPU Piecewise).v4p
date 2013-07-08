@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
+   <PATCH nodename="D:\Dropbox\Mathrioshka Code\mandala\packs\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
    <BOUNDS type="Window" left="7905" top="2295" width="12480" height="10170">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="3">
@@ -243,7 +243,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Color|">
    </PIN>
-   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" values="|0.99833,1.00000,0.99863,1.00000|">
    </PIN>
    </NODE>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="40">
@@ -376,6 +376,8 @@
    <PIN pinname="Behavior" slicecount="1" values="Toggle">
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Relative to n/n+1|">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="1">
    </PIN>
    </NODE>
    <LINK srcnodeid="44" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Relative to n/n+1">
