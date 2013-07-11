@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Mathrioshka Code\mandala\packs\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.2.dtd" >
+   <PATCH nodename="D:\Dropbox\Mathrioshka Code\Mandala Project\mandala\packs\ParticlesGPU-Modular\nodes\modules\Bezier (ModularGPU Piecewise).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
    <BOUNDS type="Window" left="7905" top="2295" width="12480" height="10170">
    </BOUNDS>
    <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="3">
@@ -481,5 +481,25 @@
    <LINK srcnodeid="50" srcpinname="Remainder" dstnodeid="54" dstpinname="Data">
    </LINK>
    <LINK srcnodeid="54" srcpinname="Buffer" dstnodeid="0" dstpinname="TangentBackSize">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="55" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10425" top="6165" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10425" top="6165" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Enabled">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="55" srcpinname="Y Output Value" dstnodeid="0" dstpinname="Enabled">
    </LINK>
    </PATCH>
