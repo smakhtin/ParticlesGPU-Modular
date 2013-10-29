@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Git Repos\ParticlesGPU-Modular\nodes\modules\Line (ModularGPU).v4p" systemname="DX11 GPU Lines" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU Lines.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.1.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\vvvv-sdk\vvvv45\packs\ModularGPU\nodes\modules\Line (ModularGPU).v4p" systemname="DX11 GPU Lines" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU Lines.v4p">
    <BOUNDS type="Window" left="2970" top="0" width="5745" height="12720">
    </BOUNDS>
    <NODE systemname="Line (DX11.Effect)" filename="dx11\Line.fx" nodename="Line (DX11.Effect)" componentmode="Hidden" id="0">
@@ -13,7 +13,7 @@
    </PIN>
    <PIN pinname="Enabled" slicecount="1" values="1">
    </PIN>
-   <PIN pinname="Color" slicecount="1" values="||" visible="1">
+   <PIN pinname="Color" slicecount="1" visible="1" values="||">
    </PIN>
    <PIN pinname="VerticesXYZ" visible="1" slicecount="1" values="||">
    </PIN>
@@ -67,7 +67,7 @@
    </BOUNDS>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Bin Size|">
    </PIN>
-   <PIN pinname="Y Input Value" slicecount="1" values="3">
+   <PIN pinname="Y Input Value" slicecount="1" values="2">
    </PIN>
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
@@ -115,9 +115,9 @@
    <LINK srcnodeid="90" srcpinname="Y Output Value" dstnodeid="0" dstpinname="BinSize">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="96" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="1995" top="7080" width="795" height="240">
+   <BOUNDS type="Box" left="2190" top="7080" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1995" top="7080" width="0" height="0">
+   <BOUNDS type="Node" left="2190" top="7080" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
@@ -167,9 +167,9 @@
    <LINK srcnodeid="100" srcpinname="Output Node" dstnodeid="0" dstpinname="Width">
    </LINK>
    <NODE nodename="IOBox (Node)" componentmode="InABox" id="102" systemname="IOBox (Node)">
-   <BOUNDS type="Box" left="2190" top="6120" width="795" height="240">
+   <BOUNDS type="Box" left="2325" top="6390" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2190" top="6120" width="0" height="0">
+   <BOUNDS type="Node" left="2325" top="6390" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input Node" slicecount="1" values="||">
    </PIN>
