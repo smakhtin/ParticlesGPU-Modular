@@ -2,7 +2,7 @@ Texture2D texture2d <string uiname="Texture";>;
 
 StructuredBuffer<float3> VerticesXYZ;
 StructuredBuffer<float4> Color;
-StructuredBuffer<float> Width;
+StructuredBuffer<float2> Width;
 
 SamplerState g_samLinear : IMMUTABLE
 {
@@ -44,9 +44,9 @@ vs2ps VS(VS_IN input)
 {
 	vs2ps Out = (vs2ps)0;
 	
-	
-	
 	uint interval = input.ii;
+	
+	int colorIndex = input.vi % 2 > 0 ? 1 : 0;
 	
 	float lineIndex = interval / (BinSize - 1);
 	lineIndex = lineIndex - frac(lineIndex);
@@ -56,7 +56,7 @@ vs2ps VS(VS_IN input)
 	
 	float u = input.PosO.x + 0.5;
 	
-    float w = Width[0] * 0.003;
+    float w = Width[lineIndex][colorIndex] * 0.003;
    
     //Out.uv = float2(u, Pos.y*2);
     
@@ -86,7 +86,7 @@ vs2ps VS(VS_IN input)
     float2 off = input.PosO.y * normal * w * p.w;
 
     // correct aspect ratio
-    off *= mul(float4(1, 1, 0, 0), tP);
+    off *= mul(float4(1, 1, 0, 0), tP).xy;
 
     p+= float4(off, 0, 0);
 
@@ -102,7 +102,7 @@ vs2ps VS(VS_IN input)
     //ouput texturecoordinates
     Out.TexCd = mul(input.TexCd, tTex);
 	
-	int colorIndex = input.vi % 2 > 0 ? 1 : 0;
+	
 	Out.Color = Color[colorIndex];
     return Out;
 }
