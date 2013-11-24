@@ -20,6 +20,8 @@ float2 g_texcoords[4]:IMMUTABLE =
         float2(1,0),
 	};
 
+float WidthMult = 0.001;
+
 StructuredBuffer<float2> StartXY;
 StructuredBuffer<float2> EndXY;
 
@@ -47,7 +49,7 @@ vs2ps VS(VS_IN input)
 	vs2ps Out = (vs2ps)0;
 	int index = input.vi;
 	
-    Out.Width = Width[input.vi] * 0.003;
+    Out.Width = Width[input.vi] * WidthMult;
 	
 	Out.StartPos = float4(StartXY[index], 0, 1);
 	Out.EndPos = float4(EndXY[index], 0, 1);
@@ -71,7 +73,7 @@ void GS(point vs2ps input[1], inout TriangleStream<vs2ps> SpriteStream)
     	//0 - start, 1- finish
     	int startFinish = i % 2;
     	
-    	float lineWidth = input[0].Width;
+    	float lineWidth = startFinish == 0 ? 0 : input[0].Width;
         
     	float3 vertexPos = g_positions[i];
     	float2 offset = vertexPos.y * normal * lineWidth;
