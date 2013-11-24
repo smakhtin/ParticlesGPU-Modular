@@ -59,6 +59,9 @@ vs2ps VS(VS_IN input)
 void GS(point vs2ps input[1], inout TriangleStream<vs2ps> SpriteStream)
 {
     vs2ps output;
+	
+	float2 tangent = input[0].EndPos.xy - input[0].StartPos.xy;
+	float2 normal = normalize(float2(tangent.y, -tangent.x));
     
     //
     // Emit two new triangles
@@ -69,11 +72,15 @@ void GS(point vs2ps input[1], inout TriangleStream<vs2ps> SpriteStream)
     	int startFinish = i % 2;
     	
     	float lineWidth = input[0].Width;
-        float3 vertexPos = g_positions[i];
+        
+    	float3 vertexPos = g_positions[i];
+    	float2 offset = vertexPos.y * normal * lineWidth;
+    	offset *= mul(float4(1, 1, 0, 0), tP).xy;
     	
         //vertexPos = mul( vertexPos, (float3x3)tVI );
-    	vertexPos.x = startFinish == 0 ? input[0].StartPos.x : input[0].EndPos.x;
-    	vertexPos.y *= lineWidth;
+    	vertexPos.xy = startFinish == 0 ? input[0].StartPos.xy : input[0].EndPos.xy;
+    	
+    	vertexPos.xy += offset;
     	
         output.Pos = mul( float4(vertexPos,1.0), tVP );
         output.Color = startFinish == 0 ? StartColor : EndColor;
