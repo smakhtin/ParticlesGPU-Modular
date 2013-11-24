@@ -1,110 +1,91 @@
-Texture2D texture2d <string uiname="Texture";>;
+float4x4 tV : VIEW;
+float4x4 tVP : VIEWPROJECTION;
+float4x4 tVI : VIEWINVERSE;
+float4x4 tWVP : WORLDVIEWPROJECTION;
+float4x4 tP : PROJECTION;
 
-StructuredBuffer<float3> VerticesXYZ;
-StructuredBuffer<float4> Color;
-StructuredBuffer<float2> Width;
+float3 g_positions[4]:IMMUTABLE =
+    {
+        float3( -1, 1, 0 ),
+        float3( 1, 1, 0 ),
+        float3( -1, -1, 0 ),
+        float3( 1, -1, 0 ),
+    };
 
-SamplerState g_samLinear : IMMUTABLE
-{
-    Filter = MIN_MAG_MIP_LINEAR;
-    AddressU = Wrap;
-    AddressV = Wrap;
-};
- 
-cbuffer cbPerDraw : register( b0 )
-{
-	float4x4 tWVP : WORLDVIEWPROJECTION;
-	float4x4 tP : PROJECTION;
-	float4 cAmb <bool color=true;String uiname="Ambient Color";> = { 1.0f,1.0f,1.0f,1.0f };
-	float4x4 tTex <string uiname="Texture Transform";>;
-	float BinSize = 2;
-};
+float2 g_texcoords[4]:IMMUTABLE =
+	{ 
+        float2(0,1), 
+        float2(1,1),
+        float2(0,0),
+        float2(1,0),
+	};
+
+StructuredBuffer<float2> StartXY;
+StructuredBuffer<float2> EndXY;
+
+StructuredBuffer<float> Width;
+
+float4 StartColor <bool color=true;> = 1;
+float4 EndColor <bool color=true;> = 1;
 
 struct VS_IN
 {
-	float4 PosO : POSITION;
-	float4 TexCd : TEXCOORD0;
 	uint vi :SV_VertexID;
-	uint ii : SV_InstanceID;
 };
 
 struct vs2ps
 {
-    float4 PosP: SV_POSITION;
-    float4 TexCd: TEXCOORD0;
-	float4 Color: COLOR;
+	float4 Pos: SV_POSITION;
+    float4 StartPos: COLOR3;
+	float4 EndPos : COLOR4;
+	float Width : SIZE;
+	float4 Color : COLOR;
 };
-
-uint getIndex(uint instanceIndex, int binSize, uint vertexIndex)
-{
-	return instanceIndex * binSize + vertexIndex;
-}
 
 vs2ps VS(VS_IN input)
 {
 	vs2ps Out = (vs2ps)0;
+	int index = input.vi;
 	
-	uint interval = input.ii;
+    Out.Width = Width[input.vi] * 0.003;
 	
-	int colorIndex = input.vi % 2 > 0 ? 1 : 0;
+	Out.StartPos = float4(StartXY[index], 0, 1);
+	Out.EndPos = float4(EndXY[index], 0, 1);
 	
-	float lineIndex = interval / (BinSize - 1);
-	lineIndex = lineIndex - frac(lineIndex);
-	
-	uint p1VertexIndex = interval + lineIndex;
-	uint p2VertexIndex = interval + 1 + lineIndex;
-	
-	float u = input.PosO.x + 0.5;
-	
-    float w = Width[lineIndex][colorIndex] * 0.003;
-   
-    //Out.uv = float2(u, Pos.y*2);
-    
-    // get point on curve
-    float4 p;
-    //p = float4(lerp(Point1, Point2, u), 1);
-
-    // get position in projection space
-    //p = mul(p, tWVP);
-
-    // get tangent in projection space
-    float4 p1 = mul(float4(VerticesXYZ[p1VertexIndex], 1), tWVP);
-    float4 p2 = mul(float4(VerticesXYZ[p2VertexIndex], 1), tWVP);
-
-    p = lerp(p1, p2, u);
-
-    p1 /= p1.w;
-    p2 /= p2.w;
-    float4 tangent = p2 - p1;
-
-    //p = lerp(p1, p2, u);
-
-    // get normal in projection space
-    float2 normal = normalize(float2(tangent.y, -tangent.x));
-
-    // translate point to get a thick curve
-    float2 off = input.PosO.y * normal * w * p.w;
-
-    // correct aspect ratio
-    off *= mul(float4(1, 1, 0, 0), tP).xy;
-
-    p+= float4(off, 0, 0);
-
-    //tangent = normalize(tangent);
-    //float3 normal = cross(tangent, float3(0,0,1));
-    //p += Pos.y * float4(normal, 0) * w * p.w;
-
-    // output pos p
-    Out.PosP = p; input.PosO;
-
-    input.TexCd.x *= .1 * length(tangent) / w;
-
-    //ouput texturecoordinates
-    Out.TexCd = mul(input.TexCd, tTex);
-	
-	
-	Out.Color = Color[colorIndex];
     return Out;
+}
+
+[maxvertexcount(4)]
+void GS(point vs2ps input[1], inout TriangleStream<vs2ps> SpriteStream)
+{
+    vs2ps output;
+    
+    //
+    // Emit two new triangles
+    //
+    for(uint i=0; i<4; i++)
+    {
+    	//0 - start, 1- finish
+    	int startFinish = i % 2;
+    	
+    	float lineWidth = input[0].Width;
+        float3 vertexPos = g_positions[i];
+    	
+        //vertexPos = mul( vertexPos, (float3x3)tVI );
+    	vertexPos.x = startFinish == 0 ? input[0].StartPos.x : input[0].EndPos.x;
+    	vertexPos.y *= lineWidth;
+    	
+        output.Pos = mul( float4(vertexPos,1.0), tVP );
+        output.Color = startFinish == 0 ? StartColor : EndColor;
+        output.Width = lineWidth;
+    	
+    	output.StartPos = 0;
+    	output.EndPos = 0;
+    	
+        SpriteStream.Append(output);
+    }
+	
+    SpriteStream.RestartStrip();
 }
 
 
@@ -114,8 +95,8 @@ vs2ps VS(VS_IN input)
 
 float4 PS(vs2ps In): SV_Target
 {
-    float4 col = texture2d.Sample(g_samLinear, In.TexCd.xy) * In.Color;
-    //col.a *= 1 - pow(abs(In.uv.y), 4);
+    float4 col = In.Color;
+	
     return col;
 }
 
@@ -128,6 +109,7 @@ technique10 TLine
     pass P0
     {
 		SetVertexShader( CompileShader( vs_4_0, VS() ) );
+    	SetGeometryShader( CompileShader( gs_5_0, GS() ) );
 		SetPixelShader( CompileShader( ps_4_0, PS() ) );
     }
 }
