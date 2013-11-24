@@ -114,7 +114,8 @@ vs2ps VS_Spline(VS_IN input)
     Out.Bi = bitang;
 	Out.Depth = mul(input.PosO, tWVP);
 	
-	Out.Color = Color[input.ii];
+	//Out.Color = Color[globalIndex(currentSegment, input.ii, Size)];
+	Out.Color = lerp(Color[0], Color[1], linPos);
     return Out;
 }
 // PIXELSHADER------------------------------------------------------------------
@@ -133,6 +134,14 @@ float4 PS_Depth(vs2ps In): SV_Target
     col.a =1;
     return col;
 }
+
+float4 PS_Constant(vs2ps In): SV_Target
+{
+    float4 col = In.Color;
+    col.a *= Alpha;
+    return col;
+}
+
 // TECHNIQUES-------------------------------------------------------------------
 technique10 BSplineCubic_PhongDirectional
 {
@@ -148,5 +157,13 @@ technique10 BSplineSplineCubic_Depth
     {
         VertexShader = compile vs_4_0 VS_Spline();
         PixelShader = compile ps_4_0 PS_Depth();
+    }
+}
+technique10 Constant
+{
+    pass P0
+    {
+        VertexShader = compile vs_4_0 VS_Spline();
+        PixelShader = compile ps_4_0 PS_Constant();
     }
 }

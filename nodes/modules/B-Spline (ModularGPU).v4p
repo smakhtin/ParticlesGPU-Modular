@@ -1,5 +1,5 @@
-<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta30.dtd" >
-   <PATCH nodename="D:\Dropbox\Desktop\Working with curves\B-Spline (ModularGPU).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45alpha31.1.dtd" >
+   <PATCH nodename="D:\Dropbox\Git Repos\vvvv-sdk\vvvv45\packs\ModularGPU\nodes\modules\B-Spline (ModularGPU).v4p" systemname="DX11 GPU B-Spline" filename="D:\Dropbox\Desktop\Working with curves\DX11 GPU B-Spline.v4p">
    <BOUNDS type="Window" left="7905" top="2295" width="12480" height="10170">
    </BOUNDS>
    <NODE systemname="B-Spline (DX11.Effect)" filename="dx11\B-Spline.fx" nodename="B-Spline (DX11.Effect)" componentmode="Hidden" id="0">
@@ -17,7 +17,7 @@
    </PIN>
    <PIN pinname="Render State" visible="1" slicecount="1" values="||">
    </PIN>
-   <PIN pinname="Ambient Color" slicecount="1" values="|0.15000,0.15000,0.15000,1.00000|" visible="1">
+   <PIN pinname="Ambient Color" slicecount="1" visible="1" values="|0.15000,0.15000,0.15000,1.00000|">
    </PIN>
    <PIN pinname="Specular Color" slicecount="1" visible="1" values="|0.35000,0.35000,0.35000,1.00000|">
    </PIN>
@@ -173,7 +173,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="1665" top="780" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="56">
+   <PIN pinname="Y Input Value" slicecount="1" values="11">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -253,7 +253,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Specular Color|">
    </PIN>
-   <PIN pinname="Color Input" slicecount="1" values="|0.34902,0.34902,0.34902,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="35" srcpinname="Color Output" dstnodeid="0" dstpinname="Specular Color">
@@ -267,7 +267,7 @@
    </PIN>
    <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Color|">
    </PIN>
-   <PIN pinname="Color Input" slicecount="1" values="|0.85098,0.85098,0.85098,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="37" srcpinname="Color Output" dstnodeid="0" dstpinname="Diffuse Color">
@@ -279,9 +279,9 @@
    </BOUNDS>
    <PIN pinname="Color Output" visible="1">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="|Diffuse Color|">
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Ambient Color|">
    </PIN>
-   <PIN pinname="Color Input" slicecount="1" values="|0.14717,0.14717,0.14717,1.00000|">
+   <PIN pinname="Color Input" slicecount="1" values="|1.00000,1.00000,1.00000,1.00000|">
    </PIN>
    </NODE>
    <LINK srcnodeid="39" srcpinname="Color Output" dstnodeid="0" dstpinname="Ambient Color">
@@ -319,5 +319,17 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="41" srcpinname="Output Node" dstnodeid="0" dstpinname="Transform In">
+   </LINK>
+   <NODE nodename="IOBox (Enumerations)" componentmode="InABox" id="42" systemname="IOBox (Enumerations)">
+   <BOUNDS type="Box" left="7410" top="5400" width="1590" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="7410" top="5400" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Input Enum" slicecount="1" values="BSplineCubic_PhongDirectional">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Technique">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="42" srcpinname="Output Enum" dstnodeid="0" dstpinname="Technique">
    </LINK>
    </PATCH>
